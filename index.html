@@ -15,6 +15,11 @@
       padding: 48px 24px;
     }
 
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
     h1 {
       font-size: 1.5rem;
       font-weight: 600;
@@ -30,8 +35,7 @@
     .projects {
       display: flex;
       flex-direction: column;
-      gap: 40px;
-      max-width: 900px;
+      gap: 24px;
     }
 
     .project {
@@ -97,7 +101,7 @@
 
     .version-card:hover {
       border-color: #58a6ff;
-      background: #1f2937;
+      background: #161b22;
     }
 
     .version-label {
@@ -129,7 +133,6 @@
     .status {
       color: #8b949e;
       font-size: 0.9rem;
-      padding: 12px 0;
     }
 
     .error {
@@ -153,10 +156,12 @@
   </style>
 </head>
 <body>
-  <h1>Website <span>Examples</span></h1>
+  <div class="container">
+    <h1>Website <span>Examples</span></h1>
 
-  <div class="projects" id="projects">
-    <p class="status">Loading projects...</p>
+    <div class="projects" id="projects">
+      <p class="status">Loading projects...</p>
+    </div>
   </div>
 
   <script>

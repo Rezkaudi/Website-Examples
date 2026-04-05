@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LuxEstate — Discover extraordinary luxury properties in the world's most coveted locations." />
+  <title>LuxEstate — Luxury Real Estate</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- =========================================================
+       NAVIGATION
+  ========================================================= -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+
+      <!-- Logo -->
+      <a href="#hero" class="nav-logo">
+        <svg class="logo-mark" width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <path d="M18 3L33 13.5V22.5L18 33L3 22.5V13.5L18 3Z" stroke="var(--gold)" stroke-width="1.5" fill="none" class="svg-hex"/>
+          <path d="M18 9L27 15V21L18 27L9 21V15L18 9Z" fill="var(--gold)" opacity="0.15" class="svg-hex-fill"/>
+          <text x="18" y="22" text-anchor="middle" fill="var(--gold)" font-family="Playfair Display" font-size="11" font-weight="600">L</text>
+        </svg>
+        <span class="logo-text">Lux<em>Estate</em></span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#featured" class="nav-link">Properties</a></li>
+        <li><a href="#categories" class="nav-link">Categories</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#process" class="nav-link">Process</a></li>
+        <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+      </ul>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-nav">Book Viewing</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#featured" class="mobile-link">Properties</a></li>
+        <li><a href="#categories" class="mobile-link">Categories</a></li>
+        <li><a href="#about" class="mobile-link">About</a></li>
+        <li><a href="#process" class="mobile-link">Process</a></li>
+        <li><a href="#testimonials" class="mobile-link">Reviews</a></li>
+        <li><a href="#contact" class="mobile-link mobile-cta">Book Viewing</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- =========================================================
+       HERO SECTION
+  ========================================================= -->
+  <section class="hero" id="hero">
+    <!-- Parallax Background Layers -->
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+
+    <!-- Animated SVG decoration -->
+    <svg class="hero-svg-decor" viewBox="0 0 600 600" fill="none" aria-hidden="true">
+      <circle cx="300" cy="300" r="250" stroke="rgba(200,169,126,0.08)" stroke-width="1" class="svg-circle-1"/>
+      <circle cx="300" cy="300" r="180" stroke="rgba(200,169,126,0.05)" stroke-width="1" class="svg-circle-2"/>
+      <circle cx="300" cy="300" r="110" stroke="rgba(200,169,126,0.08)" stroke-width="1" class="svg-circle-3"/>
+    </svg>
+
+    <!-- Floating Info Cards -->
+    <div class="floating-card float-card-1" aria-hidden="true">
+      <div class="float-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <div class="float-info">
+        <span class="float-num">2,500+</span>
+        <span class="float-label">Properties Listed</span>
+      </div>
+    </div>
+
+    <div class="floating-card float-card-2" aria-hidden="true">
+      <div class="float-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+        </svg>
+      </div>
+      <div class="float-info">
+        <span class="float-num">$2.4B+</span>
+        <span class="float-label">Sales Volume</span>
+      </div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero-content" id="heroContent">
+      <div class="hero-tag reveal-up">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Premium Real Estate Since 2009
+      </div>
+      <h1 class="hero-title reveal-up">
+        Find Your<br><em>Perfect</em> Luxury<br>Home
+      </h1>
+      <p class="hero-subtitle reveal-up">
+        Discover exclusive properties in the world's most coveted locations.<br>Where extraordinary living begins.
+      </p>
+      <div class="hero-actions reveal-up">
+        <a href="#featured" class="btn btn-primary">
+          <span>Explore Properties</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#about" class="btn btn-ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          <span>Our Story</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Search Bar -->
+    <div class="hero-search reveal-up" id="heroSearch">
+      <div class="search-tabs">
+        <button class="stab active" data-tab="buy">Buy</button>
+        <button class="stab" data-tab="rent">Rent</button>
+        <button class="stab" data-tab="invest">Invest</button>
+      </div>
+      <div class="search-form">
+        <div class="search-field">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <select>
+            <option value="">Location</option>
+            <option>New York, USA</option>
+            <option>Beverly Hills, USA</option>
+            <option>Monaco</option>
+            <option>Dubai, UAE</option>
+            <option>Paris, France</option>
+            <option>London, UK</option>
+            <option>Malibu, USA</option>
+          </select>
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <select>
+            <option value="">Property Type</option>
+            <option>Penthouse</option>
+            <option>Villa</option>
+            <option>Estate</option>
+            <option>Apartment</option>
+          </select>
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <select>
+            <option value="">Price Range</option>
+            <option>$1M – $5M</option>
+            <option>$5M – $10M</option>
+            <option>$10M – $20M</option>
+            <option>$20M+</option>
+          </select>
+        </div>
+        <button class="search-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       STATS SECTION
+  ========================================================= -->
+  <section class="stats-section" id="stats">
+    <div class="stats-grid">
+      <div class="stat-item reveal-up">
+        <div class="stat-number-wrap">
+          <span class="stat-num" data-target="2500">0</span>
+          <span class="stat-suffix">+</span>
+        </div>
+        <div class="stat-label">Properties Sold</div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="--w:85%"></div></div>
+      </div>
+      <div class="stat-item reveal-up" style="--delay:0.1s">
+        <div class="stat-number-wrap">
+          <span class="stat-num" data-target="98">0</span>
+          <span class="stat-suffix">%</span>
+        </div>
+        <div class="stat-label">Client Satisfaction</div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="--w:98%"></div></div>
+      </div>
+      <div class="stat-item reveal-up" style="--delay:0.2s">
+        <div class="stat-number-wrap">
+          <span class="stat-prefix">$</span>
+          <span class="stat-num" data-target="2.4" data-decimal="1">0</span>
+          <span class="stat-suffix">B+</span>
+        </div>
+        <div class="stat-label">Sales Volume</div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="--w:70%"></div></div>
+      </div>
+      <div class="stat-item reveal-up" style="--delay:0.3s">
+        <div class="stat-number-wrap">
+          <span class="stat-num" data-target="15">0</span>
+          <span class="stat-suffix">+</span>
+        </div>
+        <div class="stat-label">Years of Excellence</div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="--w:60%"></div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       FEATURED PROPERTIES
+  ========================================================= -->
+  <section class="featured-section" id="featured">
+    <div class="section-header reveal-up">
+      <span class="section-tag">Curated Selection</span>
+      <h2>Exceptional <em>Properties</em></h2>
+      <p>Handpicked luxury properties for the most discerning buyers worldwide</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs reveal-up">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="penthouse">Penthouse</button>
+      <button class="filter-btn" data-filter="villa">Villa</button>
+      <button class="filter-btn" data-filter="estate">Estate</button>
+      <button class="filter-btn" data-filter="apartment">Apartment</button>
+    </div>
+
+    <!-- Properties Grid — populated by JS -->
+    <div class="properties-grid" id="propertiesGrid"></div>
+
+    <div class="load-more reveal-up">
+      <a href="#contact" class="btn btn-outline-gold">
+        <span>View All Properties</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       ABOUT SECTION
+  ========================================================= -->
+  <section class="about-section" id="about">
+    <div class="about-container">
+
+      <!-- Visual Stack -->
+      <div class="about-visual reveal-left">
+        <div class="about-img-main">
+          <!-- FIX: unique image — modern luxury living room interior -->
+          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb3?auto=format&fit=crop&w=700&q=80" alt="Luxury living room interior" loading="lazy" />
+        </div>
+        <div class="about-img-secondary">
+          <!-- FIX: unique image — high-end pool terrace -->
+          <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400&q=80" alt="Luxury pool terrace" loading="lazy" />
+        </div>
+        <div class="about-badge">
+          <span class="badge-num">15+</span>
+          <span class="badge-label">Years of<br>Excellence</span>
+        </div>
+        <!-- SVG animated border -->
+        <svg class="about-svg-border" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="196" height="196" rx="4" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="400" stroke-dashoffset="400" class="svg-draw"/>
+        </svg>
+      </div>
+
+      <!-- Text Content -->
+      <div class="about-content reveal-right">
+        <span class="section-tag">Our Story</span>
+        <h2>Redefining Luxury<br><em>Real Estate</em> Since 2009</h2>
+        <p class="about-lead">
+          Founded on the principle that every client deserves an extraordinary experience,
+          LuxEstate has grown to become the most trusted name in ultra-premium properties.
+        </p>
+        <p class="about-body">
+          With offices in New York, London, Monaco, and Dubai, our team of 200+ world-class agents
+          brings unparalleled market intelligence and discretion to every transaction —
+          no matter the scale or complexity.
+        </p>
+
+        <div class="about-features">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="feature-text">
+              <strong>Global Network</strong>
+              <span>Properties across 30+ countries</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="feature-text">
+              <strong>White-Glove Service</strong>
+              <span>Dedicated agents for each client</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="feature-text">
+              <strong>Off-Market Access</strong>
+              <span>Exclusive listings not found elsewhere</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="feature-text">
+              <strong>Investment Advisory</strong>
+              <span>Strategic portfolio guidance</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn btn-primary">
+          <span>Meet Our Team</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       PROPERTY CATEGORIES
+  ========================================================= -->
+  <section class="categories-section" id="categories">
+    <div class="section-inner">
+    <div class="section-header reveal-up">
+      <span class="section-tag">Browse By Type</span>
+      <h2>Property <em>Categories</em></h2>
+      <p>Find the perfect property type that matches your lifestyle and aspirations</p>
+    </div>
+
+    <div class="categories-grid">
+      <div class="cat-card reveal-up" style="--delay:0s">
+        <div class="cat-bg" style="background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-content">
+          <div class="cat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 2v20M2 12h20"/></svg>
+          </div>
+          <h3>Penthouse</h3>
+          <span class="cat-count">48 Properties</span>
+        </div>
+        <div class="cat-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+
+      <div class="cat-card reveal-up" style="--delay:0.1s">
+        <div class="cat-bg" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-content">
+          <div class="cat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12L12 3l9 9v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><rect x="9" y="13" width="6" height="8"/></svg>
+          </div>
+          <h3>Luxury Villa</h3>
+          <span class="cat-count">72 Properties</span>
+        </div>
+        <div class="cat-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+
+      <div class="cat-card reveal-up" style="--delay:0.2s">
+        <div class="cat-bg" style="background-image:url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-content">
+          <div class="cat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          </div>
+          <h3>Grand Estate</h3>
+          <span class="cat-count">31 Properties</span>
+        </div>
+        <div class="cat-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+
+      <div class="cat-card reveal-up" style="--delay:0.3s">
+        <div class="cat-bg" style="background-image:url('https://images.unsplash.com/photo-1600596542955-995b94d7d3bc?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-content">
+          <div class="cat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3>Apartments</h3>
+          <span class="cat-count">156 Properties</span>
+        </div>
+        <div class="cat-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+
+      <div class="cat-card reveal-up" style="--delay:0.4s">
+        <div class="cat-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-content">
+          <div class="cat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20h20M4 20V8l8-6 8 6v12"/><path d="M10 20v-6h4v6"/></svg>
+          </div>
+          <h3>Commercial</h3>
+          <span class="cat-count">29 Properties</span>
+        </div>
+        <div class="cat-arrow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+
+      <div class="cat-card cat-card-cta reveal-up" style="--delay:0.5s">
+        <div class="cat-cta-inner">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          <h3>Explore All Categories</h3>
+          <p>Discover 336+ premium properties across all types</p>
+          <a href="#contact" class="btn btn-outline-gold-sm">Browse Now</a>
+        </div>
+      </div>
+    </div>
+    </div><!-- /section-inner -->
+  </section>
+
+
+  <!-- =========================================================
+       HOW IT WORKS / PROCESS
+  ========================================================= -->
+  <section class="process-section" id="process">
+    <div class="section-inner">
+    <div class="section-header reveal-up">
+      <span class="section-tag">How It Works</span>
+      <h2>Your Journey to an<br><em>Extraordinary</em> Home</h2>
+      <p>A seamless, curated process from first consultation to final key handover</p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step reveal-up" style="--delay:0s">
+        <div class="step-num">01</div>
+        <div class="step-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Consultation</h3>
+        <p>Meet with your dedicated advisor to define your vision, lifestyle requirements, and investment goals.</p>
+      </div>
+
+      <div class="process-step reveal-up" style="--delay:0.15s">
+        <div class="step-num">02</div>
+        <div class="step-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3>Property Search</h3>
+        <p>We leverage our exclusive network to surface on-market and off-market properties matching your exact criteria.</p>
+      </div>
+
+      <div class="process-step reveal-up" style="--delay:0.3s">
+        <div class="step-num">03</div>
+        <div class="step-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M1 3h15v13H1zM16 8l5 5-5 5"/></svg>
+        </div>
+        <h3>Private Viewings</h3>
+        <p>Experience curated property tours — in-person or virtually — with expert commentary at every step.</p>
+      </div>
+
+      <div class="process-step reveal-up" style="--delay:0.45s">
+        <div class="step-num">04</div>
+        <div class="step-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>Closing & Keys</h3>
+        <p>Our legal and financial team manages every detail ensuring a seamless, stress-free transaction.</p>
+      </div>
+    </div>
+    </div><!-- /section-inner -->
+  </section>
+
+
+  <!-- =========================================================
+       TESTIMONIALS
+  ========================================================= -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="testimonials-bg"></div>
+    <div class="section-header reveal-up">
+      <span class="section-tag">Client Stories</span>
+      <h2>Words From Our<br><em>Valued</em> Clients</h2>
+    </div>
+
+    <div class="testimonials-wrapper">
+      <div class="testimonials-track" id="testimonialsTrack"></div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="testimonials-nav reveal-up">
+      <button class="tNav-btn" id="tPrev" aria-label="Previous testimonial">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="tNav-dots" id="tNavDots"></div>
+      <button class="tNav-btn" id="tNext" aria-label="Next testimonial">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       CTA SECTION
+  ========================================================= -->
+  <section class="cta-section">
+    <div class="cta-bg" id="ctaBg"></div>
+    <div class="cta-overlay"></div>
+    <div class="cta-content reveal-up">
+      <span class="section-tag">Take the Next Step</span>
+      <h2>Begin Your Journey to<br><em>Extraordinary</em> Living</h2>
+      <p>Connect with a LuxEstate advisor today and discover properties<br>that redefine what home can mean.</p>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-primary btn-lg">
+          <span>Book a Consultation</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="tel:+18005678900" class="btn btn-ghost-light btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+1 800 567 8900</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       FOOTER / CONTACT
+  ========================================================= -->
+  <footer id="contact">
+    <div class="footer-top">
+      <div class="footer-grid">
+
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo">
+            <svg class="logo-mark" width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <path d="M18 3L33 13.5V22.5L18 33L3 22.5V13.5L18 3Z" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
+              <path d="M18 9L27 15V21L18 27L9 21V15L18 9Z" fill="var(--gold)" opacity="0.15"/>
+              <text x="18" y="22" text-anchor="middle" fill="var(--gold)" font-family="Playfair Display" font-size="11" font-weight="600">L</text>
+            </svg>
+            <span class="logo-text">Lux<em>Estate</em></span>
+          </a>
+          <p>Redefining luxury real estate worldwide. Where extraordinary properties meet exceptional service.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Properties Column -->
+        <div class="footer-col">
+          <h4>Properties</h4>
+          <ul>
+            <li><a href="#">Penthouse Collections</a></li>
+            <li><a href="#">Luxury Villas</a></li>
+            <li><a href="#">Grand Estates</a></li>
+            <li><a href="#">City Apartments</a></li>
+            <li><a href="#">Waterfront Homes</a></li>
+            <li><a href="#">Off-Plan Developments</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Column -->
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About LuxEstate</a></li>
+            <li><a href="#">Our Agents</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press & Media</a></li>
+            <li><a href="#">Partner Program</a></li>
+            <li><a href="#">Investor Relations</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Column -->
+        <div class="footer-col footer-newsletter">
+          <h4>Stay Informed</h4>
+          <p>Receive exclusive listings and market insights directly to your inbox.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+          <div class="footer-contact-info">
+            <div class="contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>350 Fifth Avenue, New York</span>
+            </div>
+            <div class="contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>hello@luxestate.com</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 LuxEstate. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

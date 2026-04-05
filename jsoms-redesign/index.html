@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会員・医療関係者｜日本口腔外科学会 - Premium Redesign</title>
+  <meta name="description" content="公益社団法人 日本口腔外科学会（JSOMS）会員・医療関係者向けポータルサイト。学会の概要、事業案内、専門医制度、学会誌情報など。">
+  <link rel="stylesheet" href="styles.css">
+  <!-- GSAP for advanced animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <link rel="icon" href="https://www.jsoms.or.jp/medical/wp-content/themes/jsoms_medical/common/img/favicon.ico">
+</head>
+
+<body>
+
+  <!-- ========== PAGE LOADER ========== -->
+  <div class="page-loader" id="pageLoader">
+    <svg class="loader-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" role="img" aria-label="JSOMS">
+      <rect x="0" y="6" width="48" height="48" rx="8" fill="#8B1A2B"/>
+      <text x="24" y="38" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="white" text-anchor="middle">J</text>
+      <text x="58" y="28" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="white">JSOMS</text>
+      <text x="58" y="45" font-family="Arial,sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">Since 1933</text>
+    </svg>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- ========== UTILITY BAR ========== -->
+  <div class="utility-bar">
+    <div class="container">
+      <a href="https://www.jsoms.or.jp/medical/contact">✉ お問い合わせ</a>
+      <a href="http://jsoms.or.jp/medical_en/">🌐 English</a>
+    </div>
+  </div>
+
+  <!-- ========== SITE HEADER ========== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-main">
+        <a href="https://www.jsoms.or.jp/medical/" class="header-logo">
+          <img src="https://www.jsoms.or.jp/medical/wp-content/themes/medical/images/member/logo.png"
+            alt="日本口腔外科学会 JSOMS Since 1933">
+          <span class="header-logo-text">公益社団法人<br>日本口腔外科学会</span>
+        </a>
+        <div class="header-actions">
+          <a href="https://www.jsoms.or.jp/" class="btn btn-outline" id="btnPublic">一般の方</a>
+          <a href="https://www.jsoms.or.jp/medical/" class="btn btn-primary" id="btnMember">会員の方</a>
+          <button class="search-toggle" id="searchToggle" aria-label="検索">🔍</button>
+          <button class="nav-toggle" id="navToggle" aria-label="メニュー">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== MAIN NAVIGATION ========== -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-container">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="https://www.jsoms.or.jp/medical/about" class="nav-link">学会の概要</a></li>
+        <li class="nav-item"><a href="https://www.jsoms.or.jp/medical/work" class="nav-link">事業案内</a></li>
+        <li class="nav-item"><a href="https://www.jsoms.or.jp/medical/paper" class="nav-link">学会雑誌</a></li>
+        <li class="nav-item"><a href="https://www.jsoms.or.jp/medical/english" class="nav-link">英文機関誌</a></li>
+        <li class="nav-item"><a href="https://www.jsoms.or.jp/medical/admission" class="nav-link">入会等の案内</a></li>
+        <li class="nav-item"><a href="https://www.jsoms.or.jp/medical/specialist" class="nav-link">専門医制度</a></li>
+        <li class="nav-item"><a href="https://www.jsoms.or.jp/medical/international" class="nav-link">国際専門医</a></li>
+        <li class="nav-item"><a href="https://www.jsoms.or.jp/medical/news" class="nav-link">お知らせ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-shapes">
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="hero-shape hero-shape-3"></div>
+    </div>
+    <div class="particles-container" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge reveal">
+          <span>🏥</span> JSOMS — Since 1933
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-title-line reveal">日本口腔外科学会</span>
+          <span class="hero-title-line reveal">会員・医療関係者</span>
+          <span class="hero-title-line reveal" style="color: rgba(255,255,255,0.5); font-size: 0.5em;">Japanese Society
+            of Oral &amp; Maxillofacial Surgeons</span>
+        </h1>
+        <p class="hero-subtitle reveal">口腔外科医療の発展と国民の健康増進を目指し、学術研究・教育・医療の向上に貢献しています。</p>
+        <div class="hero-cta-group reveal">
+          <a href="https://www.jsoms.or.jp/medical/admission/guide/" class="btn btn-hero">入会のご案内</a>
+          <a href="https://www.jsoms.or.jp/medical/about/message/" class="btn btn-hero-outline">理事長挨拶 →</a>
+        </div>
+      </div>
+      <div class="hero-slider reveal-scale" id="heroSlider">
+        <div class="hero-slide active">
+          <div class="slide-placeholder slide-bg-1">
+            <div class="slide-placeholder-icon">🦷</div>
+            <div class="slide-placeholder-title">第4回若手口腔外科医交流会</div>
+            <div class="slide-placeholder-sub">2026年5月9日・10日 ウインクあいち</div>
+          </div>
+        </div>
+        <div class="hero-slide">
+          <div class="slide-placeholder slide-bg-2">
+            <div class="slide-placeholder-icon">🏛</div>
+            <div class="slide-placeholder-title">第71回学術大会</div>
+            <div class="slide-placeholder-sub">2026年11月6日～8日 幕張メッセ</div>
+          </div>
+        </div>
+        <div class="hero-slide">
+          <div class="slide-placeholder slide-bg-3">
+            <div class="slide-placeholder-icon">📖</div>
+            <div class="slide-placeholder-title">第70回学術大会</div>
+            <div class="slide-placeholder-sub">日本口腔外科学会 総会・学術大会</div>
+          </div>
+        </div>
+        <button class="slider-nav slider-prev" id="sliderPrev" aria-label="前へ">‹</button>
+        <button class="slider-nav slider-next" id="sliderNext" aria-label="次へ">›</button>
+        <div class="slider-controls" id="sliderDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ANIMATED DIVIDER ========== -->
+  <div class="section-divider"></div>
+
+  <!-- ========== CATEGORIES SECTION ========== -->
+  <section class="section section-alt" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label reveal">● Main Contents</span>
+        <h2 class="section-title reveal">学会情報</h2>
+        <p class="section-subtitle reveal">各種制度・事業案内・学会誌情報をご覧ください</p>
+      </div>
+      <div class="categories-grid">
+
+        <!-- Card 1: 学会の概要 -->
+        <div class="category-card card-1 reveal">
+          <div class="category-card-header">
+            <div class="category-card-icon">🏛</div>
+            <h3 class="category-card-name">学会の概要</h3>
+            <p class="category-card-desc">About JSOMS</p>
+          </div>
+          <div class="category-card-body">
+            <a href="https://www.jsoms.or.jp/medical/about/message/" class="category-link">理事長挨拶</a>
+            <a href="https://www.jsoms.or.jp/medical/about/profile/" class="category-link">事業目的・事業内容</a>
+            <a href="https://www.jsoms.or.jp/medical/about/history/" class="category-link">沿革・歴代理事長一覧</a>
+            <a href="https://www.jsoms.or.jp/medical/about/members/" class="category-link">役員等名簿</a>
+            <a href="https://www.jsoms.or.jp/medical/about/relashion/" class="category-link">国外の学術団体との関係</a>
+            <a href="https://www.jsoms.or.jp/medical/about/links/" class="category-link">関連団体</a>
+            <a href="https://www.jsoms.or.jp/medical/about/oath/" class="category-link">定款</a>
+            <a href="https://www.jsoms.or.jp/medical/about/regulations/" class="category-link">諸規則</a>
+            <a href="https://www.jsoms.or.jp/medical/about/public/" class="category-link">情報公開</a>
+            <a href="https://www.jsoms.or.jp/medical/about/nonsmorking/" class="category-link">禁煙宣言</a>
+            <a href="https://www.jsoms.or.jp/medical/about/secretary/" class="category-link">事務局</a>
+            <a href="https://www.jsoms.or.jp/medical/about/election26-27/"
+              class="category-link">2026・2027年度代議員及び補欠代議員選挙</a>
+          </div>
+        </div>
+
+        <!-- Card 2: 事業案内 -->
+        <div class="category-card card-2 reveal">
+          <div class="category-card-header">
+            <div class="category-card-icon">📋</div>
+            <h3 class="category-card-name">事業案内</h3>
+            <p class="category-card-desc">Business Activities</p>
+          </div>
+          <div class="category-card-body">
+            <a href="https://www.jsoms.or.jp/medical/work/assembly/" class="category-link">総会・学術大会</a>
+            <a href="https://www.jsoms.or.jp/medical/work/meeting/" class="category-link">支部学術集会</a>
+            <a href="https://www.jsoms.or.jp/medical/work/young/" class="category-link">若手口腔外科医交流会</a>
+            <a href="https://www.jsoms.or.jp/medical/work/education/" class="category-link">教育研修会</a>
+            <a href="https://www.jsoms.or.jp/medical/work/seminar/" class="category-link">歯科臨床医リフレッシュセミナー</a>
+            <a href="https://www.jsoms.or.jp/medical/work/guideline/" class="category-link">ガイドライン・ポジションペーパーなど</a>
+            <a href="https://www.jsoms.or.jp/medical/work/study/" class="category-link">研究および調査</a>
+            <a href="https://www.jsoms.or.jp/medical/work/masui/" class="category-link">医科麻酔科研修</a>
+            <a href="https://www.jsoms.or.jp/medical/work/kinkyu/" class="category-link">救命救急研修</a>
+            <a href="https://www.jsoms.or.jp/medical/work/kenshin/" class="category-link">口腔がん検診</a>
+            <a href="https://www.jsoms.or.jp/medical/work/diversity/" class="category-link">ダイバーシティ推進委員会</a>
+            <a href="https://www.jsoms.or.jp/medical/work/others/" class="category-link">その他事業</a>
+          </div>
+        </div>
+
+        <!-- Card 3: 学会雑誌 / 英文機関誌 / 入会案内 -->
+        <div class="category-card card-3 reveal">
+          <div class="category-card-header">
+            <div class="category-card-icon">📖</div>
+            <h3 class="category-card-name">学会誌・入会案内</h3>
+            <p class="category-card-desc">Publications &amp; Membership</p>
+          </div>
+          <div class="category-card-body">
+            <a href="https://www.jsoms.or.jp/medical/paper/papers/" class="category-link">論文投稿について</a>
+            <a href="https://www.jsoms.or.jp/medical/paper/publishing/" class="category-link">学会誌の発行・公開</a>
+            <a href="https://www.jsoms.or.jp/medical/english/journal-magazine/" class="category-link">英文機関誌 (JOMSMP)</a>
+            <a href="https://www.jsoms.or.jp/medical/admission/guide/" class="category-link">入会のご案内</a>
+            <a href="https://www.jsoms.or.jp/medical/admission/change/" class="category-link">変更手続き</a>
+            <a href="https://www.jsoms.or.jp/medical/admission/withdrawal/" class="category-link">退会手続き</a>
+            <a href="https://www.jsoms.or.jp/medical/admission/subscribe/" class="category-link">学会誌購読申込</a>
+            <a href="https://www.jsoms.or.jp/medical/admission/asia/" class="category-link">国際口腔顎顔面外科学会</a>
+          </div>
+        </div>
+
+        <!-- Card 4: 専門医制度 -->
+        <div class="category-card card-4 reveal">
+          <div class="category-card-header">
+            <div class="category-card-icon">🎓</div>
+            <h3 class="category-card-name">専門医制度</h3>
+            <p class="category-card-desc">Specialist System</p>
+          </div>
+          <div class="category-card-body">
+            <a href="https://www.jsoms.or.jp/medical/specialist/about/" class="category-link">専門医制度について</a>
+            <a href="https://www.jsoms.or.jp/medical/specialist/regulation/" class="category-link">専門医制度規則</a>
+            <a href="https://www.jsoms.or.jp/medical/specialist/aplication/" class="category-link">専門医等新規申請</a>
+            <a href="https://www.jsoms.or.jp/medical/specialist/update/" class="category-link">専門医等更新申請</a>
+            <a href="https://www.jsoms.or.jp/medical/specialist/list01/" class="category-link">認定施設一覧</a>
+            <a href="https://www.jsoms.or.jp/medical/specialist/senmoni/" class="category-link">口腔外科専門医名簿</a>
+            <a href="https://www.jsoms.or.jp/medical/specialist/ninteii/" class="category-link">口腔外科認定医名簿</a>
+            <a href="https://www.jsoms.or.jp/medical/specialist/shidoi/" class="category-link">口腔外科指導医名簿</a>
+            <a href="https://www.jsoms.or.jp/medical/specialist/system/" class="category-link">研修施設管理システム</a>
+            <a href="https://www.jsoms.or.jp/medical/specialist/mechanism/" class="category-link">日本歯科専門医機構関係</a>
+            <a href="https://www.jsoms.or.jp/medical/international/recognition/" class="category-link">国際口腔顎顔面外科専門医</a>
+            <a href="https://www.jsoms.or.jp/medical/international/fibcsoms/" class="category-link">FIBCSOMS名簿</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ANIMATED DIVIDER ========== -->
+  <div class="section-divider"></div>
+
+  <!-- ========== NEWS/ANNOUNCEMENTS SECTION ========== -->
+  <section class="section news-section" id="news">
+    <div class="container">
+      <div class="news-header">
+        <div>
+          <span class="section-label reveal">● Announcements</span>
+          <h2 class="section-title reveal">お知らせ</h2>
+        </div>
+        <a href="https://www.jsoms.or.jp/medical/information" class="view-all-link reveal">一覧を見る →</a>
+      </div>
+
+      <!-- News Tabs -->
+      <div class="news-tabs reveal" id="newsTabs">
+        <button class="news-tab active" data-tab="important">重要なお知らせ</button>
+        <button class="news-tab" data-tab="events">総会・学術大会</button>
+        <button class="news-tab" data-tab="specialist">専門医制度</button>
+        <button class="news-tab" data-tab="education">教育研修会</button>
+        <button class="news-tab" data-tab="branch">支部学術集会</button>
+        <button class="news-tab" data-tab="other">その他お知らせ</button>
+      </div>
+
+      <!-- Important Notices Panel -->
+      <div class="news-panel active" data-panel="important">
+        <div class="news-list">
+          <div class="news-item reveal">
+            <div class="news-meta"><span class="news-date">2026/3/31</span><span class="news-tag">会員の皆様へ</span></div>
+            <a href="https://www.jsoms.or.jp/medical/6140/" class="news-title-link">「オーラ注歯科用カートリッジ
+              1.0mL/1.8mL00mg出荷再開」について</a>
+          </div>
+          <div class="news-item reveal">
+            <div class="news-meta"><span class="news-date">2026/3/27</span><span class="news-tag">会員の皆様へ</span></div>
+            <a href="https://www.jsoms.or.jp/medical/6135/" class="news-title-link">ダロルタミド製剤の使用にあたっての留意事項について</a>
+          </div>
+          <div class="news-item reveal">
+            <div class="news-meta"><span class="news-date">2026/3/19</span><span class="news-tag">会員の皆様へ</span></div>
+            <a href="https://www.jsoms.or.jp/medical/6125/" class="news-title-link">(公社)日本口腔外科学会
+              2026・2027年度代議員選挙告示掲載のご案内</a>
+          </div>
+          <div class="news-item reveal">
+            <div class="news-meta"><span class="news-date">2026/3/16</span><span class="news-tag">会員の皆様へ</span></div>
+            <a href="https://www.jsoms.or.jp/medical/6109/" class="news-title-link">抗微生物薬適正使用に手引き(歯科編)についてのご案内について</a>
+          </div>
+          <div class="news-item reveal">
+            <div class="news-meta"><span class="news-date">2026/3/6</span><span class="news-tag">会員の皆様へ</span></div>
+            <a href="https://www.jsoms.or.jp/medical/6079/"
+              class="news-title-link">2025・2026年度研究助成『次世代若手臨床研究推進プロジェクト』研究課題公募について</a>
+          </div>
+          <div class="news-item reveal">
+            <div class="news-meta"><span class="news-date">2026/3/5</span><span class="news-tag">会員の皆様へ</span></div>
+            <a href="https://www.jsoms.or.jp/medical/6066/" class="news-title-link">「口腔がん登録 2019年 確定報告書」等 掲載のお知らせ</a>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top: var(--space-8);">
+          <a href="https://www.jsoms.or.jp/medical/important/" class="view-all-link">すべてのお知らせを見る →</a>
+        </div>
+      </div>
+
+      <!-- Events Panel -->
+      <div class="news-panel" data-panel="events">
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-meta"><span class="news-date">2026/3/27</span></div>
+            <a href="https://www.jsoms.or.jp/medical/6131/"
+              class="news-title-link">第71回(公社)日本口腔外科学会総会・学術大会のご案内【第1報】(2026年11月6日～8日:幕張メッセ)</a>
+          </div>
+          <div class="news-item">
+            <div class="news-meta"><span class="news-date">2025/12/23</span></div>
+            <a href="https://www.jsoms.or.jp/medical/5973/" class="news-title-link">若手口腔外科医交流会 第4回学術集会 演題募集のご案内【第2報】</a>
+          </div>
+          <div class="news-item">
+            <div class="news-meta"><span class="news-date">2025/10/22</span></div>
+            <a href="https://www.jsoms.or.jp/medical/5893/" class="news-title-link">若手口腔外科医交流会
+              第4回学術集会のご案内【第1報】(2026年5月9日・10日:ウインクあいち)</a>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top: var(--space-8);"><a href="https://www.jsoms.or.jp/medical/meeting/"
+            class="view-all-link">一覧を見る →</a></div>
+      </div>
+
+      <!-- Specialist Panel -->
+      <div class="news-panel" data-panel="specialist">
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-meta"><span class="news-date">2025/12/23</span></div>
+            <a href="https://www.jsoms.or.jp/medical/5968/" class="news-title-link">2026年 口腔外科専門医制度各資格認定申請についてのお知らせ</a>
+          </div>
+          <div class="news-item">
+            <div class="news-meta"><span class="news-date">2025/1/6</span></div>
+            <a href="https://www.jsoms.or.jp/medical/5486/" class="news-title-link">2025年 口腔外科専門医制度各資格認定申請についてのお知らせ</a>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top: var(--space-8);"><a
+            href="https://www.jsoms.or.jp/medical/specialist-system/" class="view-all-link">一覧を見る →</a></div>
+      </div>
+
+      <!-- Education Panel -->
+      <div class="news-panel" data-panel="education">
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-meta"><span class="news-date">2026/2/26</span></div>
+            <a href="https://www.jsoms.or.jp/medical/6052/"
+              class="news-title-link">第63回・第64回教育研修会(口腔四学会合同研修会)のオンデマンドでの開催についてのご案内[第5報]</a>
+          </div>
+          <div class="news-item">
+            <div class="news-meta"><span class="news-date">2026/2/3</span></div>
+            <a href="https://www.jsoms.or.jp/medical/6019/"
+              class="news-title-link">第63回・第64回教育研修会(口腔四学会合同研修会)のオンデマンドでの開催についてのご案内[第4報]</a>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top: var(--space-8);"><a
+            href="https://www.jsoms.or.jp/medical/education-workshop/" class="view-all-link">一覧を見る →</a></div>
+      </div>
+
+      <!-- Branch Panel -->
+      <div class="news-panel" data-panel="branch">
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-meta"><span class="news-date">2026/3/27</span></div>
+            <a href="https://www.jsoms.or.jp/medical/6133/" class="news-title-link">第55回(公社)日本口腔外科学会
+              中国四国支部学術集会ならびに第167回歯科臨床医リフレッシュセミナーのご案内</a>
+          </div>
+          <div class="news-item">
+            <div class="news-meta"><span class="news-date">2026/2/26</span></div>
+            <a href="https://www.jsoms.or.jp/medical/6057/" class="news-title-link">第57回(公社)日本口腔外科学会
+              近畿支部学術集会ならびに第170回歯科臨床医リフレッシュセミナーのご案内</a>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top: var(--space-8);"><a href="https://www.jsoms.or.jp/medical/branch/"
+            class="view-all-link">一覧を見る →</a></div>
+      </div>
+
+      <!-- Other Panel -->
+      <div class="news-panel" data-panel="other">
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-meta"><span class="news-date">2026/3/6</span></div>
+            <a href="https://www.jsoms.or.jp/medical/6079/"
+              class="news-title-link">2025・2026年度研究助成『次世代若手臨床研究推進プロジェクト』研究課題公募について</a>
+          </div>
+          <div class="news-item">
+            <div class="news-meta"><span class="news-date">2026/2/3</span></div>
+            <a href="https://www.jsoms.or.jp/medical/6013/" class="news-title-link">若手口腔外科医の皆さんへのお知らせ</a>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top: var(--space-8);"><a
+            href="https://www.jsoms.or.jp/medical/ohter-news/" class="view-all-link">一覧を見る →</a></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <svg class="footer-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" role="img" aria-label="JSOMS">
+            <rect x="0" y="6" width="48" height="48" rx="8" fill="rgba(255,255,255,0.15)"/>
+            <text x="24" y="38" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="white" text-anchor="middle">J</text>
+            <text x="58" y="28" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="white">JSOMS</text>
+            <text x="58" y="45" font-family="Arial,sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">Since 1933</text>
+          </svg>
+          <p>公益社団法人 日本口腔外科学会<br>Japanese Society of Oral and Maxillofacial Surgeons</p>
+        </div>
+        <div>
+          <h4 class="footer-heading">学会情報</h4>
+          <div class="footer-links">
+            <a href="https://www.jsoms.or.jp/medical/about/message/">理事長挨拶</a>
+            <a href="https://www.jsoms.or.jp/medical/about/profile/">事業目的・事業内容</a>
+            <a href="https://www.jsoms.or.jp/medical/about/history/">沿革</a>
+            <a href="https://www.jsoms.or.jp/medical/about/members/">役員等名簿</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">事業・制度</h4>
+          <div class="footer-links">
+            <a href="https://www.jsoms.or.jp/medical/work/assembly/">総会・学術大会</a>
+            <a href="https://www.jsoms.or.jp/medical/specialist/about/">専門医制度</a>
+            <a href="https://www.jsoms.or.jp/medical/admission/guide/">入会のご案内</a>
+            <a href="https://www.jsoms.or.jp/medical/paper/papers/">論文投稿</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">リンク</h4>
+          <div class="footer-links">
+            <a href="https://www.jsoms.or.jp/medical/contact">お問い合わせ</a>
+            <a href="http://jsoms.or.jp/medical_en/">English</a>
+            <a href="https://www.jsoms.or.jp/">一般の方向けサイト</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright &copy; 公益社団法人 日本口腔外科学会 All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== SCROLL TO TOP ========== -->
+  <button class="scroll-top" id="scrollTop" aria-label="ページトップへ">↑</button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Examples</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0f1117;
+      color: #e1e4e8;
+      min-height: 100vh;
+      padding: 48px 24px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin-bottom: 40px;
+      letter-spacing: -0.02em;
+    }
+
+    h1 span {
+      color: #58a6ff;
+    }
+
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 900px;
+    }
+
+    .project {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 24px;
+      border-bottom: 1px solid #21262d;
+    }
+
+    .project-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #1f6feb22;
+      border: 1px solid #1f6feb55;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .project-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #f0f6fc;
+    }
+
+    .project-count {
+      margin-left: auto;
+      font-size: 0.75rem;
+      color: #8b949e;
+      background: #21262d;
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    .versions {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      padding: 20px 24px;
+    }
+
+    .version-card {
+      display: block;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .version-card:hover {
+      border-color: #58a6ff;
+      background: #1f2937;
+    }
+
+    .version-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8b949e;
+      margin-bottom: 6px;
+    }
+
+    .version-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #58a6ff;
+    }
+
+    .version-arrow {
+      display: inline-block;
+      margin-left: 4px;
+      opacity: 0;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+
+    .version-card:hover .version-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+  </style>
+</head>
+<body>
+  <h1>Website <span>Examples</span></h1>
+
+  <div class="projects">
+
+    <!-- jsoms-redesign -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-icon">🎨</div>
+        <div class="project-name">jsoms-redesign</div>
+        <div class="project-count">1 version</div>
+      </div>
+      <div class="versions">
+        <a href="jsoms-redesign/index.html" class="version-card">
+          <div class="version-label">version</div>
+          <div class="version-name">Latest <span class="version-arrow">→</span></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- real-estate -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-icon">🏠</div>
+        <div class="project-name">real-estate</div>
+        <div class="project-count">5 versions</div>
+      </div>
+      <div class="versions">
+        <a href="real-estate/v1/index.html" class="version-card">
+          <div class="version-label">version</div>
+          <div class="version-name">v1 <span class="version-arrow">→</span></div>
+        </a>
+        <a href="real-estate/v2/index.html" class="version-card">
+          <div class="version-label">version</div>
+          <div class="version-name">v2 <span class="version-arrow">→</span></div>
+        </a>
+        <a href="real-estate/v3/index.html" class="version-card">
+          <div class="version-label">version</div>
+          <div class="version-name">v3 <span class="version-arrow">→</span></div>
+        </a>
+        <a href="real-estate/v4/index.html" class="version-card">
+          <div class="version-label">version</div>
+          <div class="version-name">v4 <span class="version-arrow">→</span></div>
+        </a>
+        <a href="real-estate/v5/index.html" class="version-card">
+          <div class="version-label">version</div>
+          <div class="version-name">v5 <span class="version-arrow">→</span></div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -19,6 +19,21 @@
 
 
 /* ============================================================
+   0. UTILITIES
+   ============================================================ */
+
+/** HTML-escape a value before injecting into innerHTML to prevent XSS. */
+function esc(val) {
+  return String(val)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+
+/* ============================================================
    1. DATA
    ============================================================ */
 
@@ -129,8 +144,8 @@ const TESTIMONIALS = [
    2. NAVBAR
    ============================================================ */
 
-const navbar     = document.getElementById('navbar');
-const hamburger  = document.getElementById('hamburger');
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 
 function handleNavScroll() {
@@ -221,16 +236,17 @@ let favorites = new Set();
 /** Build a single property card HTML string */
 function createPropertyCard(prop) {
   const isFav = favorites.has(prop.id);
-  const favFill   = isFav ? '#ef5350' : 'none';
+  const favFill = isFav ? '#ef5350' : 'none';
   const favStroke = isFav ? '#ef5350' : 'currentColor';
 
+  const typeLabel = esc(prop.type.charAt(0).toUpperCase() + prop.type.slice(1));
   return `
-    <article class="prop-card card-enter" data-type="${prop.type}" data-id="${prop.id}">
+    <article class="prop-card card-enter" data-type="${esc(prop.type)}" data-id="${esc(prop.id)}">
 
       <div class="prop-img-wrap">
-        <img src="${prop.img}" alt="${prop.title}" loading="lazy" />
-        <span class="prop-badge ${prop.badgeClass}">${prop.badge}</span>
-        <button class="prop-fav${isFav ? ' active' : ''}" data-id="${prop.id}" aria-label="Favourite">
+        <img src="${esc(prop.img)}" alt="${esc(prop.title)}" loading="lazy" />
+        <span class="prop-badge ${esc(prop.badgeClass)}">${esc(prop.badge)}</span>
+        <button class="prop-fav${isFav ? ' active' : ''}" data-id="${esc(prop.id)}" aria-label="Favourite">
           <svg width="16" height="16" viewBox="0 0 24 24"
                fill="${favFill}" stroke="${favStroke}" stroke-width="2">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06
@@ -242,22 +258,22 @@ function createPropertyCard(prop) {
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
           </svg>
-          ${prop.type.charAt(0).toUpperCase() + prop.type.slice(1)}
+          ${typeLabel}
         </div>
       </div>
 
       <div class="prop-body">
         <div class="prop-price">
-          ${prop.price}
+          ${esc(prop.price)}
           <span class="prop-price-sub">Market Value</span>
         </div>
-        <h3 class="prop-title">${prop.title}</h3>
+        <h3 class="prop-title">${esc(prop.title)}</h3>
         <div class="prop-location">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
             <circle cx="12" cy="10" r="3"/>
           </svg>
-          ${prop.location}
+          ${esc(prop.location)}
         </div>
         <div class="prop-divider"></div>
         <div class="prop-specs">
@@ -265,19 +281,19 @@ function createPropertyCard(prop) {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
               <path d="M2 4v16M22 4v16M2 8h20M2 16h20M6 8v8M10 8v8M14 8v8M18 8v8"/>
             </svg>
-            ${prop.beds} Beds
+            ${esc(prop.beds)} Beds
           </div>
           <div class="prop-spec">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
               <path d="M4 12h16M4 12a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2M4 12v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/>
             </svg>
-            ${prop.baths} Baths
+            ${esc(prop.baths)} Baths
           </div>
           <div class="prop-spec">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
               <rect x="3" y="3" width="18" height="18" rx="2"/>
             </svg>
-            ${prop.sqft} sqft
+            ${esc(prop.sqft)} sqft
           </div>
         </div>
       </div>
@@ -290,8 +306,8 @@ function createPropertyCard(prop) {
             <polyline points="12 5 19 12 12 19"/>
           </svg>
         </a>
-        <div class="prop-agent" title="${prop.agentName}">
-          <div class="agent-avatar">${prop.agent}</div>
+        <div class="prop-agent" title="${esc(prop.agentName)}">
+          <div class="agent-avatar">${esc(prop.agent)}</div>
         </div>
       </div>
     </article>
@@ -322,16 +338,16 @@ function toggleFavourite(e) {
   e.preventDefault();
   e.stopPropagation();
 
-  const btn  = e.currentTarget;
-  const id   = parseInt(btn.dataset.id);
+  const btn = e.currentTarget;
+  const id = parseInt(btn.dataset.id);
   const wasFav = favorites.has(id);
 
   wasFav ? favorites.delete(id) : favorites.add(id);
 
   const nowFav = !wasFav;
-  const svgEl  = btn.querySelector('svg');
+  const svgEl = btn.querySelector('svg');
   btn.classList.toggle('active', nowFav);
-  svgEl.setAttribute('fill',   nowFav ? '#ef5350' : 'none');
+  svgEl.setAttribute('fill', nowFav ? '#ef5350' : 'none');
   svgEl.setAttribute('stroke', nowFav ? '#ef5350' : 'currentColor');
 
   // Pop micro-interaction
@@ -362,15 +378,15 @@ let statsAnimated = false;
  * Supports integers and fixed-decimal floats (data-decimal attribute).
  */
 function animateCounter(el) {
-  const target   = parseFloat(el.dataset.target);
+  const target = parseFloat(el.dataset.target);
   const decimals = el.dataset.decimal ? parseInt(el.dataset.decimal) : 0;
   const duration = 2000;
-  const start    = performance.now();
+  const start = performance.now();
 
   function tick(now) {
     const progress = Math.min((now - start) / duration, 1);
-    const eased    = 1 - Math.pow(1 - progress, 3);   // ease-out cubic
-    const val      = target * eased;
+    const eased = 1 - Math.pow(1 - progress, 3);   // ease-out cubic
+    const val = target * eased;
 
     el.textContent = decimals
       ? val.toFixed(decimals)
@@ -401,32 +417,8 @@ function initStatsObserver() {
   }, { threshold: 0.3 }).observe(section);
 }
 
-/**
- * [FIX-5] Stat bar animation.
- * CSS transition on `.stat-bar-fill` needs a paint cycle BEFORE the
- * new `width` value is applied — otherwise the browser sees 0→target
- * in the same frame and skips the transition.
- * Double-rAF ensures we're setting width in a new paint frame.
- */
-function initStatBarsObserver() {
-  const bars = document.querySelectorAll('.stat-bar-fill');
-  if (!bars.length) return;
-
-  const barObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const bar = entry.target;
-      const targetW = bar.style.getPropertyValue('--w').trim() || '70%';
-      // Double rAF: ensures width:0 is painted first so the CSS transition fires
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => { bar.style.width = targetW; });
-      });
-      barObserver.unobserve(bar);
-    });
-  }, { threshold: 0.5 });
-
-  bars.forEach(bar => barObserver.observe(bar));
-}
+/* initStatBarsObserver removed — stat bars replaced by circular SVG rings;
+   no .stat-bar-fill elements exist in the DOM. */
 
 
 /* ============================================================
@@ -435,12 +427,12 @@ function initStatBarsObserver() {
    goToSlide shifts the track by N × 100% — no pixel arithmetic.
    ============================================================ */
 
-const track    = document.getElementById('testimonialsTrack');
+const track = document.getElementById('testimonialsTrack');
 const dotsWrap = document.getElementById('tNavDots');
-const prevBtn  = document.getElementById('tPrev');
-const nextBtn  = document.getElementById('tNext');
+const prevBtn = document.getElementById('tPrev');
+const nextBtn = document.getElementById('tNext');
 
-let currentSlide  = 0;
+let currentSlide = 0;
 let autoPlayTimer = null;
 const AUTOPLAY_MS = 5500;
 
@@ -459,19 +451,19 @@ function createTestiCard(t, i) {
   return `
     <div class="testi-card${i === 0 ? ' active' : ''}" data-index="${i}">
       <div class="testi-stars">${buildStars(t.rating)}</div>
-      <p class="testi-text">"${t.text}"</p>
+      <p class="testi-text">&ldquo;${esc(t.text)}&rdquo;</p>
       <div class="testi-author">
-        <div class="testi-avatar">${t.initials}</div>
+        <div class="testi-avatar">${esc(t.initials)}</div>
         <div>
-          <div class="testi-name">${t.name}</div>
-          <div class="testi-role">${t.role}</div>
+          <div class="testi-name">${esc(t.name)}</div>
+          <div class="testi-role">${esc(t.role)}</div>
           <div class="testi-location">
             <svg width="10" height="10" viewBox="0 0 24 24"
                  fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
               <circle cx="12" cy="10" r="3"/>
             </svg>
-            ${t.location}
+            ${esc(t.location)}
           </div>
         </div>
       </div>
@@ -527,7 +519,7 @@ function initTestimonials() {
 
   // Set initial position INSTANTLY (no transition flash)
   track.style.transition = 'none';
-  track.style.transform  = 'translateX(0)';
+  track.style.transform = 'translateX(0)';
 
   // Re-enable transition after first paint
   requestAnimationFrame(() => {
@@ -562,9 +554,10 @@ function initTestimonials() {
 
 // Recalculate on orientation change or resize (no pixel offsets to fix, noop)
 window.addEventListener('resize', () => {
+  if (!track) return;  /* guard: element may not exist */
   // Force a re-apply so flexbox reflows correctly
   track.style.transition = 'none';
-  track.style.transform  = `translateX(-${currentSlide * 100}%)`;
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
   requestAnimationFrame(() => {
     track.style.transition = 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
   });
@@ -601,7 +594,7 @@ function initScrollReveal() {
    8. CTA PARALLAX  [FIX-2]
    ============================================================ */
 
-const ctaBg    = document.getElementById('ctaBg');
+const ctaBg = document.getElementById('ctaBg');
 let ctaTicking = false;
 
 function handleCtaParallax() {
@@ -654,14 +647,14 @@ function initSearchTabs() {
 
 class WaveSystem {
   constructor(canvas, layers, { flipped = false } = {}) {
-    this.canvas  = canvas;
-    this.ctx     = canvas.getContext('2d');
-    this.layers  = layers;
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.layers = layers;
     this.flipped = flipped;
-    this.t       = 0;         // master clock (radians)
-    this.shimX   = 0.5;       // shimmer sweep pos 0..1
+    this.t = 0;         // master clock (radians)
+    this.shimX = 0.5;       // shimmer sweep pos 0..1
     this.particles = [];
-    this._raf    = null;
+    this._raf = null;
     this._active = false;
 
     /* ResizeObserver keeps canvas pixels in sync with layout */
@@ -674,12 +667,12 @@ class WaveSystem {
   /* ── Resize ─────────────────────────────────────────────── */
   _resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const el  = this.canvas.parentElement;
-    const w   = el.offsetWidth;
-    const h   = el.offsetHeight;
-    this.canvas.style.width  = w + 'px';
+    const el = this.canvas.parentElement;
+    const w = el.offsetWidth;
+    const h = el.offsetHeight;
+    this.canvas.style.width = w + 'px';
     this.canvas.style.height = h + 'px';
-    this.canvas.width  = Math.round(w * dpr);
+    this.canvas.width = Math.round(w * dpr);
     this.canvas.height = Math.round(h * dpr);
     this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     this.W = w;
@@ -696,8 +689,8 @@ class WaveSystem {
       : H * L.baseY;         // measured from top normally
     return (
       base
-      + H * L.amp  * Math.sin(L.freq  * x + L.ph  + t * L.spd)
-      + H * L.amp2 * Math.sin(L.freq2 * x - L.ph  + t * L.spd2)
+      + H * L.amp * Math.sin(L.freq * x + L.ph + t * L.spd)
+      + H * L.amp2 * Math.sin(L.freq2 * x - L.ph + t * L.spd2)
     );
   }
 
@@ -740,7 +733,7 @@ class WaveSystem {
   /* ── Draw a filled layer ─────────────────────────────────── */
   _drawLayer(L) {
     const { ctx, W, H, flipped } = this;
-    const pts  = this._sampleWave(L);
+    const pts = this._sampleWave(L);
     const minY = Math.min(...pts.map(p => p[1]));
     const maxY = Math.max(...pts.map(p => p[1]));
 
@@ -770,9 +763,9 @@ class WaveSystem {
     ctx.save();
     this._traceLine(pts);
     ctx.strokeStyle = 'rgba(200,169,126,0.18)';
-    ctx.lineWidth   = 10;
+    ctx.lineWidth = 10;
     ctx.shadowColor = 'rgba(200,169,126,0.55)';
-    ctx.shadowBlur  = 22;
+    ctx.shadowBlur = 22;
     ctx.stroke();
     ctx.restore();
 
@@ -781,16 +774,16 @@ class WaveSystem {
     this._traceLine(pts);
     const x0 = (shimX - 0.38) * W;
     const x1 = (shimX + 0.38) * W;
-    const sg  = ctx.createLinearGradient(x0, 0, x1, 0);
-    sg.addColorStop(0,    'rgba(200,169,126,0)');
-    sg.addColorStop(0.3,  'rgba(216,185,148,0.7)');
-    sg.addColorStop(0.5,  'rgba(255,240,200,1)');   // white-hot peak
-    sg.addColorStop(0.7,  'rgba(216,185,148,0.7)');
-    sg.addColorStop(1,    'rgba(200,169,126,0)');
+    const sg = ctx.createLinearGradient(x0, 0, x1, 0);
+    sg.addColorStop(0, 'rgba(200,169,126,0)');
+    sg.addColorStop(0.3, 'rgba(216,185,148,0.7)');
+    sg.addColorStop(0.5, 'rgba(255,240,200,1)');   // white-hot peak
+    sg.addColorStop(0.7, 'rgba(216,185,148,0.7)');
+    sg.addColorStop(1, 'rgba(200,169,126,0)');
     ctx.strokeStyle = sg;
-    ctx.lineWidth   = 1.8;
+    ctx.lineWidth = 1.8;
     ctx.shadowColor = 'rgba(240,210,160,0.95)';
-    ctx.shadowBlur  = 16;
+    ctx.shadowBlur = 16;
     ctx.stroke();
     ctx.restore();
   }
@@ -813,9 +806,9 @@ class WaveSystem {
     /* Wide elliptical glow that moves left ↔ right */
     const cx = shimX * W;
     const rg = ctx.createRadialGradient(cx, H * 0.5, 0, cx, H * 0.5, W * 0.55);
-    rg.addColorStop(0,    'rgba(200,169,126,0.07)');
-    rg.addColorStop(0.5,  'rgba(200,169,126,0.03)');
-    rg.addColorStop(1,    'rgba(200,169,126,0)');
+    rg.addColorStop(0, 'rgba(200,169,126,0.07)');
+    rg.addColorStop(0.5, 'rgba(200,169,126,0.03)');
+    rg.addColorStop(1, 'rgba(200,169,126,0)');
     ctx.fillStyle = rg;
     ctx.fillRect(0, 0, W, H);
   }
@@ -830,14 +823,14 @@ class WaveSystem {
   _newParticle(randomAge = false) {
     const W = this.W || window.innerWidth;
     return {
-      x:       Math.random() * W,
-      y:       0,          // set to crest y on first tick
-      vx:      (Math.random() - 0.5) * 0.55,
-      vy:      -(0.35 + Math.random() * 0.75),
-      life:    randomAge ? Math.floor(Math.random() * 80) : 0,
+      x: Math.random() * W,
+      y: 0,          // set to crest y on first tick
+      vx: (Math.random() - 0.5) * 0.55,
+      vy: -(0.35 + Math.random() * 0.75),
+      life: randomAge ? Math.floor(Math.random() * 80) : 0,
       maxLife: 55 + Math.random() * 95,
-      r:       0.7 + Math.random() * 2.2,
-      born:    false,
+      r: 0.7 + Math.random() * 2.2,
+      born: false,
     };
   }
 
@@ -845,7 +838,7 @@ class WaveSystem {
     const crestLayer = this.layers[this.layers.length - 1];
     for (const p of this.particles) {
       if (!p.born) {
-        p.y   = this._waveY(p.x, crestLayer);
+        p.y = this._waveY(p.x, crestLayer);
         p.born = true;
       }
       p.x += p.vx;
@@ -869,9 +862,9 @@ class WaveSystem {
       ctx.save();
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle   = `rgba(232,210,168,${alpha})`;
+      ctx.fillStyle = `rgba(232,210,168,${alpha})`;
       ctx.shadowColor = `rgba(232,210,168,${alpha * 0.6})`;
-      ctx.shadowBlur  = 5;
+      ctx.shadowBlur = 5;
       ctx.fill();
       ctx.restore();
     }
@@ -883,8 +876,8 @@ class WaveSystem {
     ctx.clearRect(0, 0, W, H);
 
     /* Advance time — two separate oscillators for shimmer & wave */
-    this.t     += 0.010;
-    this.shimX  = (Math.sin(this.t * 0.13) + 1) * 0.5;  // 0..1 slowly
+    this.t += 0.010;
+    this.shimX = (Math.sin(this.t * 0.13) + 1) * 0.5;  // 0..1 slowly
 
     /* Layers back → front */
     for (const L of this.layers) this._drawLayer(L);
@@ -937,9 +930,9 @@ const WAVE_LAYERS_TOP = [
     baseY: 0.84, amp: 0.055, amp2: 0.025,
     freq: 0.0038, freq2: 0.0062, spd: 0.18, spd2: 0.12, ph: 0,
     stops: [
-      [0,   'rgba(160,120,72,0.09)'],
+      [0, 'rgba(160,120,72,0.09)'],
       [0.5, 'rgba(200,169,126,0.05)'],
-      [1,   'rgba(200,169,126,0)'],
+      [1, 'rgba(200,169,126,0)'],
     ],
     crest: false,
   },
@@ -948,9 +941,9 @@ const WAVE_LAYERS_TOP = [
     baseY: 0.72, amp: 0.07, amp2: 0.032,
     freq: 0.0055, freq2: 0.0088, spd: 0.28, spd2: 0.19, ph: 1.9,
     stops: [
-      [0,   'rgba(180,145,100,0.13)'],
-      [0.55,'rgba(200,169,126,0.07)'],
-      [1,   'rgba(200,169,126,0)'],
+      [0, 'rgba(180,145,100,0.13)'],
+      [0.55, 'rgba(200,169,126,0.07)'],
+      [1, 'rgba(200,169,126,0)'],
     ],
     crest: false,
   },
@@ -959,9 +952,9 @@ const WAVE_LAYERS_TOP = [
     baseY: 0.60, amp: 0.082, amp2: 0.038,
     freq: 0.0072, freq2: 0.0114, spd: 0.40, spd2: 0.27, ph: 3.7,
     stops: [
-      [0,   'rgba(200,169,126,0.19)'],
+      [0, 'rgba(200,169,126,0.19)'],
       [0.5, 'rgba(200,169,126,0.09)'],
-      [1,   'rgba(200,169,126,0)'],
+      [1, 'rgba(200,169,126,0)'],
     ],
     crest: false,
   },
@@ -970,9 +963,9 @@ const WAVE_LAYERS_TOP = [
     baseY: 0.47, amp: 0.072, amp2: 0.033,
     freq: 0.0092, freq2: 0.0148, spd: 0.54, spd2: 0.37, ph: 0.8,
     stops: [
-      [0,   'rgba(216,185,148,0.24)'],
-      [0.45,'rgba(200,169,126,0.12)'],
-      [1,   'rgba(200,169,126,0)'],
+      [0, 'rgba(216,185,148,0.24)'],
+      [0.45, 'rgba(200,169,126,0.12)'],
+      [1, 'rgba(200,169,126,0)'],
     ],
     crest: false,
   },
@@ -981,9 +974,9 @@ const WAVE_LAYERS_TOP = [
     baseY: 0.33, amp: 0.060, amp2: 0.028,
     freq: 0.0118, freq2: 0.0185, spd: 0.72, spd2: 0.50, ph: 2.3,
     stops: [
-      [0,   'rgba(232,201,154,0.22)'],
+      [0, 'rgba(232,201,154,0.22)'],
       [0.4, 'rgba(210,178,130,0.10)'],
-      [1,   'rgba(200,169,126,0)'],
+      [1, 'rgba(200,169,126,0)'],
     ],
     crest: true,
   },
@@ -997,9 +990,9 @@ const WAVE_LAYERS_MID = [
     baseY: 0.82, amp: 0.058, amp2: 0.026,
     freq: 0.0042, freq2: 0.0068, spd: 0.20, spd2: 0.14, ph: 1.1,
     stops: [
-      [0,   'rgba(160,120,72,0.08)'],
+      [0, 'rgba(160,120,72,0.08)'],
       [0.5, 'rgba(200,169,126,0.04)'],
-      [1,   'rgba(200,169,126,0)'],
+      [1, 'rgba(200,169,126,0)'],
     ],
     crest: false,
   },
@@ -1007,9 +1000,9 @@ const WAVE_LAYERS_MID = [
     baseY: 0.70, amp: 0.072, amp2: 0.034,
     freq: 0.0058, freq2: 0.0094, spd: 0.30, spd2: 0.21, ph: 2.8,
     stops: [
-      [0,   'rgba(180,145,100,0.12)'],
+      [0, 'rgba(180,145,100,0.12)'],
       [0.5, 'rgba(200,169,126,0.06)'],
-      [1,   'rgba(200,169,126,0)'],
+      [1, 'rgba(200,169,126,0)'],
     ],
     crest: false,
   },
@@ -1017,9 +1010,9 @@ const WAVE_LAYERS_MID = [
     baseY: 0.57, amp: 0.080, amp2: 0.037,
     freq: 0.0076, freq2: 0.0122, spd: 0.43, spd2: 0.29, ph: 4.5,
     stops: [
-      [0,   'rgba(200,169,126,0.18)'],
+      [0, 'rgba(200,169,126,0.18)'],
       [0.5, 'rgba(200,169,126,0.08)'],
-      [1,   'rgba(200,169,126,0)'],
+      [1, 'rgba(200,169,126,0)'],
     ],
     crest: false,
   },
@@ -1027,9 +1020,9 @@ const WAVE_LAYERS_MID = [
     baseY: 0.44, amp: 0.068, amp2: 0.031,
     freq: 0.0098, freq2: 0.0156, spd: 0.58, spd2: 0.40, ph: 1.6,
     stops: [
-      [0,   'rgba(216,185,148,0.22)'],
+      [0, 'rgba(216,185,148,0.22)'],
       [0.5, 'rgba(200,169,126,0.10)'],
-      [1,   'rgba(200,169,126,0)'],
+      [1, 'rgba(200,169,126,0)'],
     ],
     crest: false,
   },
@@ -1037,9 +1030,9 @@ const WAVE_LAYERS_MID = [
     baseY: 0.30, amp: 0.057, amp2: 0.026,
     freq: 0.0125, freq2: 0.0198, spd: 0.76, spd2: 0.53, ph: 3.2,
     stops: [
-      [0,   'rgba(232,201,154,0.20)'],
+      [0, 'rgba(232,201,154,0.20)'],
       [0.4, 'rgba(210,178,130,0.09)'],
-      [1,   'rgba(200,169,126,0)'],
+      [1, 'rgba(200,169,126,0)'],
     ],
     crest: true,
   },
@@ -1077,7 +1070,7 @@ function initWaves() {
   }
 
   makeWave('waveTop', WAVE_LAYERS_TOP, { flipped: false });
-  makeWave('waveMid', WAVE_LAYERS_MID, { flipped: false });
+  makeWave('waveMid', WAVE_LAYERS_MID, { flipped: false });  /* waves hang DOWN from top edge */
 }
 
 
@@ -1097,7 +1090,7 @@ function initStatRings() {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const ring = entry.target;
-      const pct  = parseFloat(ring.dataset.pct) || 0;
+      const pct = parseFloat(ring.dataset.pct) || 0;
       const offset = CIRCUMFERENCE - (pct / 100) * CIRCUMFERENCE;
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -1162,7 +1155,7 @@ function initProcessPath() {
       pathSvg.classList.add('active');
       // Trigger all animateMotion elements inside
       pathSvg.querySelectorAll('animateMotion').forEach(a => {
-        try { a.beginElement(); } catch (_) {}
+        try { a.beginElement(); } catch (_) { }
       });
     }
   }, { threshold: 0.4 }).observe(pathSvg);
@@ -1175,13 +1168,13 @@ function initProcessPath() {
    ============================================================ */
 
 const pSkySection = document.getElementById('parallaxSkyline');
-const pSkyLayers  = pSkySection
+const pSkyLayers = pSkySection
   ? [
-      /* speed = vertical parallax rate, xSpeed = horizontal drift rate */
-      { el: pSkySection.querySelector('.psky-l3'), speed: 0.05,  xSpeed: -0.018 },
-      { el: pSkySection.querySelector('.psky-l2'), speed: 0.14,  xSpeed:  0.040 },
-      { el: pSkySection.querySelector('.psky-l1'), speed: 0.30,  xSpeed: -0.065 },
-    ]
+    /* speed = vertical parallax rate, xSpeed = horizontal drift rate */
+    { el: pSkySection.querySelector('.psky-l3'), speed: 0.05, xSpeed: -0.018 },
+    { el: pSkySection.querySelector('.psky-l2'), speed: 0.14, xSpeed: 0.040 },
+    { el: pSkySection.querySelector('.psky-l1'), speed: 0.30, xSpeed: -0.065 },
+  ]
   : [];
 
 let skyTicking = false;
@@ -1193,10 +1186,10 @@ function handleSkyParallax() {
     const rect = pSkySection.getBoundingClientRect();
     if (rect.bottom > 0 && rect.top < window.innerHeight) {
       const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-      const centered  = progress - 0.5; // -0.5 … +0.5
+      const centered = progress - 0.5; // -0.5 … +0.5
       pSkyLayers.forEach(({ el, speed, xSpeed }) => {
         if (!el) return;
-        const y = centered * speed  * 360;
+        const y = centered * speed * 360;
         const x = centered * (xSpeed || 0) * 280;
         el.style.transform = `translate(${x}px, ${y}px)`;
       });
@@ -1219,33 +1212,35 @@ function initSvgAnimations() {
   if (!svgDraw) return;
 
   // Calculate rect perimeter manually
-  const rw = parseFloat(svgDraw.getAttribute('width')  || '196');
+  const rw = parseFloat(svgDraw.getAttribute('width') || '196');
   const rh = parseFloat(svgDraw.getAttribute('height') || '196');
   const perimeter = 2 * (rw + rh);   // 784 for 196×196
 
   // Set dash values via attributes (overrides any hardcoded HTML values)
-  svgDraw.setAttribute('stroke-dasharray',  perimeter);
+  svgDraw.setAttribute('stroke-dasharray', perimeter);
   svgDraw.setAttribute('stroke-dashoffset', perimeter);
 
   // Observe the about section visual container
   const target = document.querySelector('.about-visual') || svgDraw;
 
-  new IntersectionObserver(entries => {
+  const svgObs = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {
       // Force a layout flush so the browser registers the initial state
       svgDraw.getBoundingClientRect();
       svgDraw.style.transition = 'stroke-dashoffset 2.6s cubic-bezier(0.4, 0, 0.2, 1) 0.15s';
       svgDraw.setAttribute('stroke-dashoffset', '0');
       entries[0].target.dataset.svgAnimated = 'true';
+      svgObs.unobserve(entries[0].target); /* fire once only */
     }
-  }, { threshold: 0.25 }).observe(target);
+  }, { threshold: 0.25 });
+  svgObs.observe(target);
 }
 
 /** Logo hex draw animation on load */
 function initLogoAnimation() {
   document.querySelectorAll('.svg-hex').forEach(el => {
     const len = 200;
-    el.style.strokeDasharray  = len;
+    el.style.strokeDasharray = len;
     el.style.strokeDashoffset = len;
     el.style.transition = 'stroke-dashoffset 1.5s ease 0.5s';
     // Trigger in next frame so the initial dashoffset is painted first
@@ -1262,13 +1257,15 @@ function initLogoAnimation() {
 
 const backToTopBtn = document.getElementById('backToTop');
 
-window.addEventListener('scroll', () => {
-  backToTopBtn.classList.toggle('visible', window.scrollY > 400);
-}, { passive: true });
+if (backToTopBtn) {
+  window.addEventListener('scroll', () => {
+    backToTopBtn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
 
-backToTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 
 /* ============================================================
@@ -1281,23 +1278,74 @@ function initNewsletter() {
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    const input  = this.querySelector('input');
+    const input = this.querySelector('input');
     const button = this.querySelector('button');
 
     button.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24"
       fill="none" stroke="var(--gold)" stroke-width="2.5">
       <polyline points="20 6 9 17 4 12"/></svg>`;
-    input.value    = 'Thank you for subscribing!';
+    input.value = 'Thank you for subscribing!';
     input.disabled = button.disabled = true;
 
     setTimeout(() => {
-      input.value    = '';
+      input.value = '';
       input.disabled = button.disabled = false;
       button.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24"
         fill="none" stroke="currentColor" stroke-width="2">
         <line x1="5" y1="12" x2="19" y2="12"/>
         <polyline points="12 5 19 12 12 19"/></svg>`;
     }, 3000);
+  });
+}
+
+
+/* ============================================================
+   BOOKING / CONTACT FORM
+   ============================================================ */
+
+function initBookingForm() {
+  const form = document.getElementById('bookingForm');
+  const success = document.getElementById('bookingSuccess');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    /* Basic required-field validation */
+    const name = form.querySelector('[name="name"]');
+    const email = form.querySelector('[name="email"]');
+    let valid = true;
+
+    [name, email].forEach(field => {
+      const err = field.value.trim() === '';
+      field.classList.toggle('field-error', err);
+      if (err) valid = false;
+    });
+    if (!valid) return;
+
+    /* Simulate submission — replace with real fetch() call */
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+           style="animation:spin .8s linear infinite">
+        <circle cx="12" cy="12" r="10" stroke-opacity=".25"/>
+        <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
+      </svg>
+      <span>Sending…</span>`;
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerHTML = `<span>Send Request</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/></svg>`;
+      form.reset();
+      form.querySelectorAll('.field-error').forEach(f => f.classList.remove('field-error'));
+      success.textContent = '✦ Thank you! An advisor will be in touch within 24 hours.';
+      success.classList.add('visible');
+      setTimeout(() => success.classList.remove('visible'), 6000);
+    }, 1600);
   });
 }
 
@@ -1313,7 +1361,7 @@ function initSmoothScroll() {
       if (target) {
         e.preventDefault();
         const top = target.getBoundingClientRect().top +
-                    window.scrollY - navbar.offsetHeight;
+          window.scrollY - navbar.offsetHeight;
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });
@@ -1327,17 +1375,19 @@ function initSmoothScroll() {
    ============================================================ */
 
 function initRippleEffect() {
-  // Inject keyframe once
+  // Inject keyframes once
   if (!document.getElementById('ripple-style')) {
     const s = document.createElement('style');
     s.id = 'ripple-style';
-    s.textContent = '@keyframes rippleAnim { to { transform:scale(30); opacity:0; } }';
+    s.textContent =
+      '@keyframes rippleAnim { to { transform:scale(30); opacity:0; } }' +
+      '@keyframes spin { to { transform:rotate(360deg); } }';
     document.head.appendChild(s);
   }
 
   document.querySelectorAll('.btn').forEach(btn => {
     btn.addEventListener('click', function (e) {
-      const r    = this.getBoundingClientRect();
+      const r = this.getBoundingClientRect();
       const span = document.createElement('span');
       Object.assign(span.style, {
         position: 'absolute',
@@ -1345,7 +1395,7 @@ function initRippleEffect() {
         background: 'rgba(255,255,255,0.18)',
         width: '10px', height: '10px',
         left: `${e.clientX - r.left - 5}px`,
-        top:  `${e.clientY - r.top  - 5}px`,
+        top: `${e.clientY - r.top - 5}px`,
         pointerEvents: 'none',
         transform: 'scale(0)',
         animation: 'rippleAnim 0.65s ease-out forwards',
@@ -1366,6 +1416,8 @@ function initCursorGlow() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const glow = document.createElement('div');
+  /* Position the element so its centre aligns with the cursor.
+     Using transform instead of left/top keeps updates off the layout thread. */
   Object.assign(glow.style, {
     position: 'fixed',
     width: '420px', height: '420px',
@@ -1373,15 +1425,16 @@ function initCursorGlow() {
     background: 'radial-gradient(circle, rgba(200,169,126,0.045) 0%, transparent 70%)',
     pointerEvents: 'none',
     zIndex: '9998',
-    transform: 'translate(-50%, -50%)',
-    transition: 'left 0.12s ease, top 0.12s ease',
-    willChange: 'left, top',
+    top: '-210px',   /* offset by half height so centre = (0,0) */
+    left: '-210px',  /* offset by half width  so centre = (0,0) */
+    transition: 'transform 0.12s ease',
+    willChange: 'transform',
   });
   document.body.appendChild(glow);
 
   document.addEventListener('mousemove', e => {
-    glow.style.left = `${e.clientX}px`;
-    glow.style.top  = `${e.clientY}px`;
+    /* Compositor-only path — no layout recalculation on each mouse move */
+    glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
   }, { passive: true });
 }
 
@@ -1405,12 +1458,12 @@ const prefersReducedMotion = () =>
    ============================================================ */
 
 function initSkylineDraw() {
-  const section  = document.getElementById('skylineDraw');
+  const section = document.getElementById('skylineDraw');
   const drawPath = document.getElementById('skylineDrawPath');
-  const echoPath = document.getElementById('skylineEchoPath');
+  const echoPath = document.getElementById('skylineEchoPath');  /* may be null — guarded below */
   const traveler = document.getElementById('skylineTraveler');
-  const fill     = document.getElementById('skylineProgressFill');
-  const label    = document.getElementById('skylineProgressLabel');
+  const fill = document.getElementById('skylineProgressFill');
+  const label = document.getElementById('skylineProgressLabel');
   if (!section || !drawPath) return;
   if (prefersReducedMotion()) return;
 
@@ -1422,22 +1475,24 @@ function initSkylineDraw() {
     { threshold: 0.86, id: 'skyLbl3' },
   ];
 
-  let totalLen   = 0;
-  let ticking    = false;
-  let lastProg   = -1;
+  let totalLen = 0;
+  let ticking = false;
+  let lastProg = -1;
   let scrollWired = false;
-  let cityEls    = []; /* populated in init() */
+  let cityEls = []; /* populated in init() */
 
   function init() {
     totalLen = drawPath.getTotalLength();
     if (!totalLen || scrollWired) return;
     scrollWired = true;
 
-    drawPath.style.strokeDasharray  = totalLen;
+    drawPath.style.strokeDasharray = totalLen;
     drawPath.style.strokeDashoffset = totalLen;
-    echoPath.setAttribute('d', drawPath.getAttribute('d'));
-    echoPath.style.strokeDasharray  = totalLen;
-    echoPath.style.strokeDashoffset = totalLen;
+    if (echoPath) {
+      echoPath.setAttribute('d', drawPath.getAttribute('d'));
+      echoPath.style.strokeDasharray = totalLen;
+      echoPath.style.strokeDashoffset = totalLen;
+    }
 
     /* Cache elements and set transition once — not per scroll frame */
     cityEls = CITY_LABELS.map(({ id, threshold }) => {
@@ -1454,17 +1509,21 @@ function initSkylineDraw() {
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(() => {
-      const r          = section.getBoundingClientRect();
+      const r = section.getBoundingClientRect();
       const scrollable = r.height - window.innerHeight;
-      const progress   = Math.min(1, Math.max(0, -r.top / scrollable));
       ticking = false;
+
+      /* Guard: section shorter than viewport → skip (avoid division by zero) */
+      if (scrollable <= 0) return;
+
+      const progress = Math.min(1, Math.max(0, -r.top / scrollable));
 
       if (Math.abs(progress - lastProg) < 0.0005) return;
       lastProg = progress;
 
       const offset = totalLen * (1 - progress);
       drawPath.style.strokeDashoffset = offset;
-      echoPath.style.strokeDashoffset = offset;
+      if (echoPath) echoPath.style.strokeDashoffset = offset;
 
       const drawn = totalLen * progress;
       if (drawn > 2) {
@@ -1475,7 +1534,7 @@ function initSkylineDraw() {
       }
 
       const pct = Math.round(progress * 100);
-      if (fill)  fill.style.width  = `${pct}%`;
+      if (fill) fill.style.width = `${pct}%`;
       if (label) label.textContent = `${pct}%`;
 
       cityEls.forEach(({ el, threshold }) => {
@@ -1503,18 +1562,18 @@ function initSkylineDraw() {
 
 function initNavMorph() {
   const strokeEl = document.getElementById('navMorphStroke');
-  const fillEl   = document.getElementById('navMorphFill');
+  const fillEl = document.getElementById('navMorphFill');
   if (!strokeEl || !fillEl) return;
   if (prefersReducedMotion()) return;
 
   /* 5 Y-control-point values per section; keys match section IDs */
   const STATES = {
-    default:      [4, 4, 4, 4, 4],
-    hero:         [3, 0, 5, 0, 3],
-    featured:     [4, 8, 1, 8, 4],
-    about:        [2, 4, 8, 4, 2],
-    categories:   [6, 1, 5, 1, 6],
-    process:      [4, 7, 2, 7, 4],
+    default: [4, 4, 4, 4, 4],
+    hero: [3, 0, 5, 0, 3],
+    featured: [4, 8, 1, 8, 4],
+    about: [2, 4, 8, 4, 2],
+    categories: [6, 1, 5, 1, 6],
+    process: [4, 7, 2, 7, 4],
     testimonials: [4, 1, 6, 1, 4],
   };
 
@@ -1574,7 +1633,7 @@ function initLightSweep() {
   const sweepObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      const card  = entry.target;
+      const card = entry.target;
       const cards = [...grid.querySelectorAll('.prop-card')];
       card.style.setProperty('--card-sweep-delay', `${cards.indexOf(card) * 0.11}s`);
       card.classList.add('sweep-enter');
@@ -1606,10 +1665,10 @@ function initLightSweep() {
    ============================================================ */
 
 function initMorphHouse() {
-  const path    = document.getElementById('morphPath');
-  const door    = document.getElementById('morphDoor');
-  const winL    = document.getElementById('morphWinL');
-  const winR    = document.getElementById('morphWinR');
+  const path = document.getElementById('morphPath');
+  const door = document.getElementById('morphDoor');
+  const winL = document.getElementById('morphWinL');
+  const winR = document.getElementById('morphWinR');
   const chimney = document.getElementById('morphChimney');
   const section = document.getElementById('morphHouse');
   if (!path || !section) return;
@@ -1620,38 +1679,38 @@ function initMorphHouse() {
    *   Square:  top-centre, top-right, bot-right, bot-left, top-left
    *   House:   roof-peak,  rt-eave,   bot-right, bot-left, lt-eave
    */
-  const ptSq = [[50,25],[75,25],[75,75],[25,75],[25,25]];
-  const ptHo = [[50, 5],[90,42],[82,90],[18,90],[10,42]];
+  const ptSq = [[50, 25], [75, 25], [75, 75], [25, 75], [25, 25]];
+  const ptHo = [[50, 5], [90, 42], [82, 90], [18, 90], [10, 42]];
 
   function buildD(pts) {
     return `M${pts[0][0]},${pts[0][1]}` +
-           pts.slice(1).map(p => `L${p[0]},${p[1]}`).join('') + 'Z';
+      pts.slice(1).map(p => `L${p[0]},${p[1]}`).join('') + 'Z';
   }
 
   /* Uses module-level lerp + ease utilities */
   function applyProgress(p) {
-    const t    = ease(p);
-    const pts  = ptSq.map((a, i) => [lerp(a[0], ptHo[i][0], t), lerp(a[1], ptHo[i][1], t)]);
+    const t = ease(p);
+    const pts = ptSq.map((a, i) => [lerp(a[0], ptHo[i][0], t), lerp(a[1], ptHo[i][1], t)]);
     path.setAttribute('d', buildD(pts));
     path.setAttribute('fill', `rgba(200,169,126,${0.05 + t * 0.1})`);
 
     const detailT = ease(Math.max(0, (p - 0.75) / 0.25));
     const dOp = p >= 0.5 ? detailT : 0;
-    door.setAttribute('opacity',    (dOp * 0.88).toFixed(3));
-    winL.setAttribute('opacity',    (dOp * 0.72).toFixed(3));
-    winR.setAttribute('opacity',    (dOp * 0.72).toFixed(3));
+    door.setAttribute('opacity', (dOp * 0.88).toFixed(3));
+    winL.setAttribute('opacity', (dOp * 0.72).toFixed(3));
+    winR.setAttribute('opacity', (dOp * 0.72).toFixed(3));
 
     /* Chimney grows from height 0 → 18 */
     const chH = +(dOp * 18).toFixed(2);
-    chimney.setAttribute('height',  chH);
-    chimney.setAttribute('y',       +(28 - chH).toFixed(2));
+    chimney.setAttribute('height', chH);
+    chimney.setAttribute('y', +(28 - chH).toFixed(2));
     chimney.setAttribute('opacity', (dOp * 0.9).toFixed(3));
   }
 
-  let progress  = 0;
+  let progress = 0;
   let direction = 1;  // +1 → house, -1 → square
-  let running   = false;
-  let timer     = null;
+  let running = false;
+  let timer = null;
 
   function tick() {
     if (!running) return;
@@ -1660,9 +1719,9 @@ function initMorphHouse() {
 
     if (progress >= 1 || progress <= 0) {
       running = false;
-      timer   = setTimeout(() => {
+      timer = setTimeout(() => {
         direction *= -1;
-        running    = true;
+        running = true;
         requestAnimationFrame(tick);
       }, 1800);
       return;
@@ -1674,7 +1733,7 @@ function initMorphHouse() {
   let fired = false;
   new IntersectionObserver(entries => {
     if (entries[0].isIntersecting && !fired) {
-      fired   = true;
+      fired = true;
       running = true;
       requestAnimationFrame(tick);
     }
@@ -1693,8 +1752,8 @@ function initMagneticIcons() {
   if (window.innerWidth < 1024) return;
   if (prefersReducedMotion()) return;
 
-  const RADIUS   = 90;
-  const PULL     = 0.38;
+  const RADIUS = 90;
+  const PULL = 0.38;
   const FRICTION = 0.13;
 
   /* Feature-detect once, outside the per-element loop */
@@ -1702,13 +1761,22 @@ function initMagneticIcons() {
 
   /* Per-element state stored in a Map — single global handler iterates all */
   const elements = [...document.querySelectorAll('.step-icon, .cat-icon')];
-  const state    = new Map(elements.map(el => [el, { cx:0, cy:0, tx:0, ty:0, rafId:0 }]));
+  const state = new Map(elements.map(el => [el, { cx: 0, cy: 0, tx: 0, ty: 0, rafId: 0 }]));
 
   elements.forEach(el => { el.style.willChange = 'transform'; });
 
+  /* Cache bounding rects — reading them on every mousemove forces layout.
+     Refresh on resize and scroll (rects shift on both). */
+  let rects = new Map(elements.map(el => [el, el.getBoundingClientRect()]));
+  const refreshRects = () => {
+    rects = new Map(elements.map(el => [el, el.getBoundingClientRect()]));
+  };
+  window.addEventListener('resize', refreshRects, { passive: true });
+  window.addEventListener('scroll', refreshRects, { passive: true });
+
   function setPos(el, x, y) {
     if (useTranslateProp) el.style.translate = `${x.toFixed(2)}px ${y.toFixed(2)}px`;
-    else                  el.style.transform = `translate(${x.toFixed(2)}px,${y.toFixed(2)}px)`;
+    else el.style.transform = `translate(${x.toFixed(2)}px,${y.toFixed(2)}px)`;
   }
 
   function makeSpring(el, s) {
@@ -1735,10 +1803,10 @@ function initMagneticIcons() {
 
   document.addEventListener('mousemove', e => {
     elements.forEach(el => {
-      const s    = state.get(el);
-      const r    = el.getBoundingClientRect();
-      const dx   = e.clientX - (r.left + r.width  / 2);
-      const dy   = e.clientY - (r.top  + r.height / 2);
+      const s = state.get(el);
+      const r = rects.get(el);  /* use cached rect — no layout reads per frame */
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
       const dist = Math.hypot(dx, dy);
 
       if (dist < RADIUS) {
@@ -1778,7 +1846,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Stats */
   initStatsObserver();
-  initStatBarsObserver();
 
   /* Testimonials */
   initTestimonials();
@@ -1812,6 +1879,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* UX extras */
   initNewsletter();
+  initBookingForm();
   initRippleEffect();
   initCursorGlow();
 

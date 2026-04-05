@@ -789,24 +789,11 @@ section { position: relative; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 16px;
+  margin-top: 4px;    /* was margin-bottom — now label sits after ring wrap */
+  margin-bottom: 0;
 }
 
-.stat-bar {
-  height: 2px;
-  background: var(--border);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-/* [FIX-5] Width set by JS (double-rAF) once stat enters viewport */
-.stat-bar-fill {
-  height: 100%;
-  width: 0;
-  background: var(--grad-gold);
-  border-radius: 2px;
-  transition: width 1.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* .stat-bar / .stat-bar-fill removed — replaced by circular SVG rings */
 
 
 /* ============================================================
@@ -1255,14 +1242,22 @@ section { position: relative; }
     rgba(10,10,12,0.95) 0%,
     rgba(10,10,12,0.4)  60%,
     rgba(10,10,12,0.1)  100%);
-  transition: background 0.4s;
+  /* Use opacity transition instead of animating the background shorthand,
+     which is unreliable across browsers. Two layers handle dark→darker. */
+  transition: opacity 0.4s;
 }
-.cat-card:hover .cat-overlay {
+.cat-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
   background: linear-gradient(to top,
     rgba(10,10,12,0.98) 0%,
     rgba(10,10,12,0.6)  60%,
     rgba(10,10,12,0.2)  100%);
+  opacity: 0;
+  transition: opacity 0.4s;
 }
+.cat-card:hover .cat-overlay::after { opacity: 1; }
 
 .cat-content {
   position: absolute;
@@ -1337,12 +1332,13 @@ section { position: relative; }
   position: relative;
 }
 
-/* Horizontal connector line between icon centres
-   top = step-num height (≈20px) + gap (20px) + icon half (32px) = ~72px */
+/* Horizontal connector line through icon centres.
+   .step-num: ~15px text + 20px margin-bottom = ~35px
+   .step-icon centre: 35px + 32px (half of 64px) = 67px → use 68px */
 .process-steps::before {
   content: '';
   position: absolute;
-  top: 72px;
+  top: 68px;
   left: 12.5%;
   width: 75%;
   height: 1px;
@@ -1617,7 +1613,202 @@ section { position: relative; }
 
 
 /* ============================================================
-   14. FOOTER
+   14. CONTACT / BOOKING SECTION
+   ============================================================ */
+.contact-section {
+  padding: var(--section-py) 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 64px;
+  align-items: start;
+  margin-top: 16px;
+}
+
+/* Info panel */
+.contact-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-info-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--gold-glow);
+  border: 1px solid rgba(200,169,126,0.25);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-info-item strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.contact-info-item span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Booking form */
+.contact-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius-lg);
+  padding: 44px 48px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field-full {
+  grid-column: 1 / -1;
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--text);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  width: 100%;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+  border-color: rgba(200,169,126,0.5);
+  box-shadow: 0 0 0 3px rgba(200,169,126,0.08);
+  outline: none;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--text-faint);
+}
+
+.form-field input.field-error,
+.form-field textarea.field-error {
+  border-color: rgba(239,83,80,0.6);
+  box-shadow: 0 0 0 3px rgba(239,83,80,0.08);
+}
+
+.form-field textarea { resize: vertical; min-height: 120px; }
+
+.form-select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-select-wrap select {
+  appearance: none;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.form-select-wrap svg {
+  position: absolute;
+  right: 12px;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.form-submit-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.form-privacy {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.form-privacy svg { opacity: 0.6; flex-shrink: 0; }
+
+.form-success {
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  background: rgba(200,169,126,0.1);
+  border: 1px solid rgba(200,169,126,0.25);
+  color: var(--gold);
+  font-size: 0.88rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.form-success.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+
+@media (max-width: 768px) {
+  .contact-section .section-container { padding: 0 24px; }
+  .contact-form { padding: 32px 24px; }
+  .form-row { grid-template-columns: 1fr; gap: 16px; }
+  .form-submit-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+
+
+/* ============================================================
+   15. FOOTER
    ============================================================ */
 footer {
   background: var(--bg-2);
@@ -1750,7 +1941,7 @@ footer {
 
 
 /* ============================================================
-   15. BACK TO TOP
+   16. BACK TO TOP
    ============================================================ */
 .back-to-top {
   position: fixed;
@@ -1778,7 +1969,7 @@ footer {
 
 
 /* ============================================================
-   16. KEYFRAME ANIMATIONS
+   17. KEYFRAME ANIMATIONS
    ============================================================ */
 @keyframes floatCard {
   0%, 100% { transform: translateY(0); }
@@ -1806,7 +1997,7 @@ footer {
 
 
 /* ============================================================
-   17. RESPONSIVE
+   18. RESPONSIVE
    ============================================================ */
 @media (max-width: 1280px) {
   .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; }
@@ -1945,9 +2136,10 @@ footer {
   to   { opacity: 1; transform: scale(1) rotate(0deg); }
 }
 @keyframes hfsFloat {
-  0%,100% { transform: translateY(0)   rotate(0deg); }
-  33%      { transform: translateY(-18px) rotate(4deg); }
-  66%      { transform: translateY(10px)  rotate(-3deg); }
+  /* scale(1) is explicit so this keyframe never fights hfsEntrance's scale values */
+  0%,100% { transform: translateY(0)     rotate(0deg)  scale(1); }
+  33%      { transform: translateY(-18px) rotate(4deg)  scale(1); }
+  66%      { transform: translateY(10px)  rotate(-3deg) scale(1); }
 }
 
 

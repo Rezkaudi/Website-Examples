@@ -1260,7 +1260,7 @@
   <!-- =========================================================
        CTA SECTION
   ========================================================= -->
-  <section class="cta-section">
+  <section class="cta-section" id="cta">
     <div class="cta-bg" id="ctaBg"></div>
     <div class="cta-overlay"></div>
     <!-- 2. Morphing SVG blob background shape -->
@@ -1303,9 +1303,118 @@
 
 
   <!-- =========================================================
-       FOOTER / CONTACT
+       CONTACT / BOOK A VIEWING
   ========================================================= -->
-  <footer id="contact">
+  <section class="contact-section" id="contact">
+    <div class="section-container">
+
+      <div class="section-header reveal-up">
+        <span class="section-tag">Book a Viewing</span>
+        <h2>Connect With an <em>Advisor</em></h2>
+        <p>Our team is available around the clock to arrange private viewings and answer every question.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Contact info panel -->
+        <div class="contact-info-panel reveal-left">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <strong>Call Us</strong>
+              <span>+1 800 567 8900</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <strong>Email Us</strong>
+              <span>hello@luxestate.com</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong>Visit Us</strong>
+              <span>350 Fifth Avenue, New York</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <strong>Office Hours</strong>
+              <span>Mon – Sat, 9 am – 8 pm EST</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Booking form -->
+        <form class="contact-form reveal-right" id="bookingForm" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-name">Full Name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your full name" required />
+            </div>
+            <div class="form-field">
+              <label for="cf-email">Email Address</label>
+              <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-phone">Phone Number</label>
+              <input type="tel" id="cf-phone" name="phone" placeholder="+1 (555) 000-0000" />
+            </div>
+            <div class="form-field">
+              <label for="cf-type">Property Interest</label>
+              <div class="form-select-wrap">
+                <select id="cf-type" name="type">
+                  <option value="">Select type</option>
+                  <option>Penthouse</option>
+                  <option>Luxury Villa</option>
+                  <option>Grand Estate</option>
+                  <option>Apartment</option>
+                  <option>Investment Portfolio</option>
+                </select>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="form-field form-field-full">
+            <label for="cf-message">Your Message</label>
+            <textarea id="cf-message" name="message" rows="4"
+              placeholder="Tell us about your ideal property, budget, timeline…"></textarea>
+          </div>
+          <div class="form-submit-row">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <span>Send Request</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+            <p class="form-privacy">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Your details are kept strictly confidential.
+            </p>
+          </div>
+          <div class="form-success" id="bookingSuccess" aria-live="polite"></div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+  <footer>
     <div class="footer-top">
       <div class="footer-grid">
 

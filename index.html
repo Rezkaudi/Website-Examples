@@ -125,59 +125,141 @@
       opacity: 1;
       transform: translateX(3px);
     }
+
+    .status {
+      color: #8b949e;
+      font-size: 0.9rem;
+      padding: 12px 0;
+    }
+
+    .error {
+      color: #f85149;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 20px 24px;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    .error code {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: monospace;
+      color: #e1e4e8;
+    }
   </style>
 </head>
 <body>
   <h1>Website <span>Examples</span></h1>
 
-  <div class="projects">
-
-    <!-- jsoms-redesign -->
-    <div class="project">
-      <div class="project-header">
-        <div class="project-icon">🎨</div>
-        <div class="project-name">jsoms-redesign</div>
-        <div class="project-count">1 version</div>
-      </div>
-      <div class="versions">
-        <a href="jsoms-redesign/index.html" class="version-card">
-          <div class="version-label">version</div>
-          <div class="version-name">Latest <span class="version-arrow">→</span></div>
-        </a>
-      </div>
-    </div>
-
-    <!-- real-estate -->
-    <div class="project">
-      <div class="project-header">
-        <div class="project-icon">🏠</div>
-        <div class="project-name">real-estate</div>
-        <div class="project-count">5 versions</div>
-      </div>
-      <div class="versions">
-        <a href="real-estate/v1/index.html" class="version-card">
-          <div class="version-label">version</div>
-          <div class="version-name">v1 <span class="version-arrow">→</span></div>
-        </a>
-        <a href="real-estate/v2/index.html" class="version-card">
-          <div class="version-label">version</div>
-          <div class="version-name">v2 <span class="version-arrow">→</span></div>
-        </a>
-        <a href="real-estate/v3/index.html" class="version-card">
-          <div class="version-label">version</div>
-          <div class="version-name">v3 <span class="version-arrow">→</span></div>
-        </a>
-        <a href="real-estate/v4/index.html" class="version-card">
-          <div class="version-label">version</div>
-          <div class="version-name">v4 <span class="version-arrow">→</span></div>
-        </a>
-        <a href="real-estate/v5/index.html" class="version-card">
-          <div class="version-label">version</div>
-          <div class="version-name">v5 <span class="version-arrow">→</span></div>
-        </a>
-      </div>
-    </div>
-
+  <div class="projects" id="projects">
+    <p class="status">Loading projects...</p>
   </div>
+
+  <script>
+    // Icon mapping: keyword in project name → emoji
+    const ICONS = {
+      'real-estate': '🏠',
+      'estate':      '🏠',
+      'jsoms':       '🎨',
+      'shop':        '🛍️',
+      'portfolio':   '💼',
+      'blog':        '📝',
+      'dashboard':   '📊',
+      'auth':        '🔐',
+      'landing':     '🚀',
+      'ecommerce':   '🛒',
+    };
+
+    function getIcon(name) {
+      const lower = name.toLowerCase();
+      for (const [key, icon] of Object.entries(ICONS)) {
+        if (lower.includes(key)) return icon;
+      }
+      return '🌐';
+    }
+
+    // Returns true if the URL responds with 2xx
+    async function exists(url) {
+      try {
+        const res = await fetch(url, { method: 'HEAD' });
+        return res.ok;
+      } catch {
+        return false;
+      }
+    }
+
+    // Discover versions for a project by probing:
+    //   1. vN/index.html  (v1, v2, v3, …) — stops at first missing version
+    //   2. Falls back to direct index.html if no versioned dirs found
+    async function discoverVersions(name) {
+      const versions = [];
+
+      for (let i = 1; ; i++) {
+        const href = `${name}/v${i}/index.html`;
+        if (await exists(href)) {
+          versions.push({ label: `v${i}`, href });
+        } else {
+          break;
+        }
+      }
+
+      if (versions.length === 0 && await exists(`${name}/index.html`)) {
+        versions.push({ label: 'Latest', href: `${name}/index.html` });
+      }
+
+      return versions;
+    }
+
+    async function loadProjects() {
+      const container = document.getElementById('projects');
+
+      // Load project list from projects.json
+      let names;
+      try {
+        const res = await fetch('projects.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        names = await res.json();
+      } catch (err) {
+        container.innerHTML = `<div class="error">Could not load <code>projects.json</code>: ${err.message}</div>`;
+        return;
+      }
+
+      // Probe all projects in parallel
+      const results = await Promise.all(
+        names.map(async name => ({ name, versions: await discoverVersions(name) }))
+      );
+
+      const projects = results.filter(p => p.versions.length > 0);
+
+      if (projects.length === 0) {
+        container.innerHTML = '<p class="status">No projects found. Check that each project folder contains an <code>index.html</code>.</p>';
+        return;
+      }
+
+      container.innerHTML = projects.map(p => `
+        <div class="project">
+          <div class="project-header">
+            <div class="project-icon">${getIcon(p.name)}</div>
+            <div class="project-name">${p.name}</div>
+            <div class="project-count">${p.versions.length} version${p.versions.length !== 1 ? 's' : ''}</div>
+          </div>
+          <div class="versions">
+            ${p.versions.map(v => `
+              <a href="${v.href}" class="version-card">
+                <div class="version-label">version</div>
+                <div class="version-name">${v.label} <span class="version-arrow">→</span></div>
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    loadProjects();
+  </script>
 </body>
 </html>

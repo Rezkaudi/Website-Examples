@@ -1077,7 +1077,7 @@ function initWaves() {
   }
 
   makeWave('waveTop', WAVE_LAYERS_TOP, { flipped: false });
-  makeWave('waveMid', WAVE_LAYERS_MID, { flipped: true  });
+  makeWave('waveMid', WAVE_LAYERS_MID, { flipped: false });
 }
 
 

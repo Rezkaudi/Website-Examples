@@ -2999,22 +2999,21 @@ footer {
 /* Section is tall so the sticky stage pins while the user
    scrolls through the full 260 vh. JS reads progress. */
 .skyline-draw-section {
-  height: 260vh;
   position: relative;
+  background: var(--bg);
 }
 
-/* Sticky container — stays visible for the entire scroll length */
+/* Full-viewport panel — normal flow, no sticky scroll needed */
 .skyline-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 6rem 2rem;
   overflow: hidden;
-  background: var(--bg-dark);
+  background: var(--bg);
 }
 
 /* Subtle radial bloom behind the SVG */
@@ -3027,6 +3026,7 @@ footer {
       rgba(200,169,126,0.05) 0%, transparent 70%);
   pointer-events: none;
 }
+
 
 /* Header copy */
 .skyline-header {
@@ -3088,9 +3088,7 @@ footer {
   min-width: 3ch;
 }
 
-/* Mobile: reduce height so it doesn't trap scroll too long */
 @media (max-width: 768px) {
-  .skyline-draw-section { height: 200vh; }
   .skyline-title { font-size: 1.8rem; }
   .skyline-sub { display: none; }
 }

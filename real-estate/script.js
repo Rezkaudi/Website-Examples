@@ -1654,14 +1654,13 @@ const prefersReducedMotion = () =>
 function initSkylineDraw() {
   const section = document.getElementById('skylineDraw');
   const drawPath = document.getElementById('skylineDrawPath');
-  const echoPath = document.getElementById('skylineEchoPath');  /* may be null — guarded below */
+  const echoPath = document.getElementById('skylineEchoPath');
   const traveler = document.getElementById('skylineTraveler');
   const fill = document.getElementById('skylineProgressFill');
   const label = document.getElementById('skylineProgressLabel');
   if (!section || !drawPath) return;
   if (prefersReducedMotion()) return;
 
-  /* City label definitions — elements cached once inside init() */
   const CITY_LABELS = [
     { threshold: 0.10, id: 'skyLbl0' },
     { threshold: 0.38, id: 'skyLbl1' },
@@ -1669,16 +1668,15 @@ function initSkylineDraw() {
     { threshold: 0.86, id: 'skyLbl3' },
   ];
 
+  const DURATION = 3200; /* ms — full draw duration */
   let totalLen = 0;
-  let ticking = false;
-  let lastProg = -1;
-  let scrollWired = false;
-  let cityEls = []; /* populated in init() */
+  let cityEls = [];
+  let animStartTime = null;
+  let rafId = null;
 
   function init() {
     totalLen = drawPath.getTotalLength();
-    if (!totalLen || scrollWired) return;
-    scrollWired = true;
+    if (!totalLen) return;
 
     drawPath.style.strokeDasharray = totalLen;
     drawPath.style.strokeDashoffset = totalLen;
@@ -1688,54 +1686,68 @@ function initSkylineDraw() {
       echoPath.style.strokeDashoffset = totalLen;
     }
 
-    /* Cache elements and set transition once — not per scroll frame */
     cityEls = CITY_LABELS.map(({ id, threshold }) => {
       const el = document.getElementById(id);
       if (el) el.style.transition = 'fill 0.6s ease';
       return { el, threshold };
     }).filter(o => o.el);
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    /* Trigger animation when section is 30% in view */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && animStartTime === null) {
+          animStartTime = performance.now();
+          rafId = requestAnimationFrame(animate);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(section);
   }
 
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      const r = section.getBoundingClientRect();
-      const scrollable = r.height - window.innerHeight;
-      ticking = false;
+  function resetState() {
+    drawPath.style.strokeDashoffset = totalLen;
+    if (echoPath) echoPath.style.strokeDashoffset = totalLen;
+    traveler.setAttribute('opacity', 0);
+    cityEls.forEach(({ el }) => el.setAttribute('fill', 'rgba(200,169,126,0)'));
+    if (fill) fill.style.width = '0%';
+    if (label) label.textContent = '0%';
+  }
 
-      /* Guard: section shorter than viewport → skip (avoid division by zero) */
-      if (scrollable <= 0) return;
+  function animate(now) {
+    const progress = Math.min(1, (now - animStartTime) / DURATION);
 
-      const progress = Math.min(1, Math.max(0, -r.top / scrollable));
+    const offset = totalLen * (1 - progress);
+    drawPath.style.strokeDashoffset = offset;
+    if (echoPath) echoPath.style.strokeDashoffset = offset;
 
-      if (Math.abs(progress - lastProg) < 0.0005) return;
-      lastProg = progress;
+    const drawn = totalLen * progress;
+    if (drawn > 2) {
+      const pt = drawPath.getPointAtLength(drawn - 2);
+      traveler.setAttribute('cx', pt.x);
+      traveler.setAttribute('cy', pt.y);
+      traveler.setAttribute('opacity', progress < 1 ? 1 : 0);
+    }
 
-      const offset = totalLen * (1 - progress);
-      drawPath.style.strokeDashoffset = offset;
-      if (echoPath) echoPath.style.strokeDashoffset = offset;
+    const pct = Math.round(progress * 100);
+    if (fill) fill.style.width = `${pct}%`;
+    if (label) label.textContent = `${pct}%`;
 
-      const drawn = totalLen * progress;
-      if (drawn > 2) {
-        const pt = drawPath.getPointAtLength(drawn - 2);
-        traveler.setAttribute('cx', pt.x);
-        traveler.setAttribute('cy', pt.y);
-        traveler.setAttribute('opacity', progress < 1 ? 1 : 0);
-      }
-
-      const pct = Math.round(progress * 100);
-      if (fill) fill.style.width = `${pct}%`;
-      if (label) label.textContent = `${pct}%`;
-
-      cityEls.forEach(({ el, threshold }) => {
-        el.setAttribute('fill',
-          progress >= threshold ? 'rgba(200,169,126,0.7)' : 'rgba(200,169,126,0)');
-      });
+    cityEls.forEach(({ el, threshold }) => {
+      el.setAttribute('fill',
+        progress >= threshold ? 'rgba(200,169,126,0.7)' : 'rgba(200,169,126,0)');
     });
+
+    if (progress < 1) {
+      rafId = requestAnimationFrame(animate);
+    } else {
+      /* Restart loop after a short pause */
+      setTimeout(() => {
+        resetState();
+        animStartTime = performance.now();
+        rafId = requestAnimationFrame(animate);
+      }, 800);
+    }
   }
 
   if ('requestIdleCallback' in window) {

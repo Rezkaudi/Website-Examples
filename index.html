@@ -198,19 +198,17 @@
     }
 
     // Discover versions for a project by probing:
-    //   1. vN/index.html  (v1, v2, v3, …) — stops at first missing version
+    //   1. vN/index.html  (v1–v20) — probed in parallel, gaps are allowed
     //   2. Falls back to direct index.html if no versioned dirs found
     async function discoverVersions(name) {
-      const versions = [];
+      const MAX = 20;
+      const checks = Array.from({ length: MAX }, (_, i) => {
+        const v = i + 1;
+        const href = `${name}/v${v}/index.html`;
+        return exists(href).then(ok => ok ? { label: `v${v}`, href } : null);
+      });
 
-      for (let i = 1; ; i++) {
-        const href = `${name}/v${i}/index.html`;
-        if (await exists(href)) {
-          versions.push({ label: `v${i}`, href });
-        } else {
-          break;
-        }
-      }
+      const versions = (await Promise.all(checks)).filter(Boolean);
 
       if (versions.length === 0 && await exists(`${name}/index.html`)) {
         versions.push({ label: 'Latest', href: `${name}/index.html` });

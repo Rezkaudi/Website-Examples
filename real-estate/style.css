@@ -3170,3 +3170,166 @@ footer {
 .prop-card:not(:hover):not(.sweep-enter) .prop-img-wrap::before {
   left: -80%;
 }
+
+
+/* ============================================================
+   LANGUAGE SWITCHER
+   ============================================================ */
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(200,169,126,0.2);
+  border-radius: 20px;
+  padding: 3px 5px;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255,255,255,0.55);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 4px 8px;
+  border-radius: 14px;
+  transition: color 0.2s ease, background 0.2s ease;
+  line-height: 1;
+}
+
+.lang-btn:hover {
+  color: var(--gold);
+  background: rgba(200,169,126,0.1);
+}
+
+.lang-btn.active {
+  background: var(--gold);
+  color: var(--dark);
+}
+
+/* Mobile lang switcher inside mobile menu */
+.lang-switcher-mobile {
+  margin-top: 24px;
+  border-color: rgba(200,169,126,0.25);
+  background: rgba(200,169,126,0.06);
+}
+
+.lang-switcher-mobile .lang-btn {
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+  padding: 6px 14px;
+}
+
+.lang-switcher-mobile .lang-btn.active {
+  background: var(--gold);
+  color: var(--dark);
+}
+
+/* ── RTL support (Arabic) ──────────────────────────────────── */
+[dir="rtl"] .nav-container      { flex-direction: row-reverse; }
+[dir="rtl"] .nav-actions        { flex-direction: row-reverse; }
+[dir="rtl"] .hero-content       { text-align: right; }
+[dir="rtl"] .hero-actions       { flex-direction: row-reverse; justify-content: flex-end; }
+[dir="rtl"] .search-form        { flex-direction: row-reverse; }
+[dir="rtl"] .about-container    { flex-direction: row-reverse; }
+[dir="rtl"] .morph-house-inner  { flex-direction: row-reverse; }
+[dir="rtl"] .process-steps      { direction: rtl; }
+[dir="rtl"] .contact-grid       { direction: rtl; }
+[dir="rtl"] .footer-grid        { direction: rtl; }
+[dir="rtl"] .footer-bottom      { flex-direction: row-reverse; }
+[dir="rtl"] .footer-legal       { flex-direction: row-reverse; }
+[dir="rtl"] .feature-item       { flex-direction: row-reverse; text-align: right; }
+[dir="rtl"] .morph-fact         { flex-direction: row-reverse; }
+[dir="rtl"] .contact-info-item  { flex-direction: row-reverse; text-align: right; }
+[dir="rtl"] .contact-item       { flex-direction: row-reverse; }
+[dir="rtl"] .prop-footer        { flex-direction: row-reverse; }
+[dir="rtl"] .prop-specs         { flex-direction: row-reverse; }
+[dir="rtl"] .prop-spec          { flex-direction: row-reverse; }
+[dir="rtl"] .nav-links          { flex-direction: row-reverse; }
+[dir="rtl"] .float-info         { text-align: right; }
+[dir="rtl"] .map-showcase       { flex-direction: row-reverse; }
+[dir="rtl"] .mm-nav             { direction: rtl; }
+[dir="rtl"] .mm-footer          { text-align: right; }
+[dir="rtl"] .mm-header          { flex-direction: row-reverse; }
+[dir="rtl"] .cta-content        { text-align: right; }
+[dir="rtl"] .section-header     { direction: rtl; }
+[dir="rtl"] .prop-location      { flex-direction: row-reverse; }
+[dir="rtl"] .prop-price-sub     { text-align: right; }
+[dir="rtl"] .prop-body          { text-align: right; }
+
+/* ── Japanese font override ────────────────────────────────── */
+[lang="ja"] body,
+[lang="ja"] p,
+[lang="ja"] span,
+[lang="ja"] button,
+[lang="ja"] a,
+[lang="ja"] input,
+[lang="ja"] select,
+[lang="ja"] textarea,
+[lang="ja"] label,
+[lang="ja"] .nav-link,
+[lang="ja"] .btn,
+[lang="ja"] .lang-btn,
+[lang="ja"] .section-tag,
+[lang="ja"] .stat-label,
+[lang="ja"] .float-label,
+[lang="ja"] .filter-btn,
+[lang="ja"] .morph-lead,
+[lang="ja"] .about-lead,
+[lang="ja"] .about-body,
+[lang="ja"] .process-step p,
+[lang="ja"] .feature-text span,
+[lang="ja"] .cat-count,
+[lang="ja"] .skyline-sub,
+[lang="ja"] .footer-brand p,
+[lang="ja"] footer ul li a,
+[lang="ja"] .form-privacy {
+  font-family: 'Noto Sans JP', 'Inter', sans-serif;
+}
+
+[lang="ja"] h1,
+[lang="ja"] h2,
+[lang="ja"] h3,
+[lang="ja"] h4,
+[lang="ja"] .hero-title,
+[lang="ja"] .morph-house-inner h2,
+[lang="ja"] .process-step h3,
+[lang="ja"] .footer-col h4,
+[lang="ja"] .nav-logo .logo-text {
+  font-family: 'Noto Sans JP', 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+/* ── Arabic font adjustments ───────────────────────────────── */
+[lang="ar"] h1,
+[lang="ar"] h2,
+[lang="ar"] h3,
+[lang="ar"] h4,
+[lang="ar"] p,
+[lang="ar"] span,
+[lang="ar"] a,
+[lang="ar"] button,
+[lang="ar"] input,
+[lang="ar"] select,
+[lang="ar"] textarea,
+[lang="ar"] label {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0;
+}
+
+[lang="ar"] h1,
+[lang="ar"] h2,
+[lang="ar"] h3 {
+  font-weight: 700;
+}
+
+/* Hide desktop nav lang switcher on mobile to avoid duplication */
+@media (max-width: 1024px) {
+  .nav-actions .lang-switcher:not(.lang-switcher-mobile) {
+    display: none;
+  }
+}

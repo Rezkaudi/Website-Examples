@@ -429,6 +429,11 @@ function createPropertyCard(prop) {
   const favStroke = isFav ? '#ef5350' : 'currentColor';
 
   const typeLabel = esc(prop.type.charAt(0).toUpperCase() + prop.type.slice(1));
+
+  /* i18n helper — safe fallback if i18n.js not loaded yet */
+  const tr = (key) => (typeof TRANSLATIONS !== 'undefined' && window.currentLang)
+    ? (TRANSLATIONS[window.currentLang]?.[key] ?? TRANSLATIONS.en[key] ?? key)
+    : key;
   return `
     <article class="prop-card card-enter" data-type="${esc(prop.type)}" data-id="${esc(prop.id)}">
 
@@ -454,7 +459,7 @@ function createPropertyCard(prop) {
       <div class="prop-body">
         <div class="prop-price">
           ${esc(prop.price)}
-          <span class="prop-price-sub">Market Value</span>
+          <span class="prop-price-sub">${tr('card.marketVal')}</span>
         </div>
         <h3 class="prop-title">${esc(prop.title)}</h3>
         <div class="prop-location">
@@ -470,26 +475,26 @@ function createPropertyCard(prop) {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
               <path d="M2 4v16M22 4v16M2 8h20M2 16h20M6 8v8M10 8v8M14 8v8M18 8v8"/>
             </svg>
-            ${esc(prop.beds)} Beds
+            ${esc(prop.beds)} ${tr('card.beds')}
           </div>
           <div class="prop-spec">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
               <path d="M4 12h16M4 12a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2M4 12v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/>
             </svg>
-            ${esc(prop.baths)} Baths
+            ${esc(prop.baths)} ${tr('card.baths')}
           </div>
           <div class="prop-spec">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
               <rect x="3" y="3" width="18" height="18" rx="2"/>
             </svg>
-            ${esc(prop.sqft)} sqft
+            ${esc(prop.sqft)} ${tr('card.sqft')}
           </div>
         </div>
       </div>
 
       <div class="prop-footer">
         <a href="#contact" class="prop-view-btn">
-          View Details
+          ${tr('card.viewDetails')}
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="5" y1="12" x2="19" y2="12"/>
             <polyline points="12 5 19 12 12 19"/>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -31,17 +31,23 @@
       <!-- Desktop Links — wrapped for SVG path animation -->
       <div class="nav-path-wrap" id="navPathWrap">
         <ul class="nav-links" id="navLinks">
-          <li><a href="#featured" class="nav-link">Properties</a></li>
-          <li><a href="#categories" class="nav-link">Categories</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#process" class="nav-link">Process</a></li>
-          <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+          <li><a href="#featured" class="nav-link" data-i18n="nav.properties">Properties</a></li>
+          <li><a href="#categories" class="nav-link" data-i18n="nav.categories">Categories</a></li>
+          <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+          <li><a href="#process" class="nav-link" data-i18n="nav.process">Process</a></li>
+          <li><a href="#testimonials" class="nav-link" data-i18n="nav.reviews">Reviews</a></li>
         </ul>
       </div>
 
       <!-- Nav Actions -->
       <div class="nav-actions">
-        <a href="#contact" class="btn btn-nav">Book Viewing</a>
+        <!-- Language Switcher -->
+        <div class="lang-switcher" aria-label="Select language">
+          <button class="lang-btn active" data-lang="en" title="English">EN</button>
+          <button class="lang-btn" data-lang="ar" title="العربية">AR</button>
+          <button class="lang-btn" data-lang="ja" title="日本語">JA</button>
+        </div>
+        <a href="#contact" class="btn btn-nav" data-i18n="nav.bookViewing">Book Viewing</a>
         <!-- SVG Hamburger -->
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
           <svg class="hamburger-svg" viewBox="0 0 36 36" fill="none" aria-hidden="true">
@@ -141,7 +147,7 @@
         <li class="mm-item" style="--i:0">
           <a href="#featured" class="mm-link">
             <span class="mm-num">01</span>
-            <span class="mm-text">Properties</span>
+            <span class="mm-text" data-i18n="nav.properties">Properties</span>
             <svg class="mm-arrow" viewBox="0 0 34 14" fill="none">
               <path d="M0 7h30M24 1l7 6-7 6"
                     stroke="currentColor" stroke-width="1.3"
@@ -153,7 +159,7 @@
         <li class="mm-item" style="--i:1">
           <a href="#categories" class="mm-link">
             <span class="mm-num">02</span>
-            <span class="mm-text">Categories</span>
+            <span class="mm-text" data-i18n="nav.categories">Categories</span>
             <svg class="mm-arrow" viewBox="0 0 34 14" fill="none">
               <path d="M0 7h30M24 1l7 6-7 6"
                     stroke="currentColor" stroke-width="1.3"
@@ -165,7 +171,7 @@
         <li class="mm-item" style="--i:2">
           <a href="#about" class="mm-link">
             <span class="mm-num">03</span>
-            <span class="mm-text">About</span>
+            <span class="mm-text" data-i18n="nav.about">About</span>
             <svg class="mm-arrow" viewBox="0 0 34 14" fill="none">
               <path d="M0 7h30M24 1l7 6-7 6"
                     stroke="currentColor" stroke-width="1.3"
@@ -177,7 +183,7 @@
         <li class="mm-item" style="--i:3">
           <a href="#process" class="mm-link">
             <span class="mm-num">04</span>
-            <span class="mm-text">Process</span>
+            <span class="mm-text" data-i18n="nav.process">Process</span>
             <svg class="mm-arrow" viewBox="0 0 34 14" fill="none">
               <path d="M0 7h30M24 1l7 6-7 6"
                     stroke="currentColor" stroke-width="1.3"
@@ -189,7 +195,7 @@
         <li class="mm-item" style="--i:4">
           <a href="#testimonials" class="mm-link">
             <span class="mm-num">05</span>
-            <span class="mm-text">Reviews</span>
+            <span class="mm-text" data-i18n="nav.reviews">Reviews</span>
             <svg class="mm-arrow" viewBox="0 0 34 14" fill="none">
               <path d="M0 7h30M24 1l7 6-7 6"
                     stroke="currentColor" stroke-width="1.3"
@@ -209,9 +215,16 @@
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
           <polyline points="9 22 9 12 15 12 15 22"/>
         </svg>
-        Book a Viewing
+        <span data-i18n="mm.book">Book a Viewing</span>
       </a>
-      <p class="mm-tagline">Extraordinary properties. Exceptional service.</p>
+      <p class="mm-tagline" data-i18n="mm.tagline">Extraordinary properties. Exceptional service.</p>
+
+      <!-- Mobile Language Switcher -->
+      <div class="lang-switcher lang-switcher-mobile" aria-label="Select language">
+        <button class="lang-btn active" data-lang="en" title="English">EN</button>
+        <button class="lang-btn" data-lang="ar" title="العربية">AR</button>
+        <button class="lang-btn" data-lang="ja" title="日本語">JA</button>
+      </div>
     </div>
 
   </div>
@@ -264,7 +277,7 @@
       </div>
       <div class="float-info">
         <span class="float-num">2,500+</span>
-        <span class="float-label">Properties Listed</span>
+        <span class="float-label" data-i18n="float.listed">Properties Listed</span>
       </div>
     </div>
 
@@ -276,7 +289,7 @@
       </div>
       <div class="float-info">
         <span class="float-num">$2.4B+</span>
-        <span class="float-label">Sales Volume</span>
+        <span class="float-label" data-i18n="float.volume">Sales Volume</span>
       </div>
     </div>
 
@@ -284,22 +297,22 @@
     <div class="hero-content" id="heroContent">
       <div class="hero-tag reveal-up">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Premium Real Estate Since 2009
+        <span data-i18n="hero.tag">Premium Real Estate Since 2009</span>
       </div>
-      <h1 class="hero-title reveal-up">
+      <h1 class="hero-title reveal-up" data-i18n-html="hero.title">
         Find Your<br><em>Perfect</em> Luxury<br>Home
       </h1>
-      <p class="hero-subtitle reveal-up">
+      <p class="hero-subtitle reveal-up" data-i18n-html="hero.subtitle">
         Discover exclusive properties in the world's most coveted locations.<br>Where extraordinary living begins.
       </p>
       <div class="hero-actions reveal-up">
         <a href="#featured" class="btn btn-primary">
-          <span>Explore Properties</span>
+          <span data-i18n="hero.explore">Explore Properties</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <a href="#about" class="btn btn-ghost">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-          <span>Our Story</span>
+          <span data-i18n="hero.story">Our Story</span>
         </a>
       </div>
     </div>
@@ -307,15 +320,15 @@
     <!-- Hero Search Bar -->
     <div class="hero-search reveal-up" id="heroSearch">
       <div class="search-tabs">
-        <button class="stab active" data-tab="buy">Buy</button>
-        <button class="stab" data-tab="rent">Rent</button>
-        <button class="stab" data-tab="invest">Invest</button>
+        <button class="stab active" data-tab="buy" data-i18n="search.buy">Buy</button>
+        <button class="stab" data-tab="rent" data-i18n="search.rent">Rent</button>
+        <button class="stab" data-tab="invest" data-i18n="search.invest">Invest</button>
       </div>
       <div class="search-form">
         <div class="search-field">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <select>
-            <option value="">Location</option>
+            <option value="" data-i18n="search.location">Location</option>
             <option>New York, USA</option>
             <option>Beverly Hills, USA</option>
             <option>Monaco</option>
@@ -329,7 +342,7 @@
         <div class="search-field">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           <select>
-            <option value="">Property Type</option>
+            <option value="" data-i18n="search.propType">Property Type</option>
             <option>Penthouse</option>
             <option>Villa</option>
             <option>Estate</option>
@@ -340,7 +353,7 @@
         <div class="search-field">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           <select>
-            <option value="">Price Range</option>
+            <option value="" data-i18n="search.priceRange">Price Range</option>
             <option>$1M – $5M</option>
             <option>$5M – $10M</option>
             <option>$10M – $20M</option>
@@ -349,7 +362,7 @@
         </div>
         <button class="search-btn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <span>Search</span>
+          <span data-i18n="search.search">Search</span>
         </button>
       </div>
     </div>
@@ -357,7 +370,7 @@
     <!-- Scroll Indicator -->
     <div class="scroll-indicator">
       <div class="scroll-line"></div>
-      <span>Scroll</span>
+      <span data-i18n="hero.scroll">Scroll</span>
     </div>
   </section>
 
@@ -384,7 +397,7 @@
             </div>
           </div>
         </div>
-        <div class="stat-label">Properties Sold</div>
+        <div class="stat-label" data-i18n="stats.sold">Properties Sold</div>
       </div>
 
       <div class="stat-item reveal-up" style="--delay:0.1s">
@@ -402,7 +415,7 @@
             </div>
           </div>
         </div>
-        <div class="stat-label">Client Satisfaction</div>
+        <div class="stat-label" data-i18n="stats.satisfaction">Client Satisfaction</div>
       </div>
 
       <div class="stat-item reveal-up" style="--delay:0.2s">
@@ -421,7 +434,7 @@
             </div>
           </div>
         </div>
-        <div class="stat-label">Sales Volume</div>
+        <div class="stat-label" data-i18n="stats.volume">Sales Volume</div>
       </div>
 
       <div class="stat-item reveal-up" style="--delay:0.3s">
@@ -439,7 +452,7 @@
             </div>
           </div>
         </div>
-        <div class="stat-label">Years of Excellence</div>
+        <div class="stat-label" data-i18n="stats.years">Years of Excellence</div>
       </div>
 
     </div>
@@ -494,34 +507,34 @@
 
         <div class="morph-label-badge">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          SVG Morph Animation
+          <span data-i18n="morph.svgLabel">SVG Morph Animation</span>
         </div>
       </div>
 
       <!-- Text Content -->
       <div class="morph-text reveal-right">
-        <span class="section-tag">Defining Home</span>
-        <h2>From Structure<br>to <em>Sanctuary</em></h2>
-        <p class="morph-lead">
+        <span class="section-tag" data-i18n="morph.tag">Defining Home</span>
+        <h2 data-i18n-html="morph.title">From Structure<br>to <em>Sanctuary</em></h2>
+        <p class="morph-lead" data-i18n="morph.lead">
           Every extraordinary property begins as four walls. We transform it into the
           perfect expression of luxury living — where architecture meets aspiration.
         </p>
         <div class="morph-facts">
           <div class="morph-fact">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            <span>2,500+ homes placed</span>
+            <span data-i18n="morph.fact1">2,500+ homes placed</span>
           </div>
           <div class="morph-fact">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Average 21-day close</span>
+            <span data-i18n="morph.fact2">Average 21-day close</span>
           </div>
           <div class="morph-fact">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span>Lifetime client guarantee</span>
+            <span data-i18n="morph.fact3">Lifetime client guarantee</span>
           </div>
         </div>
         <a href="#featured" class="btn btn-primary">
-          <span>Explore Properties</span>
+          <span data-i18n="morph.explore">Explore Properties</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
@@ -539,18 +552,18 @@
   ========================================================= -->
   <section class="featured-section" id="featured">
     <div class="section-header reveal-up">
-      <span class="section-tag">Curated Selection</span>
-      <h2>Exceptional <em>Properties</em></h2>
-      <p>Handpicked luxury properties for the most discerning buyers worldwide</p>
+      <span class="section-tag" data-i18n="featured.tag">Curated Selection</span>
+      <h2 data-i18n-html="featured.title">Exceptional <em>Properties</em></h2>
+      <p data-i18n="featured.sub">Handpicked luxury properties for the most discerning buyers worldwide</p>
     </div>
 
     <!-- Filter Tabs -->
     <div class="filter-tabs reveal-up">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="penthouse">Penthouse</button>
-      <button class="filter-btn" data-filter="villa">Villa</button>
-      <button class="filter-btn" data-filter="estate">Estate</button>
-      <button class="filter-btn" data-filter="apartment">Apartment</button>
+      <button class="filter-btn active" data-filter="all" data-i18n="filter.all">All</button>
+      <button class="filter-btn" data-filter="penthouse" data-i18n="filter.penthouse">Penthouse</button>
+      <button class="filter-btn" data-filter="villa" data-i18n="filter.villa">Villa</button>
+      <button class="filter-btn" data-filter="estate" data-i18n="filter.estate">Estate</button>
+      <button class="filter-btn" data-filter="apartment" data-i18n="filter.apartment">Apartment</button>
     </div>
 
     <!-- Properties Grid — populated by JS -->
@@ -558,7 +571,7 @@
 
     <div class="load-more reveal-up">
       <a href="#contact" class="btn btn-outline-gold">
-        <span>View All Properties</span>
+        <span data-i18n="featured.viewAll">View All Properties</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
@@ -583,7 +596,7 @@
         </div>
         <div class="about-badge">
           <span class="badge-num">15+</span>
-          <span class="badge-label">Years of<br>Excellence</span>
+          <span class="badge-label" data-i18n-html="about.badgeLabel">Years of<br>Excellence</span>
         </div>
         <!-- SVG animated border -->
         <svg class="about-svg-border" viewBox="0 0 200 200" fill="none" preserveAspectRatio="none" aria-hidden="true">
@@ -593,13 +606,13 @@
 
       <!-- Text Content -->
       <div class="about-content reveal-right">
-        <span class="section-tag">Our Story</span>
-        <h2>Redefining Luxury<br><em>Real Estate</em> Since 2009</h2>
-        <p class="about-lead">
+        <span class="section-tag" data-i18n="about.tag">Our Story</span>
+        <h2 data-i18n-html="about.title">Redefining Luxury<br><em>Real Estate</em> Since 2009</h2>
+        <p class="about-lead" data-i18n="about.lead">
           Founded on the principle that every client deserves an extraordinary experience,
           LuxEstate has grown to become the most trusted name in ultra-premium properties.
         </p>
-        <p class="about-body">
+        <p class="about-body" data-i18n="about.body">
           With offices in New York, London, Monaco, and Dubai, our team of 200+ world-class agents
           brings unparalleled market intelligence and discretion to every transaction —
           no matter the scale or complexity.
@@ -611,8 +624,8 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <div class="feature-text">
-              <strong>Global Network</strong>
-              <span>Properties across 30+ countries</span>
+              <strong data-i18n="about.f1.title">Global Network</strong>
+              <span data-i18n="about.f1.sub">Properties across 30+ countries</span>
             </div>
           </div>
           <div class="feature-item">
@@ -620,8 +633,8 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <div class="feature-text">
-              <strong>White-Glove Service</strong>
-              <span>Dedicated agents for each client</span>
+              <strong data-i18n="about.f2.title">White-Glove Service</strong>
+              <span data-i18n="about.f2.sub">Dedicated agents for each client</span>
             </div>
           </div>
           <div class="feature-item">
@@ -629,8 +642,8 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <div class="feature-text">
-              <strong>Off-Market Access</strong>
-              <span>Exclusive listings not found elsewhere</span>
+              <strong data-i18n="about.f3.title">Off-Market Access</strong>
+              <span data-i18n="about.f3.sub">Exclusive listings not found elsewhere</span>
             </div>
           </div>
           <div class="feature-item">
@@ -638,14 +651,14 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <div class="feature-text">
-              <strong>Investment Advisory</strong>
-              <span>Strategic portfolio guidance</span>
+              <strong data-i18n="about.f4.title">Investment Advisory</strong>
+              <span data-i18n="about.f4.sub">Strategic portfolio guidance</span>
             </div>
           </div>
         </div>
 
         <a href="#contact" class="btn btn-primary">
-          <span>Meet Our Team</span>
+          <span data-i18n="about.meetTeam">Meet Our Team</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
@@ -659,9 +672,9 @@
   <section class="categories-section" id="categories">
     <div class="section-inner">
     <div class="section-header reveal-up">
-      <span class="section-tag">Browse By Type</span>
-      <h2>Property <em>Categories</em></h2>
-      <p>Find the perfect property type that matches your lifestyle and aspirations</p>
+      <span class="section-tag" data-i18n="cat.tag">Browse By Type</span>
+      <h2 data-i18n-html="cat.title">Property <em>Categories</em></h2>
+      <p data-i18n="cat.sub">Find the perfect property type that matches your lifestyle and aspirations</p>
     </div>
 
     <div class="categories-grid">
@@ -672,7 +685,7 @@
           <div class="cat-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 2v20M2 12h20"/></svg>
           </div>
-          <h3>Penthouse</h3>
+          <h3 data-i18n="cat.penthouse">Penthouse</h3>
           <span class="cat-count">48 Properties</span>
         </div>
         <div class="cat-arrow">
@@ -687,7 +700,7 @@
           <div class="cat-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12L12 3l9 9v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><rect x="9" y="13" width="6" height="8"/></svg>
           </div>
-          <h3>Luxury Villa</h3>
+          <h3 data-i18n="cat.villa">Luxury Villa</h3>
           <span class="cat-count">72 Properties</span>
         </div>
         <div class="cat-arrow">
@@ -702,7 +715,7 @@
           <div class="cat-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
           </div>
-          <h3>Grand Estate</h3>
+          <h3 data-i18n="cat.estate">Grand Estate</h3>
           <span class="cat-count">31 Properties</span>
         </div>
         <div class="cat-arrow">
@@ -717,7 +730,7 @@
           <div class="cat-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           </div>
-          <h3>Apartments</h3>
+          <h3 data-i18n="cat.apartments">Apartments</h3>
           <span class="cat-count">156 Properties</span>
         </div>
         <div class="cat-arrow">
@@ -732,7 +745,7 @@
           <div class="cat-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20h20M4 20V8l8-6 8 6v12"/><path d="M10 20v-6h4v6"/></svg>
           </div>
-          <h3>Commercial</h3>
+          <h3 data-i18n="cat.commercial">Commercial</h3>
           <span class="cat-count">29 Properties</span>
         </div>
         <div class="cat-arrow">
@@ -743,9 +756,9 @@
       <div class="cat-card cat-card-cta reveal-up" style="--delay:0.5s">
         <div class="cat-cta-inner">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-          <h3>Explore All Categories</h3>
-          <p>Discover 336+ premium properties across all types</p>
-          <a href="#contact" class="btn btn-outline-gold-sm">Browse Now</a>
+          <h3 data-i18n="cat.cta.title">Explore All Categories</h3>
+          <p data-i18n="cat.cta.sub">Discover 336+ premium properties across all types</p>
+          <a href="#contact" class="btn btn-outline-gold-sm" data-i18n="cat.cta.btn">Browse Now</a>
         </div>
       </div>
     </div>
@@ -761,9 +774,9 @@
     <div class="section-inner">
 
       <div class="section-header reveal-up">
-        <span class="section-tag">Architecture &amp; Presence</span>
-        <h2>Iconic Buildings,<br><em>Global Footprint</em></h2>
-        <p>A curated skyline of properties across the world's most prestigious addresses</p>
+        <span class="section-tag" data-i18n="showcase.tag">Architecture &amp; Presence</span>
+        <h2 data-i18n-html="showcase.title">Iconic Buildings,<br><em>Global Footprint</em></h2>
+        <p data-i18n="showcase.sub">A curated skyline of properties across the world's most prestigious addresses</p>
       </div>
 
       <!-- 4. Animated Building Outline Illustration -->
@@ -962,15 +975,15 @@
       <!-- 3. Animated Location Pin Map -->
       <div class="map-showcase reveal-up">
         <div class="map-showcase-text">
-          <span class="section-tag">Global Portfolio</span>
-          <h3>Exclusive Properties<br>in <em>5 Continents</em></h3>
-          <p>Our curated portfolio spans the world's most coveted real estate markets — from Manhattan penthouses to Monaco villas.</p>
+          <span class="section-tag" data-i18n="map.tag">Global Portfolio</span>
+          <h3 data-i18n-html="map.title">Exclusive Properties<br>in <em>5 Continents</em></h3>
+          <p data-i18n="map.sub">Our curated portfolio spans the world's most coveted real estate markets — from Manhattan penthouses to Monaco villas.</p>
           <ul class="city-list">
-            <li><span class="city-dot"></span>New York City</li>
-            <li><span class="city-dot"></span>Beverly Hills</li>
-            <li><span class="city-dot"></span>Monaco &amp; Riviera</li>
-            <li><span class="city-dot"></span>Dubai Marina</li>
-            <li><span class="city-dot"></span>Paris, France</li>
+            <li><span class="city-dot"></span><span data-i18n="city.ny">New York City</span></li>
+            <li><span class="city-dot"></span><span data-i18n="city.bh">Beverly Hills</span></li>
+            <li><span class="city-dot"></span><span data-i18n="city.mc">Monaco &amp; Riviera</span></li>
+            <li><span class="city-dot"></span><span data-i18n="city.db">Dubai Marina</span></li>
+            <li><span class="city-dot"></span><span data-i18n="city.pr">Paris, France</span></li>
           </ul>
         </div>
         <div class="map-svg-wrap">
@@ -1102,9 +1115,9 @@
   <section class="process-section" id="process">
     <div class="section-inner">
     <div class="section-header reveal-up">
-      <span class="section-tag">How It Works</span>
-      <h2>Your Journey to an<br><em>Extraordinary</em> Home</h2>
-      <p>A seamless, curated process from first consultation to final key handover</p>
+      <span class="section-tag" data-i18n="process.tag">How It Works</span>
+      <h2 data-i18n-html="process.title">Your Journey to an<br><em>Extraordinary</em> Home</h2>
+      <p data-i18n="process.sub">A seamless, curated process from first consultation to final key handover</p>
     </div>
 
     <!-- 9. Path-following connector line with moving dot -->
@@ -1127,8 +1140,8 @@
         <div class="step-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <h3>Consultation</h3>
-        <p>Meet with your dedicated advisor to define your vision, lifestyle requirements, and investment goals.</p>
+        <h3 data-i18n="step1.title">Consultation</h3>
+        <p data-i18n="step1.desc">Meet with your dedicated advisor to define your vision, lifestyle requirements, and investment goals.</p>
       </div>
 
       <div class="process-step reveal-up" style="--delay:0.15s">
@@ -1136,8 +1149,8 @@
         <div class="step-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </div>
-        <h3>Property Search</h3>
-        <p>We leverage our exclusive network to surface on-market and off-market properties matching your exact criteria.</p>
+        <h3 data-i18n="step2.title">Property Search</h3>
+        <p data-i18n="step2.desc">We leverage our exclusive network to surface on-market and off-market properties matching your exact criteria.</p>
       </div>
 
       <div class="process-step reveal-up" style="--delay:0.3s">
@@ -1145,8 +1158,8 @@
         <div class="step-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M1 3h15v13H1zM16 8l5 5-5 5"/></svg>
         </div>
-        <h3>Private Viewings</h3>
-        <p>Experience curated property tours — in-person or virtually — with expert commentary at every step.</p>
+        <h3 data-i18n="step3.title">Private Viewings</h3>
+        <p data-i18n="step3.desc">Experience curated property tours — in-person or virtually — with expert commentary at every step.</p>
       </div>
 
       <div class="process-step reveal-up" style="--delay:0.45s">
@@ -1154,8 +1167,8 @@
         <div class="step-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
-        <h3>Closing & Keys</h3>
-        <p>Our legal and financial team manages every detail ensuring a seamless, stress-free transaction.</p>
+        <h3 data-i18n="step4.title">Closing &amp; Keys</h3>
+        <p data-i18n="step4.desc">Our legal and financial team manages every detail ensuring a seamless, stress-free transaction.</p>
       </div>
     </div>
     </div><!-- /section-inner -->
@@ -1173,8 +1186,8 @@
   <section class="testimonials-section" id="testimonials">
     <div class="testimonials-bg"></div>
     <div class="section-header reveal-up">
-      <span class="section-tag">Client Stories</span>
-      <h2>Words From Our<br><em>Valued</em> Clients</h2>
+      <span class="section-tag" data-i18n="test.tag">Client Stories</span>
+      <h2 data-i18n-html="test.title">Words From Our<br><em>Valued</em> Clients</h2>
     </div>
 
     <div class="testimonials-wrapper">
@@ -1258,8 +1271,8 @@
     </svg>
     <!-- Label -->
     <div class="psky-label reveal-up">
-      <span class="section-tag">A Global Vision</span>
-      <h2>Your <em>Skyline</em> Awaits</h2>
+      <span class="section-tag" data-i18n="psky.tag">A Global Vision</span>
+      <h2 data-i18n-html="psky.title">Your <em>Skyline</em> Awaits</h2>
     </div>
   </section>
 
@@ -1274,9 +1287,9 @@
     <div class="skyline-sticky" id="skylineSticky">
 
       <div class="skyline-header">
-        <span class="section-tag">A Global Vision</span>
-        <h2 class="skyline-title">Cities <em>Drawn</em> for You</h2>
-        <p class="skyline-sub">Scroll to reveal the skylines where extraordinary homes await</p>
+        <span class="section-tag" data-i18n="sky.tag">A Global Vision</span>
+        <h2 class="skyline-title" data-i18n-html="sky.title">Cities <em>Drawn</em> for You</h2>
+        <p class="skyline-sub" data-i18n="sky.sub">Scroll to reveal the skylines where extraordinary homes await</p>
       </div>
 
       <div class="skyline-canvas-wrap" aria-label="Animated city skyline drawing">
@@ -1387,7 +1400,7 @@
 
       <div class="skyline-footer-text">
         <span id="skylineProgressLabel">0%</span>
-        <span>of the world revealed</span>
+        <span data-i18n="sky.revealed">of the world revealed</span>
       </div>
     </div>
   </section>
@@ -1421,12 +1434,12 @@
       </path>
     </svg>
     <div class="cta-content reveal-up">
-      <span class="section-tag">Take the Next Step</span>
-      <h2>Begin Your Journey to<br><em>Extraordinary</em> Living</h2>
-      <p>Connect with a LuxEstate advisor today and discover properties<br>that redefine what home can mean.</p>
+      <span class="section-tag" data-i18n="cta.tag">Take the Next Step</span>
+      <h2 data-i18n-html="cta.title">Begin Your Journey to<br><em>Extraordinary</em> Living</h2>
+      <p data-i18n-html="cta.sub">Connect with a LuxEstate advisor today and discover properties<br>that redefine what home can mean.</p>
       <div class="cta-actions">
         <a href="#contact" class="btn btn-primary btn-lg">
-          <span>Book a Consultation</span>
+          <span data-i18n="cta.book">Book a Consultation</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <a href="tel:+18005678900" class="btn btn-ghost-light btn-lg">
@@ -1445,9 +1458,9 @@
     <div class="section-container">
 
       <div class="section-header reveal-up">
-        <span class="section-tag">Book a Viewing</span>
-        <h2>Connect With an <em>Advisor</em></h2>
-        <p>Our team is available around the clock to arrange private viewings and answer every question.</p>
+        <span class="section-tag" data-i18n="contact.tag">Book a Viewing</span>
+        <h2 data-i18n-html="contact.title">Connect With an <em>Advisor</em></h2>
+        <p data-i18n="contact.sub">Our team is available around the clock to arrange private viewings and answer every question.</p>
       </div>
 
       <div class="contact-grid">
@@ -1459,7 +1472,7 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </div>
             <div>
-              <strong>Call Us</strong>
+              <strong data-i18n="contact.call">Call Us</strong>
               <span>+1 800 567 8900</span>
             </div>
           </div>
@@ -1468,7 +1481,7 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
             <div>
-              <strong>Email Us</strong>
+              <strong data-i18n="contact.email">Email Us</strong>
               <span>hello@luxestate.com</span>
             </div>
           </div>
@@ -1477,7 +1490,7 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <div>
-              <strong>Visit Us</strong>
+              <strong data-i18n="contact.visit">Visit Us</strong>
               <span>350 Fifth Avenue, New York</span>
             </div>
           </div>
@@ -1486,8 +1499,8 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
             <div>
-              <strong>Office Hours</strong>
-              <span>Mon – Sat, 9 am – 8 pm EST</span>
+              <strong data-i18n="contact.hours">Office Hours</strong>
+              <span data-i18n="contact.hoursVal">Mon – Sat, 9 am – 8 pm EST</span>
             </div>
           </div>
         </div>
@@ -1496,47 +1509,48 @@
         <form class="contact-form reveal-right" id="bookingForm" novalidate>
           <div class="form-row">
             <div class="form-field">
-              <label for="cf-name">Full Name</label>
-              <input type="text" id="cf-name" name="name" placeholder="Your full name" required />
+              <label for="cf-name" data-i18n="form.name">Full Name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your full name" data-i18n-ph="form.ph.name" required />
             </div>
             <div class="form-field">
-              <label for="cf-email">Email Address</label>
-              <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
+              <label for="cf-email" data-i18n="form.email">Email Address</label>
+              <input type="email" id="cf-email" name="email" placeholder="your@email.com" data-i18n-ph="form.ph.email" required />
             </div>
           </div>
           <div class="form-row">
             <div class="form-field">
-              <label for="cf-phone">Phone Number</label>
-              <input type="tel" id="cf-phone" name="phone" placeholder="+1 (555) 000-0000" />
+              <label for="cf-phone" data-i18n="form.phone">Phone Number</label>
+              <input type="tel" id="cf-phone" name="phone" placeholder="+1 (555) 000-0000" data-i18n-ph="form.ph.phone" />
             </div>
             <div class="form-field">
-              <label for="cf-type">Property Interest</label>
+              <label for="cf-type" data-i18n="form.interest">Property Interest</label>
               <div class="form-select-wrap">
                 <select id="cf-type" name="type">
-                  <option value="">Select type</option>
-                  <option>Penthouse</option>
-                  <option>Luxury Villa</option>
-                  <option>Grand Estate</option>
-                  <option>Apartment</option>
-                  <option>Investment Portfolio</option>
+                  <option value="" data-i18n="form.sel.default">Select type</option>
+                  <option data-i18n="form.sel.ph">Penthouse</option>
+                  <option data-i18n="form.sel.villa">Luxury Villa</option>
+                  <option data-i18n="form.sel.estate">Grand Estate</option>
+                  <option data-i18n="form.sel.apt">Apartment</option>
+                  <option data-i18n="form.sel.invest">Investment Portfolio</option>
                 </select>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </div>
           </div>
           <div class="form-field form-field-full">
-            <label for="cf-message">Your Message</label>
+            <label for="cf-message" data-i18n="form.message">Your Message</label>
             <textarea id="cf-message" name="message" rows="4"
-              placeholder="Tell us about your ideal property, budget, timeline…"></textarea>
+              placeholder="Tell us about your ideal property, budget, timeline…"
+              data-i18n-ph="form.ph.message"></textarea>
           </div>
           <div class="form-submit-row">
             <button type="submit" class="btn btn-primary btn-lg">
-              <span>Send Request</span>
+              <span data-i18n="form.send">Send Request</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </button>
             <p class="form-privacy">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Your details are kept strictly confidential.
+              <span data-i18n="form.privacy">Your details are kept strictly confidential.</span>
             </p>
           </div>
           <div class="form-success" id="bookingSuccess" aria-live="polite"></div>
@@ -1564,7 +1578,7 @@
             </svg>
             <span class="logo-text">Lux<em>Estate</em></span>
           </a>
-          <p>Redefining luxury real estate worldwide. Where extraordinary properties meet exceptional service.</p>
+          <p data-i18n="footer.tagline">Redefining luxury real estate worldwide. Where extraordinary properties meet exceptional service.</p>
           <div class="social-links">
             <a href="#" class="social-link" aria-label="Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -1583,36 +1597,36 @@
 
         <!-- Properties Column -->
         <div class="footer-col">
-          <h4>Properties</h4>
+          <h4 data-i18n="footer.props">Properties</h4>
           <ul>
-            <li><a href="#">Penthouse Collections</a></li>
-            <li><a href="#">Luxury Villas</a></li>
-            <li><a href="#">Grand Estates</a></li>
-            <li><a href="#">City Apartments</a></li>
-            <li><a href="#">Waterfront Homes</a></li>
-            <li><a href="#">Off-Plan Developments</a></li>
+            <li><a href="#" data-i18n="footer.l.penthouse">Penthouse Collections</a></li>
+            <li><a href="#" data-i18n="footer.l.villas">Luxury Villas</a></li>
+            <li><a href="#" data-i18n="footer.l.estates">Grand Estates</a></li>
+            <li><a href="#" data-i18n="footer.l.apts">City Apartments</a></li>
+            <li><a href="#" data-i18n="footer.l.water">Waterfront Homes</a></li>
+            <li><a href="#" data-i18n="footer.l.offplan">Off-Plan Developments</a></li>
           </ul>
         </div>
 
         <!-- Company Column -->
         <div class="footer-col">
-          <h4>Company</h4>
+          <h4 data-i18n="footer.company">Company</h4>
           <ul>
-            <li><a href="#">About LuxEstate</a></li>
-            <li><a href="#">Our Agents</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Press & Media</a></li>
-            <li><a href="#">Partner Program</a></li>
-            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#" data-i18n="footer.l.about">About LuxEstate</a></li>
+            <li><a href="#" data-i18n="footer.l.agents">Our Agents</a></li>
+            <li><a href="#" data-i18n="footer.l.careers">Careers</a></li>
+            <li><a href="#" data-i18n="footer.l.press">Press &amp; Media</a></li>
+            <li><a href="#" data-i18n="footer.l.partner">Partner Program</a></li>
+            <li><a href="#" data-i18n="footer.l.investor">Investor Relations</a></li>
           </ul>
         </div>
 
         <!-- Newsletter Column -->
         <div class="footer-col footer-newsletter">
-          <h4>Stay Informed</h4>
-          <p>Receive exclusive listings and market insights directly to your inbox.</p>
+          <h4 data-i18n="footer.newsletter">Stay Informed</h4>
+          <p data-i18n="footer.nl.desc">Receive exclusive listings and market insights directly to your inbox.</p>
           <form class="newsletter-form" id="newsletterForm">
-            <input type="email" placeholder="Your email address" required />
+            <input type="email" placeholder="Your email address" data-i18n-ph="footer.nl.ph" required />
             <button type="submit">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </button>
@@ -1633,11 +1647,11 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 LuxEstate. All rights reserved.</p>
+      <p data-i18n="footer.copy">&copy; 2026 LuxEstate. All rights reserved.</p>
       <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookie Policy</a>
+        <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="#" data-i18n="footer.terms">Terms of Service</a>
+        <a href="#" data-i18n="footer.cookies">Cookie Policy</a>
       </div>
     </div>
   </footer>
@@ -1647,6 +1661,7 @@
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
+  <script src="i18n.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

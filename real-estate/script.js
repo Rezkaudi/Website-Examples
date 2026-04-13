@@ -2035,7 +2035,43 @@ function initMagneticIcons() {
    INIT — everything fires after DOM is ready
    ============================================================ */
 
+/* ============================================================
+   THEME TOGGLE — Light / Dark Mode
+   ============================================================ */
+function initThemeToggle() {
+  const STORAGE_KEY = 'luxestate-theme';
+  const html = document.documentElement;
+
+  // Apply saved preference or default to dark
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved === 'light') {
+    html.setAttribute('data-theme', 'light');
+  }
+
+  function setTheme(theme) {
+    if (theme === 'light') {
+      html.setAttribute('data-theme', 'light');
+      localStorage.setItem(STORAGE_KEY, 'light');
+    } else {
+      html.removeAttribute('data-theme');
+      localStorage.setItem(STORAGE_KEY, 'dark');
+    }
+  }
+
+  function toggle() {
+    const isLight = html.getAttribute('data-theme') === 'light';
+    setTheme(isLight ? 'dark' : 'light');
+  }
+
+  document.getElementById('themeToggle')?.addEventListener('click', toggle);
+  document.getElementById('themeToggleMobile')?.addEventListener('click', toggle);
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
+
+  /* Theme toggle (runs first so theme is set before other inits) */
+  initThemeToggle();
 
   /* Core navigation */
   handleNavScroll();

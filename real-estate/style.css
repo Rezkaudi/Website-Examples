@@ -3331,3 +3331,229 @@ footer {
     display: none;
   }
 }
+
+
+/* ============================================================
+   THEME TOGGLE BUTTON
+   ============================================================ */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,169,126,0.25);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.65);
+  transition: color 0.25s ease, background 0.25s ease,
+              border-color 0.25s ease, transform 0.25s ease;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  color: var(--gold);
+  background: rgba(200,169,126,0.12);
+  border-color: rgba(200,169,126,0.45);
+  transform: rotate(20deg);
+}
+
+/* Icon visibility — dark mode shows moon, light mode shows sun */
+.theme-icon-sun  { display: none; }
+.theme-icon-moon { display: block; }
+
+[data-theme="light"] .theme-icon-sun  { display: block; }
+[data-theme="light"] .theme-icon-moon { display: none; }
+
+/* Mobile theme toggle inside mobile menu */
+.theme-toggle-mobile {
+  width: 40px;
+  height: 40px;
+  border-color: rgba(200,169,126,0.25);
+  background: rgba(200,169,126,0.06);
+  color: rgba(255,255,255,0.6);
+}
+
+.mm-bottom-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+.mm-bottom-row .lang-switcher-mobile {
+  margin-top: 0;
+}
+
+/* In light mode, adjust toggle colors for visibility */
+[data-theme="light"] .theme-toggle {
+  border-color: rgba(160,120,72,0.35);
+  background: rgba(0,0,0,0.05);
+  color: var(--text-muted);
+}
+[data-theme="light"] .theme-toggle:hover {
+  color: var(--gold-dark);
+  background: rgba(160,120,72,0.12);
+}
+[data-theme="light"] .theme-toggle-mobile {
+  border-color: rgba(160,120,72,0.3);
+  background: rgba(160,120,72,0.08);
+  color: var(--text-muted);
+}
+
+
+/* ============================================================
+   LIGHT MODE — CSS VARIABLES
+   ============================================================ */
+[data-theme="light"] {
+  --bg:          #f5f2ec;
+  --bg-2:        #ece8e0;
+  --bg-card:     #ffffff;
+  --bg-card-2:   #f0ece5;
+  --text:        #1a1a20;
+  --text-muted:  #5a566a;
+  --text-faint:  #c4bdb4;
+  --border:      rgba(160, 120, 72, 0.18);
+  --border-2:    rgba(0, 0, 0, 0.07);
+  --grad-dark:   linear-gradient(180deg, rgba(245,242,236,0) 0%, rgba(245,242,236,0.97) 100%);
+  --shadow-sm:   0 4px 20px rgba(0,0,0,0.08);
+  --shadow-md:   0 8px 40px rgba(0,0,0,0.12);
+  --shadow-gold: 0 8px 40px rgba(200,169,126,0.22);
+  --gold-glow:   rgba(200, 169, 126, 0.18);
+}
+
+/* Headings: override var(--white) to dark */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4 { color: var(--text); }
+
+/* Hero headings stay white (rendered over a dark photo overlay) */
+[data-theme="light"] .hero h1,
+[data-theme="light"] .hero-title,
+[data-theme="light"] .hero-subtitle { color: #ffffff; }
+[data-theme="light"] .hero p { color: rgba(255,255,255,0.75); }
+
+/* Hero overlay: keep the same dark treatment as dark mode so the
+   photo always looks sharp. A separate ::after handles the color
+   transition into the page background. */
+[data-theme="light"] .hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 28%;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Navbar — transparent state (over hero): keep white so text is
+   readable against the dark photo overlay */
+[data-theme="light"] .navbar:not(.scrolled) .nav-link       { color: rgba(255,255,255,0.75); }
+[data-theme="light"] .navbar:not(.scrolled) .nav-link:hover { color: #ffffff; }
+[data-theme="light"] .navbar:not(.scrolled) .logo-text      { color: #ffffff; }
+[data-theme="light"] .navbar:not(.scrolled) .hamburger      { color: #ffffff; }
+[data-theme="light"] .navbar:not(.scrolled) .lang-switcher  {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.2);
+}
+[data-theme="light"] .navbar:not(.scrolled) .lang-btn       { color: rgba(255,255,255,0.6); }
+
+/* Navbar — scrolled state: go dark */
+[data-theme="light"] .navbar.scrolled {
+  background: rgba(245, 242, 236, 0.95);
+  box-shadow: 0 1px 0 var(--border), 0 4px 20px rgba(0,0,0,0.07);
+}
+[data-theme="light"] .navbar.scrolled .logo-text      { color: var(--text); }
+[data-theme="light"] .navbar.scrolled .nav-link       { color: var(--text-muted); }
+[data-theme="light"] .navbar.scrolled .nav-link:hover { color: var(--text); }
+[data-theme="light"] .navbar.scrolled .hamburger      { color: var(--text); }
+[data-theme="light"] .navbar.scrolled .lang-switcher  {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(160,120,72,0.25);
+}
+[data-theme="light"] .navbar.scrolled .lang-btn       { color: rgba(26,26,32,0.5); }
+[data-theme="light"] .navbar.scrolled .lang-btn.active { color: #1a1000; }
+[data-theme="light"] .navbar.scrolled .theme-toggle   {
+  border-color: rgba(160,120,72,0.35);
+  background: rgba(0,0,0,0.05);
+  color: var(--text-muted);
+}
+
+/* Mobile menu panel */
+[data-theme="light"] .mobile-menu {
+  background: var(--bg);
+}
+[data-theme="light"] .mm-close-x {
+  stroke: var(--text);
+}
+
+/* Mobile menu links */
+[data-theme="light"] .mm-link { color: var(--text); }
+[data-theme="light"] .mm-num  { color: var(--text-muted); }
+
+/* Lang switcher — mobile menu */
+[data-theme="light"] .lang-switcher-mobile {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(160,120,72,0.25);
+}
+[data-theme="light"] .lang-switcher-mobile .lang-btn       { color: rgba(26,26,32,0.55); }
+[data-theme="light"] .lang-switcher-mobile .lang-btn.active { color: #1a1000; }
+
+/* Select option background */
+[data-theme="light"] .search-field select option {
+  background: var(--bg-card);
+  color: var(--text);
+}
+
+/* ── Property cards ─────────────────────────────────────────── */
+/* .prop-title uses var(--white) — invisible on light card bg   */
+[data-theme="light"] .prop-title            { color: var(--text); }
+[data-theme="light"] .prop-card:hover .prop-title { color: var(--gold-dark); }
+
+/* Fav button: dark semi-transparent circle looks fine on light bg */
+[data-theme="light"] .prop-fav {
+  background: rgba(0,0,0,0.18);
+  border-color: rgba(0,0,0,0.12);
+}
+
+/* Image bottom fade — adjust for lighter card feel */
+[data-theme="light"] .prop-img-wrap::after {
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.3) 100%);
+}
+
+/* Card hover shadow — lighter on light bg */
+[data-theme="light"] .prop-card:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.14), 0 0 0 1px rgba(200,169,126,0.2);
+}
+
+/* ── About section ──────────────────────────────────────────── */
+[data-theme="light"] .feature-text strong   { color: var(--text); }
+
+/* ── Testimonials ───────────────────────────────────────────── */
+[data-theme="light"] .testi-name            { color: var(--text); }
+
+/* ── Contact section ────────────────────────────────────────── */
+[data-theme="light"] .contact-info-item strong { color: var(--text); }
+
+/* ── Footer ─────────────────────────────────────────────────── */
+/* Footer logo text has no .navbar class so the navbar override misses it */
+[data-theme="light"] .footer-brand .logo-text  { color: var(--text); }
+/* .footer-col h4 has same specificity as [data-theme="light"] h4 — be explicit */
+[data-theme="light"] .footer-col h4            { color: var(--text); }
+
+/* ── Filter buttons ─────────────────────────────────────────── */
+/* var(--border-2) = rgba(255,255,255,0.06) in dark — near-invisible on light */
+[data-theme="light"] .filter-btn {
+  border-color: rgba(0,0,0,0.1);
+}
+
+/* ── Section headers ────────────────────────────────────────── */
+/* .section-tag uses var(--gold) which is fine in both modes */
+
+/* ── Cat card CTA (non-photo variant) ───────────────────────── */
+[data-theme="light"] .cat-card-cta {
+  background: linear-gradient(135deg,
+    rgba(200,169,126,0.12) 0%,
+    rgba(200,169,126,0.04) 100%);
+  border-color: rgba(160,120,72,0.2);
+}
+[data-theme="light"] .cat-cta-inner h3 { color: var(--text); }

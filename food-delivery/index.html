@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickBite — Food Delivered Fast</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="url(#logoGrad)"/>
+          <path d="M12 26 Q20 10 28 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <circle cx="20" cy="22" r="5" fill="#fff" opacity=".9"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
+              <stop offset="0%" stop-color="#ff6b35"/>
+              <stop offset="100%" stop-color="#f7c59f"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>Quick<strong>Bite</strong></span>
+      </a>
+
+      <!-- Desktop menu -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#app">App</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#" class="btn-nav">Order Now</a></li>
+      </ul>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-circles">
+      <span class="circle c1"></span>
+      <span class="circle c2"></span>
+      <span class="circle c3"></span>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="badge">
+          <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="4" fill="#ff6b35"/></svg>
+          Live in 50+ Cities
+        </span>
+        <h1>Delicious Food<br/><span class="gradient-text">Delivered Fast</span></h1>
+        <p>From your favourite restaurants straight to your door — hot, fresh, and in under 30 minutes.</p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn-primary">Explore Menu</a>
+          <a href="#app" class="btn-outline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            Watch Demo
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="counter" data-target="50000">0</span><span>+</span><small>Happy Customers</small></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="counter" data-target="1200">0</span><span>+</span><small>Restaurants</small></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="counter" data-target="98">0</span><span>%</span><small>On-time Delivery</small></div>
+        </div>
+      </div>
+
+      <!-- Real Food Photo -->
+      <div class="hero-visual">
+        <div class="plate-wrapper">
+
+          <!-- Main hero food image inside glowing circle -->
+          <div class="hero-food-ring">
+            <img
+              class="hero-food-img"
+              src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
+              alt="Delicious smash burger"
+            />
+          </div>
+
+          <!-- Floating food photo chips -->
+          <div class="float-item fi-1">
+            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=120&q=80" alt="Fries" />
+          </div>
+          <div class="float-item fi-2">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=120&q=80" alt="Pizza" />
+          </div>
+          <div class="float-item fi-3">
+            <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=120&q=80" alt="Sushi" />
+          </div>
+          <div class="float-item fi-4">
+            <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=120&q=80" alt="Ice cream" />
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Wave divider -->
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8f5f0"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FEATURES
+  ══════════════════════════════════════ -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Why QuickBite?</span>
+        <h2>Everything you love about<br/><span class="gradient-text">food delivery, perfected</span></h2>
+      </div>
+
+      <div class="features-grid">
+
+        <div class="feature-card" data-aos>
+          <div class="feature-icon-wrap orange">
+            <!-- Lightning bolt (fast delivery) -->
+            <svg class="feat-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="32" fill="rgba(255,107,53,.12)"/>
+              <path class="svg-draw" d="M36 12 L22 34 H32 L28 52 L46 30 H36 Z" fill="#ff6b35" stroke="#ff6b35" stroke-width="1" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>30-Min Delivery</h3>
+          <p>Our optimised routing ensures your food arrives hot and on time, every single order.</p>
+        </div>
+
+        <div class="feature-card" data-aos>
+          <div class="feature-icon-wrap purple">
+            <!-- Store / restaurant -->
+            <svg class="feat-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="32" fill="rgba(139,92,246,.12)"/>
+              <rect class="svg-draw" x="14" y="28" width="36" height="24" rx="3" fill="#8b5cf6"/>
+              <path class="svg-draw" d="M10 28 L32 12 L54 28" fill="#7c3aed"/>
+              <rect x="26" y="36" width="12" height="16" rx="2" fill="#fff" opacity=".9"/>
+              <rect x="17" y="33" width="8" height="8" rx="1" fill="#fff" opacity=".7"/>
+              <rect x="39" y="33" width="8" height="8" rx="1" fill="#fff" opacity=".7"/>
+            </svg>
+          </div>
+          <h3>Top Restaurants</h3>
+          <p>Curated selection of over 1,200 verified restaurants with ratings, menus and offers.</p>
+        </div>
+
+        <div class="feature-card" data-aos>
+          <div class="feature-icon-wrap green">
+            <!-- Map pin (live tracking) -->
+            <svg class="feat-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="32" fill="rgba(34,197,94,.12)"/>
+              <path class="svg-draw" d="M32 14 C22.06 14 14 22.06 14 32 C14 44 32 54 32 54 C32 54 50 44 50 32 C50 22.06 41.94 14 32 14 Z" fill="#22c55e"/>
+              <circle cx="32" cy="32" r="7" fill="#fff" opacity=".9"/>
+              <circle class="ping" cx="32" cy="32" r="7" fill="none" stroke="#22c55e" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Live Tracking</h3>
+          <p>Real-time GPS tracking from the kitchen to your front door — never wonder where your food is.</p>
+        </div>
+
+        <div class="feature-card" data-aos>
+          <div class="feature-icon-wrap blue">
+            <!-- Shield (safe payment) -->
+            <svg class="feat-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="32" fill="rgba(59,130,246,.12)"/>
+              <path class="svg-draw" d="M32 12 L50 20 L50 36 C50 44.84 41.6 51.6 32 54 C22.4 51.6 14 44.84 14 36 L14 20 Z" fill="#3b82f6"/>
+              <path d="M24 32 L29 37 L40 26" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Secure Payments</h3>
+          <p>Multiple payment options with bank-grade encryption keeping every transaction safe.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       POPULAR MENU
+  ══════════════════════════════════════ -->
+  <section class="menu" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Popular Right Now</span>
+        <h2>Trending <span class="gradient-text">this week</span></h2>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="filter-tabs">
+        <button class="tab active" data-filter="all">All</button>
+        <button class="tab" data-filter="burgers">Burgers</button>
+        <button class="tab" data-filter="pizza">Pizza</button>
+        <button class="tab" data-filter="sushi">Sushi</button>
+        <button class="tab" data-filter="desserts">Desserts</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+
+        <!-- Card 1 -->
+        <div class="menu-card" data-category="burgers">
+          <div class="menu-img-wrap">
+            <div class="menu-img">
+              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Double Smash Burger" />
+            </div>
+            <span class="badge-popular">🔥 Popular</span>
+            <button class="quick-add" aria-label="Add to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+          <div class="menu-info">
+            <div class="menu-meta">
+              <span class="menu-category">Burgers</span>
+              <span class="menu-rating">
+                <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                4.9
+              </span>
+            </div>
+            <h3>Double Smash Burger</h3>
+            <div class="menu-footer">
+              <span class="price">$12.99</span>
+              <span class="delivery-time">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                20 min
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="menu-card" data-category="pizza">
+          <div class="menu-img-wrap">
+            <div class="menu-img">
+              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" alt="Margherita Royale" />
+            </div>
+            <span class="badge-popular">⭐ Chef's Pick</span>
+            <button class="quick-add" aria-label="Add to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+          <div class="menu-info">
+            <div class="menu-meta">
+              <span class="menu-category">Pizza</span>
+              <span class="menu-rating">
+                <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                4.8
+              </span>
+            </div>
+            <h3>Margherita Royale</h3>
+            <div class="menu-footer">
+              <span class="price">$15.49</span>
+              <span class="delivery-time">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                25 min
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="menu-card" data-category="sushi">
+          <div class="menu-img-wrap">
+            <div class="menu-img">
+              <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=600&q=80" alt="Signature Roll Trio" />
+            </div>
+            <span class="badge-popular">🌊 Fresh</span>
+            <button class="quick-add" aria-label="Add to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+          <div class="menu-info">
+            <div class="menu-meta">
+              <span class="menu-category">Sushi</span>
+              <span class="menu-rating">
+                <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                4.7
+              </span>
+            </div>
+            <h3>Signature Roll Trio</h3>
+            <div class="menu-footer">
+              <span class="price">$18.99</span>
+              <span class="delivery-time">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                30 min
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="menu-card" data-category="desserts">
+          <div class="menu-img-wrap">
+            <div class="menu-img">
+              <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=600&q=80" alt="Triple Scoop Dream" />
+            </div>
+            <span class="badge-popular">🍦 Sweet</span>
+            <button class="quick-add" aria-label="Add to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+          <div class="menu-info">
+            <div class="menu-meta">
+              <span class="menu-category">Desserts</span>
+              <span class="menu-rating">
+                <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                4.9
+              </span>
+            </div>
+            <h3>Triple Scoop Dream</h3>
+            <div class="menu-footer">
+              <span class="price">$8.99</span>
+              <span class="delivery-time">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                15 min
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="menu-card" data-category="burgers">
+          <div class="menu-img-wrap">
+            <div class="menu-img">
+              <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=600&q=80" alt="Crispy Buffalo Wings" />
+            </div>
+            <span class="badge-popular">🔥 Spicy</span>
+            <button class="quick-add" aria-label="Add to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+          <div class="menu-info">
+            <div class="menu-meta">
+              <span class="menu-category">Burgers</span>
+              <span class="menu-rating">
+                <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                4.8
+              </span>
+            </div>
+            <h3>Crispy Buffalo Wings</h3>
+            <div class="menu-footer">
+              <span class="price">$13.49</span>
+              <span class="delivery-time">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                22 min
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="menu-card" data-category="pizza">
+          <div class="menu-img-wrap">
+            <div class="menu-img">
+              <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?auto=format&fit=crop&w=600&q=80" alt="Arrabbiata Pasta" />
+            </div>
+            <span class="badge-popular">🍝 New</span>
+            <button class="quick-add" aria-label="Add to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+          <div class="menu-info">
+            <div class="menu-meta">
+              <span class="menu-category">Pizza</span>
+              <span class="menu-rating">
+                <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                4.6
+              </span>
+            </div>
+            <h3>Arrabbiata Pasta</h3>
+            <div class="menu-footer">
+              <span class="price">$14.99</span>
+              <span class="delivery-time">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                28 min
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /menu-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       APP DOWNLOAD
+  ══════════════════════════════════════ -->
+  <section class="app-section" id="app">
+    <div class="container">
+      <div class="app-inner">
+        <div class="app-text">
+          <span class="section-tag light">Download the App</span>
+          <h2>Your favourite food,<br/>one tap away</h2>
+          <p>Track your order in real-time, save your favourite restaurants, and get exclusive in-app deals — all in our beautifully designed mobile app.</p>
+          <ul class="app-perks">
+            <li>
+              <svg viewBox="0 0 20 20" fill="#ff6b35"><path d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"/></svg>
+              Exclusive app-only discounts up to 30%
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="#ff6b35"><path d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"/></svg>
+              Live GPS tracking with push notifications
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="#ff6b35"><path d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"/></svg>
+              Reorder with one tap — saved favourites
+            </li>
+          </ul>
+          <div class="store-buttons">
+            <a href="#" class="store-btn">
+              <!-- Apple -->
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <div>
+                <small>Download on the</small>
+                <span>App Store</span>
+              </div>
+            </a>
+            <a href="#" class="store-btn">
+              <!-- Google Play -->
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.16.65.2.98.1l.1-.06 11.04-6.37-2.38-2.38-9.74 8.71zM.29 1.64A1.5 1.5 0 000 2.5v19c0 .32.08.62.23.88l.1.1 10.62-10.62L.4 1.54l-.1.1zM21.48 10.2l-2.89-1.67-2.68 2.68 2.68 2.68 2.91-1.68a1.5 1.5 0 000-2.01zM4.16.24L15.2 6.6l-2.38 2.38L3.26.3l.04-.05a1.5 1.5 0 01.86-.01z"/></svg>
+              <div>
+                <small>Get it on</small>
+                <span>Google Play</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Phone mockup -->
+        <div class="phone-wrap">
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <!-- Mini app UI inside phone -->
+              <div class="app-ui">
+                <div class="app-ui-header">
+                  <span>QuickBite</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.56L23 6H6"/></svg>
+                </div>
+                <div class="app-ui-search">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" width="14"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                  <span>Search restaurants...</span>
+                </div>
+                <div class="app-ui-cats">
+                  <span class="app-cat active">🍔 Burgers</span>
+                  <span class="app-cat">🍕 Pizza</span>
+                  <span class="app-cat">🍣 Sushi</span>
+                </div>
+                <div class="app-ui-card">
+                  <div class="app-card-img"></div>
+                  <div>
+                    <strong>Smash Burger Co.</strong>
+                    <small>4.9 ⭐ · 20 min · Free delivery</small>
+                  </div>
+                </div>
+                <div class="app-ui-card">
+                  <div class="app-card-img" style="background:#fde68a"></div>
+                  <div>
+                    <strong>Pizza Palace</strong>
+                    <small>4.8 ⭐ · 25 min · $1.99 delivery</small>
+                  </div>
+                </div>
+                <div class="app-tracking">
+                  <div class="tracking-header">
+                    <span>🛵 Your order is on the way!</span>
+                  </div>
+                  <div class="tracking-bar">
+                    <div class="tracking-progress"></div>
+                  </div>
+                  <small>Arriving in ~12 minutes</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Floating notification -->
+          <div class="phone-notif">
+            <svg viewBox="0 0 24 24" fill="#ff6b35" width="20"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            <div>
+              <strong>Order Confirmed!</strong>
+              <small>Est. delivery 28 min</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       TESTIMONIALS
+  ══════════════════════════════════════ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Real Reviews</span>
+        <h2>Loved by food fans <span class="gradient-text">everywhere</span></h2>
+      </div>
+
+      <div class="testimonials-track-wrap">
+        <div class="testimonials-track" id="testimonialsTrack">
+
+          <div class="testi-card">
+            <div class="testi-stars">
+              <svg viewBox="0 0 80 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M24 1l1.9 3.8 4.2.6-3 3 .7 4.2L24 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M40 1l1.9 3.8 4.2.6-3 3 .7 4.2L40 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M56 1l1.9 3.8 4.2.6-3 3 .7 4.2L56 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M72 1l1.9 3.8 4.2.6-3 3 .7 4.2L72 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            </div>
+            <p>"QuickBite is hands down the best food delivery app I've used. My order always arrives hot and exactly on time!"</p>
+            <div class="testi-author">
+              <div class="testi-avatar av1">S</div>
+              <div>
+                <strong>Sarah M.</strong>
+                <small>Food Blogger, London</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-stars">
+              <svg viewBox="0 0 80 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M24 1l1.9 3.8 4.2.6-3 3 .7 4.2L24 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M40 1l1.9 3.8 4.2.6-3 3 .7 4.2L40 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M56 1l1.9 3.8 4.2.6-3 3 .7 4.2L56 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M72 1l1.9 3.8 4.2.6-3 3 .7 4.2L72 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            </div>
+            <p>"The live tracking feature is a game changer. I always know exactly when my food is coming. Incredible service!"</p>
+            <div class="testi-author">
+              <div class="testi-avatar av2">J</div>
+              <div>
+                <strong>James T.</strong>
+                <small>Software Engineer, NYC</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-stars">
+              <svg viewBox="0 0 80 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M24 1l1.9 3.8 4.2.6-3 3 .7 4.2L24 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M40 1l1.9 3.8 4.2.6-3 3 .7 4.2L40 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M56 1l1.9 3.8 4.2.6-3 3 .7 4.2L56 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M72 1l1.9 3.8 4.2.6-3 3 .7 4.2L72 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            </div>
+            <p>"I order lunch every weekday. The restaurant selection is amazing and the app is super easy to use. 10/10!"</p>
+            <div class="testi-author">
+              <div class="testi-avatar av3">A</div>
+              <div>
+                <strong>Aisha K.</strong>
+                <small>Marketing Director, Dubai</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-stars">
+              <svg viewBox="0 0 80 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M24 1l1.9 3.8 4.2.6-3 3 .7 4.2L24 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M40 1l1.9 3.8 4.2.6-3 3 .7 4.2L40 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M56 1l1.9 3.8 4.2.6-3 3 .7 4.2L56 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M72 1l1.9 3.8 4.2.6-3 3 .7 4.2L72 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            </div>
+            <p>"Fast delivery, great packaging, and the food is always fresh. QuickBite has spoiled me — I can't order anywhere else!"</p>
+            <div class="testi-author">
+              <div class="testi-avatar av4">R</div>
+              <div>
+                <strong>Raj P.</strong>
+                <small>Chef & Restaurateur, Mumbai</small>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Dots -->
+      <div class="testi-dots" id="testiDots">
+        <button class="dot active" data-index="0"></button>
+        <button class="dot" data-index="1"></button>
+        <button class="dot" data-index="2"></button>
+        <button class="dot" data-index="3"></button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="url(#logoGrad2)"/>
+              <path d="M12 26 Q20 10 28 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <circle cx="20" cy="22" r="5" fill="#fff" opacity=".9"/>
+              <defs>
+                <linearGradient id="logoGrad2" x1="0" y1="0" x2="40" y2="40">
+                  <stop offset="0%" stop-color="#ff6b35"/>
+                  <stop offset="100%" stop-color="#f7c59f"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span>Quick<strong>Bite</strong></span>
+          </a>
+          <p>Bringing the world's best food to your door — fast, fresh, and always delicious.</p>
+          <!-- Social icons -->
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="5"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter/X">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.54V6.78a4.85 4.85 0 01-1.07-.09z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="footer-links-group">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>For Restaurants</h4>
+          <ul>
+            <li><a href="#">Partner with Us</a></li>
+            <li><a href="#">Restaurant Dashboard</a></li>
+            <li><a href="#">Marketing Tools</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 QuickBite Technologies Ltd. All rights reserved.</p>
+        <div class="payment-icons">
+          <span>Visa</span>
+          <span>Mastercard</span>
+          <span>PayPal</span>
+          <span>Apple Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart toast -->
+  <div class="cart-toast" id="cartToast">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    Added to cart!
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

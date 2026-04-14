@@ -318,7 +318,96 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 /* ──────────────────────────────────────────
-   11. ACTIVE NAV LINK — highlight on scroll
+   11. HOW IT WORKS — progressive step & SVG animations
+──────────────────────────────────────────── */
+(function initStepAnimations() {
+  const section    = document.querySelector('.how-it-works');
+  if (!section) return;
+
+  const cards      = Array.from(section.querySelectorAll('.step-card'));
+  const connectors = Array.from(section.querySelectorAll('.step-connector'));
+  let   triggered  = false;
+
+  /* Accurate dashoffset only for connector paths — icons are filled SVGs, not stroked */
+  section.querySelectorAll('.connector-path, .connector-arrow').forEach(el => {
+    try {
+      const len = el.getTotalLength();
+      el.style.strokeDasharray  = len;
+      el.style.strokeDashoffset = len;
+    } catch (_) { /* CSS fallback (300) already set */ }
+  });
+
+  /* Sequential reveal: card 1 → arrow 1 → card 2 → arrow 2 → card 3 */
+  const sequence = [
+    () => cards[0]?.classList.add('step-visible'),           //    0 ms
+    () => connectors[0]?.classList.add('connector-visible'), //  600 ms
+    () => cards[1]?.classList.add('step-visible'),           //  880 ms
+    () => connectors[1]?.classList.add('connector-visible'), // 1500 ms
+    () => cards[2]?.classList.add('step-visible'),           // 1780 ms
+  ];
+  const delays = [0, 600, 880, 1500, 1780];
+
+  const observer = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting || triggered) return;
+    triggered = true;
+    sequence.forEach((fn, i) => setTimeout(fn, delays[i]));
+  }, { threshold: 0.12 });
+
+  observer.observe(section);
+})();
+
+
+/* ──────────────────────────────────────────
+   12. NEWSLETTER FORM — subscribe feedback
+──────────────────────────────────────────── */
+function handleNewsletter(e) {
+  e.preventDefault();
+  const form  = e.target;
+  const input = form.querySelector('input');
+  const btn   = form.querySelector('button');
+  const orig  = btn.textContent;
+
+  btn.textContent = '✓ Subscribed!';
+  btn.style.background = '#22c55e';
+  input.value = '';
+
+  setTimeout(() => {
+    btn.textContent = orig;
+    btn.style.background = '';
+  }, 3000);
+
+  return false;
+}
+
+/* ──────────────────────────────────────────
+   12. HERO SEARCH — focus effect + Enter key
+──────────────────────────────────────────── */
+(function initHeroSearch() {
+  const input = document.querySelector('.search-input');
+  const btn   = document.querySelector('.search-btn');
+  if (!input || !btn) return;
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      btn.click();
+    }
+  });
+
+  btn.addEventListener('click', () => {
+    if (!input.value.trim()) return;
+    const menuSection = document.getElementById('menu');
+    if (menuSection) {
+      const top = menuSection.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+    input.value = '';
+  });
+})();
+
+
+/* ──────────────────────────────────────────
+   14. ACTIVE NAV LINK — highlight on scroll
 ──────────────────────────────────────────── */
 (function initActiveLinks() {
   const sections = document.querySelectorAll('section[id]');

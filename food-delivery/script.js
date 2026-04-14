@@ -197,34 +197,145 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 /* ──────────────────────────────────────────
-   5. MENU FILTER TABS
+   5. MENU FILTER TABS — sliding indicator + GSAP card transitions
 ──────────────────────────────────────────── */
 (function initMenuFilter() {
-  const tabs     = document.querySelectorAll('.tab');
-  const cards    = document.querySelectorAll('.menu-card');
+  const tabs    = document.querySelectorAll('.tab');
+  const track   = document.getElementById('tabTrack');
+  const cards   = document.querySelectorAll('.menu-card');
 
+  /* ── Sliding pill indicator ── */
+  function moveTrack(activeTab) {
+    if (!track || !activeTab) return;
+    const tabsEl  = document.getElementById('filterTabs');
+    const pRect   = tabsEl.getBoundingClientRect();
+    const tRect   = activeTab.getBoundingClientRect();
+    track.style.left    = (tRect.left - pRect.left) + 'px';
+    track.style.width   = tRect.width + 'px';
+    track.style.opacity = '1';
+  }
+
+  // Position on load (after fonts/layout settle)
+  requestAnimationFrame(() => {
+    const active = document.querySelector('.tab.active');
+    moveTrack(active);
+  });
+
+  /* ── Filter with stagger animation ── */
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      // Update active tab
-      tabs.forEach(t => t.classList.remove('active'));
+      if (tab.classList.contains('active')) return;
+
+      // Swap active class
+      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
       tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      moveTrack(tab);
 
       const filter = tab.dataset.filter;
 
-      cards.forEach(card => {
-        const match = filter === 'all' || card.dataset.category === filter;
-
-        if (match) {
-          card.classList.remove('hidden');
-          // Re-trigger entrance animation
-          card.style.animation = 'none';
-          card.offsetHeight; // reflow
-          card.style.animation = '';
-        } else {
-          card.classList.add('hidden');
-        }
+      // Split cards into show/hide
+      const toShow = [];
+      const toHide = [];
+      cards.forEach(c => {
+        const match = filter === 'all' || c.dataset.category === filter;
+        if (match) toShow.push(c); else toHide.push(c);
       });
+
+      if (typeof gsap !== 'undefined') {
+        // Animate out
+        if (toHide.length) {
+          gsap.to(toHide, {
+            opacity: 0, scale: 0.9, y: 10,
+            duration: 0.22, stagger: 0.04, ease: 'power2.in',
+            onComplete() {
+              toHide.forEach(c => c.classList.add('hidden'));
+            },
+          });
+        }
+        // Animate in (after slight delay)
+        setTimeout(() => {
+          toShow.forEach(c => { c.classList.remove('hidden'); gsap.set(c, { opacity: 0, scale: 0.88, y: 18 }); });
+          gsap.to(toShow, {
+            opacity: 1, scale: 1, y: 0,
+            duration: 0.42, stagger: 0.07,
+            ease: 'back.out(1.5)',
+            clearProps: 'all',
+          });
+        }, toHide.length ? 180 : 0);
+      } else {
+        toHide.forEach(c => c.classList.add('hidden'));
+        toShow.forEach(c => c.classList.remove('hidden'));
+      }
     });
+  });
+})();
+
+
+/* ──────────────────────────────────────────
+   5b. LIKE BUTTON — heart animation
+──────────────────────────────────────────── */
+(function initLikeButtons() {
+  document.querySelectorAll('.like-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const isLiked = btn.classList.toggle('liked');
+
+      if (typeof gsap !== 'undefined') {
+        gsap.timeline()
+          .to(btn, { scale: 0.72, duration: 0.12, ease: 'power2.in' })
+          .to(btn, { scale: 1.28, duration: 0.22, ease: 'back.out(3)' })
+          .to(btn, { scale: 1,    duration: 0.16, ease: 'power2.out' });
+
+        if (isLiked) {
+          // Burst particles
+          const rect = btn.getBoundingClientRect();
+          for (let i = 0; i < 6; i++) {
+            const dot = document.createElement('span');
+            dot.style.cssText = `
+              position:fixed;left:${rect.left + rect.width/2}px;top:${rect.top + rect.height/2}px;
+              width:6px;height:6px;border-radius:50%;pointer-events:none;z-index:9999;
+              background:${['#ef4444','#f59e0b','#ff6b35'][i % 3]};
+            `;
+            document.body.appendChild(dot);
+            const angle = (i / 6) * Math.PI * 2;
+            gsap.to(dot, {
+              x: Math.cos(angle) * 28, y: Math.sin(angle) * 28,
+              opacity: 0, duration: 0.55, ease: 'power2.out',
+              onComplete: () => dot.remove(),
+            });
+          }
+        }
+      }
+    });
+  });
+})();
+
+
+/* ──────────────────────────────────────────
+   5c. VIEW-ALL button — ripple click effect
+──────────────────────────────────────────── */
+(function initViewAllBtn() {
+  const btn = document.querySelector('.view-all-btn');
+  if (!btn) return;
+  btn.addEventListener('click', e => {
+    const rect   = btn.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    const size   = Math.max(rect.width, rect.height) * 1.6;
+    ripple.style.cssText = `
+      position:absolute;border-radius:50%;
+      width:${size}px;height:${size}px;
+      left:${e.clientX - rect.left - size/2}px;
+      top:${e.clientY - rect.top  - size/2}px;
+      background:rgba(255,255,255,0.3);
+      pointer-events:none;transform:scale(0);
+    `;
+    btn.appendChild(ripple);
+    if (typeof gsap !== 'undefined') {
+      gsap.to(ripple, { scale: 1, opacity: 0, duration: 0.55, ease: 'power2.out', onComplete: () => ripple.remove() });
+    } else {
+      ripple.remove();
+    }
   });
 })();
 
@@ -794,16 +905,47 @@ function handleNewsletter(e) {
     y: 60, opacity: 0, duration: 0.70, stagger: 0.14, ease: 'power3.out', clearProps: 'all',
   });
 
-  /* ── Filter tabs ── */
-  gsap.from('.filter-tabs .tab', {
-    scrollTrigger: { trigger: '.filter-tabs', start: 'top 86%' },
-    y: 18, opacity: 0, duration: 0.40, stagger: 0.08, ease: 'power3.out',
+  /* ── Menu section background orbs parallax ── */
+  gsap.to('.menu-orb-1', {
+    scrollTrigger: { trigger: '.menu', start: 'top bottom', end: 'bottom top', scrub: 1.8 },
+    y: -80, x: 30, ease: 'none',
+  });
+  gsap.to('.menu-orb-2', {
+    scrollTrigger: { trigger: '.menu', start: 'top bottom', end: 'bottom top', scrub: 2.2 },
+    y: -60, x: -20, ease: 'none',
+  });
+  gsap.to('.menu-orb-3', {
+    scrollTrigger: { trigger: '.menu', start: 'top bottom', end: 'bottom top', scrub: 1.4 },
+    y: -40, ease: 'none',
   });
 
-  /* ── Menu cards ── */
+  /* ── Menu sparks parallax ── */
+  gsap.to('.menu-spark-1', {
+    scrollTrigger: { trigger: '.menu', start: 'top bottom', end: 'bottom top', scrub: 1 },
+    y: -50, rotation: 45, ease: 'none',
+  });
+  gsap.to('.menu-spark-3', {
+    scrollTrigger: { trigger: '.menu', start: 'top bottom', end: 'bottom top', scrub: 1.5 },
+    y: -35, rotation: -30, ease: 'none',
+  });
+
+  /* ── Filter tabs stagger in ── */
+  gsap.from('.filter-tabs .tab', {
+    scrollTrigger: { trigger: '.filter-tabs', start: 'top 88%' },
+    y: 22, opacity: 0, duration: 0.42, stagger: 0.07, ease: 'back.out(1.8)',
+  });
+
+  /* ── Menu cards: scale + fade stagger ── */
   gsap.from('.menu-card', {
-    scrollTrigger: { trigger: '.menu-grid', start: 'top 82%' },
-    y: 50, opacity: 0, scale: 0.95, duration: 0.60, stagger: 0.09, ease: 'power3.out', clearProps: 'all',
+    scrollTrigger: { trigger: '.menu-grid', start: 'top 80%' },
+    y: 60, opacity: 0, scale: 0.88, duration: 0.65, stagger: 0.10,
+    ease: 'back.out(1.4)', clearProps: 'all',
+  });
+
+  /* ── View-all CTA reveal ── */
+  gsap.from('.menu-view-all', {
+    scrollTrigger: { trigger: '.menu-view-all', start: 'top 92%' },
+    y: 30, opacity: 0, duration: 0.55, ease: 'power3.out',
   });
 
   /* ── How-it-works promo strip ── */

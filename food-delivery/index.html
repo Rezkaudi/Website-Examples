@@ -275,197 +275,330 @@
        POPULAR MENU
   ══════════════════════════════════════ -->
   <section class="menu" id="menu">
+
+    <!-- Decorative background layer -->
+    <div class="menu-bg" aria-hidden="true">
+      <div class="menu-orb menu-orb-1"></div>
+      <div class="menu-orb menu-orb-2"></div>
+      <div class="menu-orb menu-orb-3"></div>
+      <svg class="menu-dots-pattern" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="menuDotGrid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.4" fill="rgba(255,107,53,0.10)"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#menuDotGrid)"/>
+      </svg>
+      <!-- Floating SVG spark shapes -->
+      <svg class="menu-spark menu-spark-1" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 2 L22.4 17.6 L38 20 L22.4 22.4 L20 38 L17.6 22.4 L2 20 L17.6 17.6 Z" fill="rgba(255,107,53,0.18)" stroke="rgba(255,107,53,0.35)" stroke-width="1"/>
+      </svg>
+      <svg class="menu-spark menu-spark-2" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="12" stroke="rgba(245,158,11,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      </svg>
+      <svg class="menu-spark menu-spark-3" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 2 L22.4 17.6 L38 20 L22.4 22.4 L20 38 L17.6 22.4 L2 20 L17.6 17.6 Z" fill="rgba(139,92,246,0.14)" stroke="rgba(139,92,246,0.28)" stroke-width="1"/>
+      </svg>
+    </div>
+
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Popular Right Now</span>
+
+      <!-- ── Section header ── -->
+      <div class="section-header menu-section-header">
+        <div class="menu-tag-row">
+          <span class="section-tag">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin-right:5px"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+            Popular Right Now
+          </span>
+          <div class="live-badge">
+            <span class="live-pulse"></span>
+            <span>Live</span>
+          </div>
+        </div>
         <h2>Trending <span class="gradient-text">this week</span></h2>
+        <!-- Animated SVG wave underline -->
+        <svg class="heading-wave" viewBox="0 0 260 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ff6b35"/>
+              <stop offset="100%" stop-color="#f59e0b"/>
+            </linearGradient>
+          </defs>
+          <path class="wave-path" d="M0,8 Q32,2 65,8 T130,8 T195,8 T260,8" stroke="url(#waveGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <p class="menu-section-sub">Discover what 50,000+ customers can't stop ordering right now</p>
       </div>
 
-      <!-- Filter tabs -->
-      <div class="filter-tabs">
-        <button class="tab active" data-filter="all">All</button>
-        <button class="tab" data-filter="burgers">Burgers</button>
-        <button class="tab" data-filter="pizza">Pizza</button>
-        <button class="tab" data-filter="sushi">Sushi</button>
-        <button class="tab" data-filter="desserts">Desserts</button>
+      <!-- ── Filter tabs ── -->
+      <div class="filter-tabs" id="filterTabs" role="tablist">
+        <div class="tab-track" id="tabTrack"></div>
+        <button class="tab active" data-filter="all" role="tab" aria-selected="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/></svg>
+          All
+          <span class="tab-count">6</span>
+        </button>
+        <button class="tab" data-filter="burgers" role="tab" aria-selected="false">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 14h16a1 1 0 000-2H4a1 1 0 000 2zm-1-5a1 1 0 001 1h16a1 1 0 000-2H4a1 1 0 00-1 1zm3 9.5C6 19.88 6.9 21 8 21h8c1.1 0 2-1.12 2-2.5H6z"/></svg>
+          Burgers
+          <span class="tab-count">2</span>
+        </button>
+        <button class="tab" data-filter="pizza" role="tab" aria-selected="false">
+          <svg width="14" height="14" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M256 48C141.2 48 48 141.2 48 256s93.2 208 208 208 208-93.2 208-208S370.8 48 256 48zm0 368c-88.2 0-160-71.8-160-160S167.8 96 256 96s160 71.8 160 160-71.8 160-160 160zm-48-176a32 32 0 1164 0 32 32 0 01-64 0zm96 64a16 16 0 1132 0 16 16 0 01-32 0zm-80 32a16 16 0 1132 0 16 16 0 01-32 0z"/></svg>
+          Pizza
+          <span class="tab-count">2</span>
+        </button>
+        <button class="tab" data-filter="sushi" role="tab" aria-selected="false">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="6"/><ellipse cx="12" cy="12" rx="5.5" ry="3.2" fill="white" opacity=".45"/><circle cx="12" cy="12" r="3" fill="#ff6b35" opacity=".7"/></svg>
+          Sushi
+          <span class="tab-count">1</span>
+        </button>
+        <button class="tab" data-filter="desserts" role="tab" aria-selected="false">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm1 14h-2v-1h2v1zm2-5.82V15h-6v-4.82C7.48 9.46 7 8.29 7 7h10c0 1.29-.48 2.46-2 3.18z"/></svg>
+          Desserts
+          <span class="tab-count">1</span>
+        </button>
       </div>
 
+      <!-- ── Menu grid ── -->
       <div class="menu-grid" id="menuGrid">
 
-        <!-- Card 1 -->
-        <div class="menu-card" data-category="burgers">
+        <!-- Card 1 — Burgers -->
+        <div class="menu-card" data-category="burgers" data-rank="1">
           <div class="menu-img-wrap">
+            <span class="card-rank">#1</span>
             <div class="menu-img">
-              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Double Smash Burger" />
+              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Double Smash Burger" loading="lazy" />
             </div>
             <span class="badge-popular">🔥 Popular</span>
+            <button class="like-btn" aria-label="Like this dish">
+              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
             <button class="quick-add" aria-label="Add to cart">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
+            <div class="card-hover-info">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
+              <span>2,400 orders this week</span>
+            </div>
           </div>
           <div class="menu-info">
             <div class="menu-meta">
               <span class="menu-category">Burgers</span>
               <span class="menu-rating">
-                <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-                4.9
+                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                4.9 <span class="rating-count">(847)</span>
               </span>
             </div>
             <h3>Double Smash Burger</h3>
             <div class="menu-footer">
-              <span class="price">$12.99</span>
+              <div class="price-wrap">
+                <span class="price">$12.99</span>
+                <span class="price-original">$16.00</span>
+              </div>
               <span class="delivery-time">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
                 20 min
               </span>
             </div>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="menu-card" data-category="pizza">
+        <!-- Card 2 — Pizza -->
+        <div class="menu-card" data-category="pizza" data-rank="2">
           <div class="menu-img-wrap">
+            <span class="card-rank">#2</span>
             <div class="menu-img">
-              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" alt="Margherita Royale" />
+              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" alt="Margherita Royale" loading="lazy" />
             </div>
             <span class="badge-popular">⭐ Chef's Pick</span>
+            <button class="like-btn" aria-label="Like this dish">
+              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
             <button class="quick-add" aria-label="Add to cart">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
+            <div class="card-hover-info">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
+              <span>1,850 orders this week</span>
+            </div>
           </div>
           <div class="menu-info">
             <div class="menu-meta">
               <span class="menu-category">Pizza</span>
               <span class="menu-rating">
-                <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-                4.8
+                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                4.8 <span class="rating-count">(612)</span>
               </span>
             </div>
             <h3>Margherita Royale</h3>
             <div class="menu-footer">
-              <span class="price">$15.49</span>
+              <div class="price-wrap">
+                <span class="price">$15.49</span>
+              </div>
               <span class="delivery-time">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
                 25 min
               </span>
             </div>
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="menu-card" data-category="sushi">
+        <!-- Card 3 — Sushi -->
+        <div class="menu-card" data-category="sushi" data-rank="3">
           <div class="menu-img-wrap">
+            <span class="card-rank">#3</span>
             <div class="menu-img">
-              <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=600&q=80" alt="Signature Roll Trio" />
+              <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=600&q=80" alt="Signature Roll Trio" loading="lazy" />
             </div>
             <span class="badge-popular">🌊 Fresh</span>
+            <button class="like-btn" aria-label="Like this dish">
+              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
             <button class="quick-add" aria-label="Add to cart">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
+            <div class="card-hover-info">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
+              <span>1,120 orders this week</span>
+            </div>
           </div>
           <div class="menu-info">
             <div class="menu-meta">
               <span class="menu-category">Sushi</span>
               <span class="menu-rating">
-                <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-                4.7
+                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                4.7 <span class="rating-count">(389)</span>
               </span>
             </div>
             <h3>Signature Roll Trio</h3>
             <div class="menu-footer">
-              <span class="price">$18.99</span>
+              <div class="price-wrap">
+                <span class="price">$18.99</span>
+                <span class="price-original">$22.00</span>
+              </div>
               <span class="delivery-time">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
                 30 min
               </span>
             </div>
           </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="menu-card" data-category="desserts">
+        <!-- Card 4 — Desserts -->
+        <div class="menu-card" data-category="desserts" data-rank="4">
           <div class="menu-img-wrap">
+            <span class="card-rank">#4</span>
             <div class="menu-img">
-              <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=600&q=80" alt="Triple Scoop Dream" />
+              <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=600&q=80" alt="Triple Scoop Dream" loading="lazy" />
             </div>
             <span class="badge-popular">🍦 Sweet</span>
+            <button class="like-btn" aria-label="Like this dish">
+              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
             <button class="quick-add" aria-label="Add to cart">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
+            <div class="card-hover-info">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
+              <span>980 orders this week</span>
+            </div>
           </div>
           <div class="menu-info">
             <div class="menu-meta">
               <span class="menu-category">Desserts</span>
               <span class="menu-rating">
-                <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-                4.9
+                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                4.9 <span class="rating-count">(726)</span>
               </span>
             </div>
             <h3>Triple Scoop Dream</h3>
             <div class="menu-footer">
-              <span class="price">$8.99</span>
+              <div class="price-wrap">
+                <span class="price">$8.99</span>
+              </div>
               <span class="delivery-time">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
                 15 min
               </span>
             </div>
           </div>
         </div>
 
-        <!-- Card 5 -->
-        <div class="menu-card" data-category="burgers">
+        <!-- Card 5 — Burgers -->
+        <div class="menu-card" data-category="burgers" data-rank="5">
           <div class="menu-img-wrap">
+            <span class="card-rank">#5</span>
             <div class="menu-img">
-              <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=600&q=80" alt="Crispy Buffalo Wings" />
+              <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=600&q=80" alt="Crispy Buffalo Wings" loading="lazy" />
             </div>
             <span class="badge-popular">🔥 Spicy</span>
+            <button class="like-btn" aria-label="Like this dish">
+              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
             <button class="quick-add" aria-label="Add to cart">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
+            <div class="card-hover-info">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
+              <span>760 orders this week</span>
+            </div>
           </div>
           <div class="menu-info">
             <div class="menu-meta">
               <span class="menu-category">Burgers</span>
               <span class="menu-rating">
-                <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-                4.8
+                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                4.8 <span class="rating-count">(523)</span>
               </span>
             </div>
             <h3>Crispy Buffalo Wings</h3>
             <div class="menu-footer">
-              <span class="price">$13.49</span>
+              <div class="price-wrap">
+                <span class="price">$13.49</span>
+              </div>
               <span class="delivery-time">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
                 22 min
               </span>
             </div>
           </div>
         </div>
 
-        <!-- Card 6 -->
-        <div class="menu-card" data-category="pizza">
+        <!-- Card 6 — Pizza -->
+        <div class="menu-card" data-category="pizza" data-rank="6">
           <div class="menu-img-wrap">
+            <span class="card-rank">#6</span>
             <div class="menu-img">
-              <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?auto=format&fit=crop&w=600&q=80" alt="Arrabbiata Pasta" />
+              <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?auto=format&fit=crop&w=600&q=80" alt="Arrabbiata Pasta" loading="lazy" />
             </div>
             <span class="badge-popular">🍝 New</span>
+            <button class="like-btn" aria-label="Like this dish">
+              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
             <button class="quick-add" aria-label="Add to cart">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
+            <div class="card-hover-info">
+              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
+              <span>640 orders this week</span>
+            </div>
           </div>
           <div class="menu-info">
             <div class="menu-meta">
               <span class="menu-category">Pizza</span>
               <span class="menu-rating">
-                <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-                4.6
+                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                4.6 <span class="rating-count">(298)</span>
               </span>
             </div>
             <h3>Arrabbiata Pasta</h3>
             <div class="menu-footer">
-              <span class="price">$14.99</span>
+              <div class="price-wrap">
+                <span class="price">$14.99</span>
+                <span class="price-original">$18.00</span>
+              </div>
               <span class="delivery-time">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
                 28 min
               </span>
             </div>
@@ -473,6 +606,16 @@
         </div>
 
       </div><!-- /menu-grid -->
+
+      <!-- ── View-all CTA ── -->
+      <div class="menu-view-all">
+        <button class="view-all-btn" type="button">
+          <span>Explore All Dishes</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <p class="menu-view-hint">200+ dishes from top local restaurants</p>
+      </div>
+
     </div>
   </section>
 

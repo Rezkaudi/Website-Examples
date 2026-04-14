@@ -36,7 +36,7 @@
         <span>Quick<strong>Bite</strong></span>
       </div>
       <div class="pl-bar-wrap"><div class="pl-bar"></div></div>
-      <p class="pl-text">Preparing your experience</p>
+      <p class="pl-text" data-i18n="preloader.text">Preparing your experience</p>
     </div>
   </div>
 
@@ -71,12 +71,19 @@
 
       <!-- Desktop menu -->
       <ul class="nav-links" id="navLinks">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#app">App</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
-        <li><a href="#" class="btn-nav">Order Now</a></li>
+        <li><a href="#features" data-i18n="nav.features">Features</a></li>
+        <li><a href="#menu" data-i18n="nav.menu">Menu</a></li>
+        <li><a href="#app" data-i18n="nav.app">App</a></li>
+        <li><a href="#testimonials" data-i18n="nav.reviews">Reviews</a></li>
+        <li><a href="#" class="btn-nav" data-i18n="nav.order">Order Now</a></li>
       </ul>
+
+      <!-- Language Switcher -->
+      <div class="lang-switcher" id="langSwitcher" aria-label="Language switcher">
+        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="ar" aria-label="العربية">AR</button>
+        <button class="lang-btn active" data-lang="ja" aria-label="日本語">JA</button>
+      </div>
 
       <!-- Hamburger -->
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -100,35 +107,35 @@
       <div class="hero-text">
         <span class="badge">
           <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="4" fill="#ff6b35"/></svg>
-          Live in 50+ Cities
+          <span data-i18n="hero.badge">Live in 50+ Cities</span>
         </span>
-        <h1>Delicious Food<br/><span class="gradient-text">Delivered Fast</span></h1>
-        <p>From your favourite restaurants straight to your door — hot, fresh, and in under 30 minutes.</p>
+        <h1 data-i18n-html="hero.h1">Delicious Food<br/><span class="gradient-text">Delivered Fast</span></h1>
+        <p data-i18n="hero.p">From your favourite restaurants straight to your door — hot, fresh, and in under 30 minutes.</p>
 
         <!-- Search Bar -->
         <div class="hero-search" role="search">
           <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
           </svg>
-          <input type="text" class="search-input" placeholder="Search pizza, burgers, sushi..." aria-label="Search food">
-          <button class="search-btn" type="button">Search</button>
+          <input type="text" class="search-input" data-i18n-placeholder="hero.search.ph" placeholder="Search pizza, burgers, sushi..." aria-label="Search food">
+          <button class="search-btn" type="button" data-i18n="hero.search.btn">Search</button>
         </div>
 
         <div class="hero-actions">
-          <a href="#menu" class="btn-primary">Explore Menu</a>
+          <a href="#menu" class="btn-primary" data-i18n="hero.cta.explore">Explore Menu</a>
           <a href="#app" class="btn-outline">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polygon points="5 3 19 12 5 21 5 3"/>
             </svg>
-            Watch Demo
+            <span data-i18n="hero.cta.demo">Watch Demo</span>
           </a>
         </div>
         <div class="hero-stats">
-          <div class="stat"><span class="counter" data-target="50000">0</span><span>+</span><small>Happy Customers</small></div>
+          <div class="stat"><span class="counter" data-target="50000">0</span><span>+</span><small data-i18n="hero.stat.customers">Happy Customers</small></div>
           <div class="stat-divider"></div>
-          <div class="stat"><span class="counter" data-target="1200">0</span><span>+</span><small>Restaurants</small></div>
+          <div class="stat"><span class="counter" data-target="1200">0</span><span>+</span><small data-i18n="hero.stat.restaurants">Restaurants</small></div>
           <div class="stat-divider"></div>
-          <div class="stat"><span class="counter" data-target="98">0</span><span>%</span><small>On-time Delivery</small></div>
+          <div class="stat"><span class="counter" data-target="98">0</span><span>%</span><small data-i18n="hero.stat.delivery">On-time Delivery</small></div>
         </div>
       </div>
 
@@ -206,8 +213,8 @@
   <section class="features" id="features">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Why QuickBite?</span>
-        <h2>Everything you love about<br/><span class="gradient-text">food delivery, perfected</span></h2>
+        <span class="section-tag" data-i18n="features.tag">Why QuickBite?</span>
+        <h2 data-i18n-html="features.h2">Everything you love about<br/><span class="gradient-text">food delivery, perfected</span></h2>
       </div>
 
       <div class="features-grid">
@@ -220,8 +227,8 @@
               <path class="svg-draw" d="M36 12 L22 34 H32 L28 52 L46 30 H36 Z" fill="#ff6b35" stroke="#ff6b35" stroke-width="1" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3>30-Min Delivery</h3>
-          <p>Our optimised routing ensures your food arrives hot and on time, every single order.</p>
+          <h3 data-i18n="feat1.h3">30-Min Delivery</h3>
+          <p data-i18n="feat1.p">Our optimised routing ensures your food arrives hot and on time, every single order.</p>
         </div>
 
         <div class="feature-card" data-aos>
@@ -236,8 +243,8 @@
               <rect x="39" y="33" width="8" height="8" rx="1" fill="#fff" opacity=".7"/>
             </svg>
           </div>
-          <h3>Top Restaurants</h3>
-          <p>Curated selection of over 1,200 verified restaurants with ratings, menus and offers.</p>
+          <h3 data-i18n="feat2.h3">Top Restaurants</h3>
+          <p data-i18n="feat2.p">Curated selection of over 1,200 verified restaurants with ratings, menus and offers.</p>
         </div>
 
         <div class="feature-card" data-aos>
@@ -250,8 +257,8 @@
               <circle class="ping" cx="32" cy="32" r="7" fill="none" stroke="#22c55e" stroke-width="2"/>
             </svg>
           </div>
-          <h3>Live Tracking</h3>
-          <p>Real-time GPS tracking from the kitchen to your front door — never wonder where your food is.</p>
+          <h3 data-i18n="feat3.h3">Live Tracking</h3>
+          <p data-i18n="feat3.p">Real-time GPS tracking from the kitchen to your front door — never wonder where your food is.</p>
         </div>
 
         <div class="feature-card" data-aos>
@@ -263,8 +270,8 @@
               <path d="M24 32 L29 37 L40 26" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3>Secure Payments</h3>
-          <p>Multiple payment options with bank-grade encryption keeping every transaction safe.</p>
+          <h3 data-i18n="feat4.h3">Secure Payments</h3>
+          <p data-i18n="feat4.p">Multiple payment options with bank-grade encryption keeping every transaction safe.</p>
         </div>
 
       </div>
@@ -308,14 +315,14 @@
         <div class="menu-tag-row">
           <span class="section-tag">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin-right:5px"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
-            Popular Right Now
+            <span data-i18n="menu.tag">Popular Right Now</span>
           </span>
           <div class="live-badge">
             <span class="live-pulse"></span>
-            <span>Live</span>
+            <span data-i18n="menu.live">Live</span>
           </div>
         </div>
-        <h2>Trending <span class="gradient-text">this week</span></h2>
+        <h2 data-i18n-html="menu.h2">Trending <span class="gradient-text">this week</span></h2>
         <!-- Animated SVG wave underline -->
         <svg class="heading-wave" viewBox="0 0 260 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="none">
           <defs>
@@ -326,7 +333,7 @@
           </defs>
           <path class="wave-path" d="M0,8 Q32,2 65,8 T130,8 T195,8 T260,8" stroke="url(#waveGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
         </svg>
-        <p class="menu-section-sub">Discover what 50,000+ customers can't stop ordering right now</p>
+        <p class="menu-section-sub" data-i18n="menu.sub">Discover what 50,000+ customers can't stop ordering right now</p>
       </div>
 
       <!-- ── Filter tabs ── -->
@@ -334,27 +341,27 @@
         <div class="tab-track" id="tabTrack"></div>
         <button class="tab active" data-filter="all" role="tab" aria-selected="true">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/></svg>
-          All
+          <span data-i18n="filter.all">All</span>
           <span class="tab-count">6</span>
         </button>
         <button class="tab" data-filter="burgers" role="tab" aria-selected="false">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 14h16a1 1 0 000-2H4a1 1 0 000 2zm-1-5a1 1 0 001 1h16a1 1 0 000-2H4a1 1 0 00-1 1zm3 9.5C6 19.88 6.9 21 8 21h8c1.1 0 2-1.12 2-2.5H6z"/></svg>
-          Burgers
+          <span data-i18n="filter.burgers">Burgers</span>
           <span class="tab-count">2</span>
         </button>
         <button class="tab" data-filter="pizza" role="tab" aria-selected="false">
           <svg width="14" height="14" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M256 48C141.2 48 48 141.2 48 256s93.2 208 208 208 208-93.2 208-208S370.8 48 256 48zm0 368c-88.2 0-160-71.8-160-160S167.8 96 256 96s160 71.8 160 160-71.8 160-160 160zm-48-176a32 32 0 1164 0 32 32 0 01-64 0zm96 64a16 16 0 1132 0 16 16 0 01-32 0zm-80 32a16 16 0 1132 0 16 16 0 01-32 0z"/></svg>
-          Pizza
+          <span data-i18n="filter.pizza">Pizza</span>
           <span class="tab-count">2</span>
         </button>
         <button class="tab" data-filter="sushi" role="tab" aria-selected="false">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="6"/><ellipse cx="12" cy="12" rx="5.5" ry="3.2" fill="white" opacity=".45"/><circle cx="12" cy="12" r="3" fill="#ff6b35" opacity=".7"/></svg>
-          Sushi
+          <span data-i18n="filter.sushi">Sushi</span>
           <span class="tab-count">1</span>
         </button>
         <button class="tab" data-filter="desserts" role="tab" aria-selected="false">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm1 14h-2v-1h2v1zm2-5.82V15h-6v-4.82C7.48 9.46 7 8.29 7 7h10c0 1.29-.48 2.46-2 3.18z"/></svg>
-          Desserts
+          <span data-i18n="filter.desserts">Desserts</span>
           <span class="tab-count">1</span>
         </button>
       </div>
@@ -378,18 +385,18 @@
             </button>
             <div class="card-hover-info">
               <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
-              <span>2,400 orders this week</span>
+              <span data-i18n="card1.week">2,400 orders this week</span>
             </div>
           </div>
           <div class="menu-info">
             <div class="menu-meta">
-              <span class="menu-category">Burgers</span>
+              <span class="menu-category" data-i18n="card1.cat">Burgers</span>
               <span class="menu-rating">
                 <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
                 4.9 <span class="rating-count">(847)</span>
               </span>
             </div>
-            <h3>Double Smash Burger</h3>
+            <h3 data-i18n="card1.name">Double Smash Burger</h3>
             <div class="menu-footer">
               <div class="price-wrap">
                 <span class="price">$12.99</span>
@@ -419,18 +426,18 @@
             </button>
             <div class="card-hover-info">
               <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
-              <span>1,850 orders this week</span>
+              <span data-i18n="card2.week">1,850 orders this week</span>
             </div>
           </div>
           <div class="menu-info">
             <div class="menu-meta">
-              <span class="menu-category">Pizza</span>
+              <span class="menu-category" data-i18n="card2.cat">Pizza</span>
               <span class="menu-rating">
                 <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
                 4.8 <span class="rating-count">(612)</span>
               </span>
             </div>
-            <h3>Margherita Royale</h3>
+            <h3 data-i18n="card2.name">Margherita Royale</h3>
             <div class="menu-footer">
               <div class="price-wrap">
                 <span class="price">$15.49</span>
@@ -459,18 +466,18 @@
             </button>
             <div class="card-hover-info">
               <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
-              <span>1,120 orders this week</span>
+              <span data-i18n="card3.week">1,120 orders this week</span>
             </div>
           </div>
           <div class="menu-info">
             <div class="menu-meta">
-              <span class="menu-category">Sushi</span>
+              <span class="menu-category" data-i18n="card3.cat">Sushi</span>
               <span class="menu-rating">
                 <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
                 4.7 <span class="rating-count">(389)</span>
               </span>
             </div>
-            <h3>Signature Roll Trio</h3>
+            <h3 data-i18n="card3.name">Signature Roll Trio</h3>
             <div class="menu-footer">
               <div class="price-wrap">
                 <span class="price">$18.99</span>
@@ -500,18 +507,18 @@
             </button>
             <div class="card-hover-info">
               <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
-              <span>980 orders this week</span>
+              <span data-i18n="card4.week">980 orders this week</span>
             </div>
           </div>
           <div class="menu-info">
             <div class="menu-meta">
-              <span class="menu-category">Desserts</span>
+              <span class="menu-category" data-i18n="card4.cat">Desserts</span>
               <span class="menu-rating">
                 <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
                 4.9 <span class="rating-count">(726)</span>
               </span>
             </div>
-            <h3>Triple Scoop Dream</h3>
+            <h3 data-i18n="card4.name">Triple Scoop Dream</h3>
             <div class="menu-footer">
               <div class="price-wrap">
                 <span class="price">$8.99</span>
@@ -540,18 +547,18 @@
             </button>
             <div class="card-hover-info">
               <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
-              <span>760 orders this week</span>
+              <span data-i18n="card5.week">760 orders this week</span>
             </div>
           </div>
           <div class="menu-info">
             <div class="menu-meta">
-              <span class="menu-category">Burgers</span>
+              <span class="menu-category" data-i18n="card5.cat">Burgers</span>
               <span class="menu-rating">
                 <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
                 4.8 <span class="rating-count">(523)</span>
               </span>
             </div>
-            <h3>Crispy Buffalo Wings</h3>
+            <h3 data-i18n="card5.name">Crispy Buffalo Wings</h3>
             <div class="menu-footer">
               <div class="price-wrap">
                 <span class="price">$13.49</span>
@@ -580,18 +587,18 @@
             </button>
             <div class="card-hover-info">
               <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
-              <span>640 orders this week</span>
+              <span data-i18n="card6.week">640 orders this week</span>
             </div>
           </div>
           <div class="menu-info">
             <div class="menu-meta">
-              <span class="menu-category">Pizza</span>
+              <span class="menu-category" data-i18n="card6.cat">Pizza</span>
               <span class="menu-rating">
                 <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
                 4.6 <span class="rating-count">(298)</span>
               </span>
             </div>
-            <h3>Arrabbiata Pasta</h3>
+            <h3 data-i18n="card6.name">Arrabbiata Pasta</h3>
             <div class="menu-footer">
               <div class="price-wrap">
                 <span class="price">$14.99</span>
@@ -610,10 +617,10 @@
       <!-- ── View-all CTA ── -->
       <div class="menu-view-all">
         <button class="view-all-btn" type="button">
-          <span>Explore All Dishes</span>
+          <span data-i18n="menu.viewall">Explore All Dishes</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
-        <p class="menu-view-hint">200+ dishes from top local restaurants</p>
+        <p class="menu-view-hint" data-i18n="menu.viewhint">200+ dishes from top local restaurants</p>
       </div>
 
     </div>
@@ -625,8 +632,8 @@
   <section class="how-it-works" id="how">
     <div class="container">
       <div class="section-header how-header">
-        <h2>Order in <span class="gradient-text">3 easy steps</span></h2>
-        <p class="section-sub">Getting your favourite meal delivered has never been simpler — from browse to bite in minutes.</p>
+        <h2 data-i18n-html="how.h2">Order in <span class="gradient-text">3 easy steps</span></h2>
+        <p class="section-sub" data-i18n="how.sub">Getting your favourite meal delivered has never been simpler — from browse to bite in minutes.</p>
       </div>
 
       <div class="steps-grid">
@@ -640,9 +647,9 @@
             </svg>
             <span class="step-ripple"></span>
           </div>
-          <span class="step-label">Step 01</span>
-          <h3>Browse Restaurants</h3>
-          <p>Explore hundreds of local restaurants. Filter by cuisine, rating, or delivery time.</p>
+          <span class="step-label" data-i18n="step1.label">Step 01</span>
+          <h3 data-i18n="step1.h3">Browse Restaurants</h3>
+          <p data-i18n="step1.p">Explore hundreds of local restaurants. Filter by cuisine, rating, or delivery time.</p>
         </div>
 
         <!-- ── Connector 1 ── -->
@@ -663,9 +670,9 @@
             </svg>
             <span class="step-ripple"></span>
           </div>
-          <span class="step-label">Step 02</span>
-          <h3>Place Your Order</h3>
-          <p>Add items to your cart and confirm with one tap. Secure checkout in under 60 seconds.</p>
+          <span class="step-label" data-i18n="step2.label">Step 02</span>
+          <h3 data-i18n="step2.h3">Place Your Order</h3>
+          <p data-i18n="step2.p">Add items to your cart and confirm with one tap. Secure checkout in under 60 seconds.</p>
         </div>
 
         <!-- ── Connector 2 ── -->
@@ -686,9 +693,9 @@
             </svg>
             <span class="step-ripple"></span>
           </div>
-          <span class="step-label">Step 03</span>
-          <h3>Fast Delivery</h3>
-          <p>Track your rider live on the map. Food arrives hot and fresh in under 30 minutes.</p>
+          <span class="step-label" data-i18n="step3.label">Step 03</span>
+          <h3 data-i18n="step3.h3">Fast Delivery</h3>
+          <p data-i18n="step3.p">Track your rider live on the map. Food arrives hot and fresh in under 30 minutes.</p>
         </div>
 
       </div><!-- /steps-grid -->
@@ -697,17 +704,17 @@
       <div class="how-promo">
         <div class="how-promo-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span>100% Contactless Delivery</span>
+          <span data-i18n="how.promo1">100% Contactless Delivery</span>
         </div>
         <div class="how-promo-divider"></div>
         <div class="how-promo-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span>Real-time GPS Tracking</span>
+          <span data-i18n="how.promo2">Real-time GPS Tracking</span>
         </div>
         <div class="how-promo-divider"></div>
         <div class="how-promo-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-          <span>Free Delivery on First Order</span>
+          <span data-i18n="how.promo3">Free Delivery on First Order</span>
         </div>
       </div>
 
@@ -721,21 +728,21 @@
     <div class="container">
       <div class="app-inner">
         <div class="app-text">
-          <span class="section-tag light">Download the App</span>
-          <h2>Your favourite food,<br/>one tap away</h2>
-          <p>Track your order in real-time, save your favourite restaurants, and get exclusive in-app deals — all in our beautifully designed mobile app.</p>
+          <span class="section-tag light" data-i18n="app.tag">Download the App</span>
+          <h2 data-i18n-html="app.h2">Your favourite food,<br/>one tap away</h2>
+          <p data-i18n="app.p">Track your order in real-time, save your favourite restaurants, and get exclusive in-app deals — all in our beautifully designed mobile app.</p>
           <ul class="app-perks">
             <li>
               <svg viewBox="0 0 20 20" fill="#ff6b35"><path d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"/></svg>
-              Exclusive app-only discounts up to 30%
+              <span data-i18n="app.perk1">Exclusive app-only discounts up to 30%</span>
             </li>
             <li>
               <svg viewBox="0 0 20 20" fill="#ff6b35"><path d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"/></svg>
-              Live GPS tracking with push notifications
+              <span data-i18n="app.perk2">Live GPS tracking with push notifications</span>
             </li>
             <li>
               <svg viewBox="0 0 20 20" fill="#ff6b35"><path d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"/></svg>
-              Reorder with one tap — saved favourites
+              <span data-i18n="app.perk3">Reorder with one tap — saved favourites</span>
             </li>
           </ul>
           <div class="store-buttons">
@@ -856,13 +863,13 @@
           <svg class="tag-star ts-left" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6L12 15.6l-5.4 3.1 1-6-4.4-4.3 6.1-.9z"/>
           </svg>
-          <span class="section-tag">Real Reviews</span>
+          <span class="section-tag" data-i18n="testi.tag">Real Reviews</span>
           <svg class="tag-star ts-right" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6L12 15.6l-5.4 3.1 1-6-4.4-4.3 6.1-.9z"/>
           </svg>
         </div>
 
-        <h2>Loved by food fans <span class="gradient-text">everywhere</span></h2>
+        <h2 data-i18n-html="testi.h2">Loved by food fans <span class="gradient-text">everywhere</span></h2>
 
         <!-- SVG animated squiggle underline -->
         <div class="testi-underline-wrap" aria-hidden="true">
@@ -902,17 +909,17 @@
             <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
             <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
           </div>
-          <span class="tm-label">Average Rating</span>
+          <span class="tm-label" data-i18n="testi.metric1">Average Rating</span>
         </div>
         <div class="testi-metric-sep" aria-hidden="true"></div>
         <div class="testi-metric">
           <span class="tm-value">500K+</span>
-          <span class="tm-label">Happy Customers</span>
+          <span class="tm-label" data-i18n="testi.metric2">Happy Customers</span>
         </div>
         <div class="testi-metric-sep" aria-hidden="true"></div>
         <div class="testi-metric">
           <span class="tm-value">98%</span>
-          <span class="tm-label">On-Time Delivery</span>
+          <span class="tm-label" data-i18n="testi.metric3">On-Time Delivery</span>
         </div>
       </div>
 
@@ -930,18 +937,18 @@
             <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
             <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
           </div>
-          <p>"QuickBite is hands down the best food delivery app I've used. My order always arrives hot and exactly on time!"</p>
+          <p data-i18n="testi.review1">"QuickBite is hands down the best food delivery app I've used. My order always arrives hot and exactly on time!"</p>
           <div class="testi-card-footer">
             <div class="testi-author">
               <div class="testi-avatar av1">S</div>
               <div class="testi-author-info">
-                <strong>Sarah M.</strong>
-                <small>Food Blogger · London</small>
+                <strong data-i18n="testi.author1">Sarah M.</strong>
+                <small data-i18n="testi.author1.sub">Food Blogger · London</small>
               </div>
             </div>
             <div class="testi-verified" title="Verified Customer">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <span>Verified</span>
+              <span data-i18n="testi.verified">Verified</span>
             </div>
           </div>
         </div>
@@ -957,18 +964,18 @@
             <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
             <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
           </div>
-          <p>"The live tracking feature is a game changer. I always know exactly when my food is coming. Incredible service!"</p>
+          <p data-i18n="testi.review2">"The live tracking feature is a game changer. I always know exactly when my food is coming. Incredible service!"</p>
           <div class="testi-card-footer">
             <div class="testi-author">
               <div class="testi-avatar av2">J</div>
               <div class="testi-author-info">
-                <strong>James T.</strong>
-                <small>Software Engineer · NYC</small>
+                <strong data-i18n="testi.author2">James T.</strong>
+                <small data-i18n="testi.author2.sub">Software Engineer · NYC</small>
               </div>
             </div>
             <div class="testi-verified" title="Verified Customer">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <span>Verified</span>
+              <span data-i18n="testi.verified">Verified</span>
             </div>
           </div>
         </div>
@@ -984,18 +991,18 @@
             <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
             <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
           </div>
-          <p>"I order lunch every weekday. The restaurant selection is amazing and the app is super easy to use. 10/10!"</p>
+          <p data-i18n="testi.review3">"I order lunch every weekday. The restaurant selection is amazing and the app is super easy to use. 10/10!"</p>
           <div class="testi-card-footer">
             <div class="testi-author">
               <div class="testi-avatar av3">A</div>
               <div class="testi-author-info">
-                <strong>Aisha K.</strong>
-                <small>Marketing Director · Dubai</small>
+                <strong data-i18n="testi.author3">Aisha K.</strong>
+                <small data-i18n="testi.author3.sub">Marketing Director · Dubai</small>
               </div>
             </div>
             <div class="testi-verified" title="Verified Customer">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <span>Verified</span>
+              <span data-i18n="testi.verified">Verified</span>
             </div>
           </div>
         </div>
@@ -1011,18 +1018,18 @@
             <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
             <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
           </div>
-          <p>"Fast delivery, great packaging, and the food is always fresh. QuickBite has spoiled me — I can't order anywhere else!"</p>
+          <p data-i18n="testi.review4">"Fast delivery, great packaging, and the food is always fresh. QuickBite has spoiled me — I can't order anywhere else!"</p>
           <div class="testi-card-footer">
             <div class="testi-author">
               <div class="testi-avatar av4">R</div>
               <div class="testi-author-info">
-                <strong>Raj P.</strong>
-                <small>Chef & Restaurateur · Mumbai</small>
+                <strong data-i18n="testi.author4">Raj P.</strong>
+                <small data-i18n="testi.author4.sub">Chef & Restaurateur · Mumbai</small>
               </div>
             </div>
             <div class="testi-verified" title="Verified Customer">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <span>Verified</span>
+              <span data-i18n="testi.verified">Verified</span>
             </div>
           </div>
         </div>
@@ -1055,7 +1062,7 @@
             </svg>
             <span>Quick<strong>Bite</strong></span>
           </a>
-          <p>Bringing the world's best food to your door — fast, fresh, and always delicious.</p>
+          <p data-i18n="footer.brand.p">Bringing the world's best food to your door — fast, fresh, and always delicious.</p>
           <!-- Social icons -->
           <div class="social-links">
             <a href="#" class="social-icon" aria-label="Instagram">
@@ -1083,48 +1090,48 @@
           </div>
           <!-- Newsletter -->
           <div class="newsletter">
-            <h5>Get exclusive deals</h5>
-            <p class="newsletter-sub">Join 50,000+ food lovers. Get weekly deals & offers.</p>
+            <h5 data-i18n="footer.nl.h5">Get exclusive deals</h5>
+            <p class="newsletter-sub" data-i18n="footer.nl.sub">Join 50,000+ food lovers. Get weekly deals & offers.</p>
             <form class="newsletter-form" onsubmit="return handleNewsletter(event)">
-              <input type="email" placeholder="Your email address" aria-label="Email for newsletter" required>
-              <button type="submit">Subscribe</button>
+              <input type="email" data-i18n-placeholder="footer.nl.ph" placeholder="Your email address" aria-label="Email for newsletter" required>
+              <button type="submit" data-i18n="footer.nl.btn">Subscribe</button>
             </form>
           </div>
         </div>
 
         <!-- Links -->
         <div class="footer-links-group">
-          <h4>Company</h4>
+          <h4 data-i18n="footer.col1.h4">Company</h4>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Press</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="#" data-i18n="footer.col1.about">About Us</a></li>
+            <li><a href="#" data-i18n="footer.col1.careers">Careers</a></li>
+            <li><a href="#" data-i18n="footer.col1.press">Press</a></li>
+            <li><a href="#" data-i18n="footer.col1.blog">Blog</a></li>
           </ul>
         </div>
         <div class="footer-links-group">
-          <h4>For Restaurants</h4>
+          <h4 data-i18n="footer.col2.h4">For Restaurants</h4>
           <ul>
-            <li><a href="#">Partner with Us</a></li>
-            <li><a href="#">Restaurant Dashboard</a></li>
-            <li><a href="#">Marketing Tools</a></li>
-            <li><a href="#">Support</a></li>
+            <li><a href="#" data-i18n="footer.col2.partner">Partner with Us</a></li>
+            <li><a href="#" data-i18n="footer.col2.dash">Restaurant Dashboard</a></li>
+            <li><a href="#" data-i18n="footer.col2.mkt">Marketing Tools</a></li>
+            <li><a href="#" data-i18n="footer.col2.support">Support</a></li>
           </ul>
         </div>
         <div class="footer-links-group">
-          <h4>Help</h4>
+          <h4 data-i18n="footer.col3.h4">Help</h4>
           <ul>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">Track Order</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#" data-i18n="footer.col3.faqs">FAQs</a></li>
+            <li><a href="#" data-i18n="footer.col3.track">Track Order</a></li>
+            <li><a href="#" data-i18n="footer.col3.contact">Contact Us</a></li>
+            <li><a href="#" data-i18n="footer.col3.privacy">Privacy Policy</a></li>
           </ul>
         </div>
 
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 QuickBite Technologies Ltd. All rights reserved.</p>
+        <p data-i18n="footer.bottom">&copy; 2026 QuickBite Technologies Ltd. All rights reserved.</p>
         <div class="payment-icons">
           <span>Visa</span>
           <span>Mastercard</span>
@@ -1138,7 +1145,7 @@
   <!-- Cart toast -->
   <div class="cart-toast" id="cartToast">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-    Added to cart!
+    <span data-i18n="toast.added">Added to cart!</span>
   </div>
 
   <script src="script.js"></script>

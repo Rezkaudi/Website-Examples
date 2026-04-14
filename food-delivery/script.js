@@ -4,6 +4,430 @@
 ═══════════════════════════════════════════ */
 
 /* ══════════════════════════════════════════════════════════════
+   I18N — Multi-language support: English · Arabic · Japanese
+══════════════════════════════════════════════════════════════ */
+(function initI18n() {
+
+  const translations = {
+    en: {
+      'preloader.text'      : 'Preparing your experience',
+      'nav.features'        : 'Features',
+      'nav.menu'            : 'Menu',
+      'nav.app'             : 'App',
+      'nav.reviews'         : 'Reviews',
+      'nav.order'           : 'Order Now',
+      'hero.badge'          : 'Live in 50+ Cities',
+      'hero.h1'             : 'Delicious Food<br/><span class="gradient-text">Delivered Fast</span>',
+      'hero.p'              : 'From your favourite restaurants straight to your door — hot, fresh, and in under 30 minutes.',
+      'hero.search.ph'      : 'Search pizza, burgers, sushi...',
+      'hero.search.btn'     : 'Search',
+      'hero.cta.explore'    : 'Explore Menu',
+      'hero.cta.demo'       : 'Watch Demo',
+      'hero.stat.customers' : 'Happy Customers',
+      'hero.stat.restaurants': 'Restaurants',
+      'hero.stat.delivery'  : 'On-time Delivery',
+      'features.tag'        : 'Why QuickBite?',
+      'features.h2'         : 'Everything you love about<br/><span class="gradient-text">food delivery, perfected</span>',
+      'feat1.h3'            : '30-Min Delivery',
+      'feat1.p'             : 'Our optimised routing ensures your food arrives hot and on time, every single order.',
+      'feat2.h3'            : 'Top Restaurants',
+      'feat2.p'             : 'Curated selection of over 1,200 verified restaurants with ratings, menus and offers.',
+      'feat3.h3'            : 'Live Tracking',
+      'feat3.p'             : 'Real-time GPS tracking from the kitchen to your front door — never wonder where your food is.',
+      'feat4.h3'            : 'Secure Payments',
+      'feat4.p'             : 'Multiple payment options with bank-grade encryption keeping every transaction safe.',
+      'menu.tag'            : 'Popular Right Now',
+      'menu.live'           : 'Live',
+      'menu.h2'             : 'Trending <span class="gradient-text">this week</span>',
+      'menu.sub'            : "Discover what 50,000+ customers can't stop ordering right now",
+      'filter.all'          : 'All',
+      'filter.burgers'      : 'Burgers',
+      'filter.pizza'        : 'Pizza',
+      'filter.sushi'        : 'Sushi',
+      'filter.desserts'     : 'Desserts',
+      'card1.cat'           : 'Burgers',
+      'card1.name'          : 'Double Smash Burger',
+      'card1.week'          : '2,400 orders this week',
+      'card2.cat'           : 'Pizza',
+      'card2.name'          : 'Margherita Royale',
+      'card2.week'          : '1,850 orders this week',
+      'card3.cat'           : 'Sushi',
+      'card3.name'          : 'Signature Roll Trio',
+      'card3.week'          : '1,120 orders this week',
+      'card4.cat'           : 'Desserts',
+      'card4.name'          : 'Triple Scoop Dream',
+      'card4.week'          : '980 orders this week',
+      'card5.cat'           : 'Burgers',
+      'card5.name'          : 'Crispy Buffalo Wings',
+      'card5.week'          : '760 orders this week',
+      'card6.cat'           : 'Pizza',
+      'card6.name'          : 'Arrabbiata Pasta',
+      'card6.week'          : '640 orders this week',
+      'menu.viewall'        : 'Explore All Dishes',
+      'menu.viewhint'       : '200+ dishes from top local restaurants',
+      'how.h2'              : 'Order in <span class="gradient-text">3 easy steps</span>',
+      'how.sub'             : 'Getting your favourite meal delivered has never been simpler — from browse to bite in minutes.',
+      'step1.label'         : 'Step 01',
+      'step1.h3'            : 'Browse Restaurants',
+      'step1.p'             : 'Explore hundreds of local restaurants. Filter by cuisine, rating, or delivery time.',
+      'step2.label'         : 'Step 02',
+      'step2.h3'            : 'Place Your Order',
+      'step2.p'             : 'Add items to your cart and confirm with one tap. Secure checkout in under 60 seconds.',
+      'step3.label'         : 'Step 03',
+      'step3.h3'            : 'Fast Delivery',
+      'step3.p'             : 'Track your rider live on the map. Food arrives hot and fresh in under 30 minutes.',
+      'how.promo1'          : '100% Contactless Delivery',
+      'how.promo2'          : 'Real-time GPS Tracking',
+      'how.promo3'          : 'Free Delivery on First Order',
+      'app.tag'             : 'Download the App',
+      'app.h2'              : "Your favourite food,<br/>one tap away",
+      'app.p'               : "Track your order in real-time, save your favourite restaurants, and get exclusive in-app deals — all in our beautifully designed mobile app.",
+      'app.perk1'           : 'Exclusive app-only discounts up to 30%',
+      'app.perk2'           : 'Live GPS tracking with push notifications',
+      'app.perk3'           : 'Reorder with one tap — saved favourites',
+      'testi.tag'           : 'Real Reviews',
+      'testi.h2'            : 'Loved by food fans <span class="gradient-text">everywhere</span>',
+      'testi.metric1'       : 'Average Rating',
+      'testi.metric2'       : 'Happy Customers',
+      'testi.metric3'       : 'On-Time Delivery',
+      'testi.review1'       : '"QuickBite is hands down the best food delivery app I\'ve used. My order always arrives hot and exactly on time!"',
+      'testi.author1'       : 'Sarah M.',
+      'testi.author1.sub'   : 'Food Blogger · London',
+      'testi.review2'       : '"The live tracking feature is a game changer. I always know exactly when my food is coming. Incredible service!"',
+      'testi.author2'       : 'James T.',
+      'testi.author2.sub'   : 'Software Engineer · NYC',
+      'testi.review3'       : '"I order lunch every weekday. The restaurant selection is amazing and the app is super easy to use. 10/10!"',
+      'testi.author3'       : 'Aisha K.',
+      'testi.author3.sub'   : 'Marketing Director · Dubai',
+      'testi.review4'       : '"Fast delivery, great packaging, and the food is always fresh. QuickBite has spoiled me — I can\'t order anywhere else!"',
+      'testi.author4'       : 'Raj P.',
+      'testi.author4.sub'   : 'Chef & Restaurateur · Mumbai',
+      'testi.verified'      : 'Verified',
+      'footer.brand.p'      : "Bringing the world's best food to your door — fast, fresh, and always delicious.",
+      'footer.nl.h5'        : 'Get exclusive deals',
+      'footer.nl.sub'       : 'Join 50,000+ food lovers. Get weekly deals & offers.',
+      'footer.nl.ph'        : 'Your email address',
+      'footer.nl.btn'       : 'Subscribe',
+      'footer.col1.h4'      : 'Company',
+      'footer.col1.about'   : 'About Us',
+      'footer.col1.careers' : 'Careers',
+      'footer.col1.press'   : 'Press',
+      'footer.col1.blog'    : 'Blog',
+      'footer.col2.h4'      : 'For Restaurants',
+      'footer.col2.partner' : 'Partner with Us',
+      'footer.col2.dash'    : 'Restaurant Dashboard',
+      'footer.col2.mkt'     : 'Marketing Tools',
+      'footer.col2.support' : 'Support',
+      'footer.col3.h4'      : 'Help',
+      'footer.col3.faqs'    : 'FAQs',
+      'footer.col3.track'   : 'Track Order',
+      'footer.col3.contact' : 'Contact Us',
+      'footer.col3.privacy' : 'Privacy Policy',
+      'footer.bottom'       : '© 2026 QuickBite Technologies Ltd. All rights reserved.',
+      'toast.added'         : 'Added to cart!',
+    },
+
+    ar: {
+      'preloader.text'      : 'جاري التحضير لك…',
+      'nav.features'        : 'المميزات',
+      'nav.menu'            : 'القائمة',
+      'nav.app'             : 'التطبيق',
+      'nav.reviews'         : 'التقييمات',
+      'nav.order'           : 'اطلب الآن',
+      'hero.badge'          : 'متاح في 50+ مدينة',
+      'hero.h1'             : 'طعام لذيذ<br/><span class="gradient-text">يُوصَّل بسرعة</span>',
+      'hero.p'              : 'من مطاعمك المفضلة إلى بابك مباشرةً — ساخن وطازج وفي أقل من 30 دقيقة.',
+      'hero.search.ph'      : 'ابحث عن بيتزا، برغر، سوشي...',
+      'hero.search.btn'     : 'بحث',
+      'hero.cta.explore'    : 'استكشف القائمة',
+      'hero.cta.demo'       : 'شاهد العرض',
+      'hero.stat.customers' : 'عميل سعيد',
+      'hero.stat.restaurants': 'مطعم',
+      'hero.stat.delivery'  : 'توصيل في الوقت',
+      'features.tag'        : 'لماذا كويك بايت؟',
+      'features.h2'         : 'كل ما تحبه في<br/><span class="gradient-text">توصيل الطعام، بشكل مثالي</span>',
+      'feat1.h3'            : 'توصيل في 30 دقيقة',
+      'feat1.p'             : 'يضمن نظام التوجيه المتطور وصول طعامك ساخناً وفي وقته في كل طلب.',
+      'feat2.h3'            : 'أفضل المطاعم',
+      'feat2.p'             : 'تشكيلة مختارة من أكثر من 1,200 مطعم معتمد مع التقييمات والقوائم والعروض.',
+      'feat3.h3'            : 'تتبع مباشر',
+      'feat3.p'             : 'تتبع GPS في الوقت الفعلي من المطبخ إلى بابك — لا تتساءل أبداً أين طعامك.',
+      'feat4.h3'            : 'مدفوعات آمنة',
+      'feat4.p'             : 'خيارات دفع متعددة بتشفير بنكي لحماية كل معاملة.',
+      'menu.tag'            : 'الأكثر طلباً الآن',
+      'menu.live'           : 'مباشر',
+      'menu.h2'             : 'الأكثر رواجاً <span class="gradient-text">هذا الأسبوع</span>',
+      'menu.sub'            : 'اكتشف ما لا يتوقف عن طلبه أكثر من 50,000 عميل الآن',
+      'filter.all'          : 'الكل',
+      'filter.burgers'      : 'برغر',
+      'filter.pizza'        : 'بيتزا',
+      'filter.sushi'        : 'سوشي',
+      'filter.desserts'     : 'حلويات',
+      'card1.cat'           : 'برغر',
+      'card1.name'          : 'دبل سماش برغر',
+      'card1.week'          : 'هذا الأسبوع 2,400 طلب',
+      'card2.cat'           : 'بيتزا',
+      'card2.name'          : 'مارغريتا رويال',
+      'card2.week'          : 'هذا الأسبوع 1,850 طلب',
+      'card3.cat'           : 'سوشي',
+      'card3.name'          : 'ثلاثي الرولز المميز',
+      'card3.week'          : 'هذا الأسبوع 1,120 طلب',
+      'card4.cat'           : 'حلويات',
+      'card4.name'          : 'ثلاثي الآيس كريم',
+      'card4.week'          : 'هذا الأسبوع 980 طلب',
+      'card5.cat'           : 'برغر',
+      'card5.name'          : 'أجنحة بافالو المقرمشة',
+      'card5.week'          : 'هذا الأسبوع 760 طلب',
+      'card6.cat'           : 'بيتزا',
+      'card6.name'          : 'باستا أرابياتا',
+      'card6.week'          : 'هذا الأسبوع 640 طلب',
+      'menu.viewall'        : 'استكشف جميع الأطباق',
+      'menu.viewhint'       : '200+ طبق من أفضل المطاعم المحلية',
+      'how.h2'              : 'اطلب في <span class="gradient-text">3 خطوات سهلة</span>',
+      'how.sub'             : 'الحصول على وجبتك المفضلة لم يكن أسهل من هكذا — من التصفح إلى اللقمة في دقائق.',
+      'step1.label'         : 'الخطوة 01',
+      'step1.h3'            : 'تصفح المطاعم',
+      'step1.p'             : 'استكشف مئات المطاعم المحلية. صفّح حسب المطبخ أو التقييم أو وقت التوصيل.',
+      'step2.label'         : 'الخطوة 02',
+      'step2.h3'            : 'أكمل طلبك',
+      'step2.p'             : 'أضف العناصر إلى سلتك وأكد بنقرة واحدة. دفع آمن في أقل من 60 ثانية.',
+      'step3.label'         : 'الخطوة 03',
+      'step3.h3'            : 'توصيل سريع',
+      'step3.p'             : 'تتبع موصّلك مباشرةً على الخريطة. يصل الطعام ساخناً وطازجاً في أقل من 30 دقيقة.',
+      'how.promo1'          : '100% توصيل غير لمسي',
+      'how.promo2'          : 'تتبع GPS في الوقت الفعلي',
+      'how.promo3'          : 'توصيل مجاني لأول طلب',
+      'app.tag'             : 'حمّل التطبيق',
+      'app.h2'              : 'طعامك المفضل،<br/>على بعد نقرة واحدة',
+      'app.p'               : 'تتبع طلبك في الوقت الفعلي، احفظ مطاعمك المفضلة، واحصل على عروض حصرية داخل التطبيق.',
+      'app.perk1'           : 'خصومات حصرية للتطبيق تصل إلى 30٪',
+      'app.perk2'           : 'تتبع GPS مباشر مع إشعارات فورية',
+      'app.perk3'           : 'إعادة الطلب بنقرة واحدة — المفضلة المحفوظة',
+      'testi.tag'           : 'آراء حقيقية',
+      'testi.h2'            : 'محبوب من عشاق الطعام <span class="gradient-text">في كل مكان</span>',
+      'testi.metric1'       : 'متوسط التقييم',
+      'testi.metric2'       : 'عملاء سعداء',
+      'testi.metric3'       : 'توصيل في الوقت',
+      'testi.review1'       : '"كويك بايت هو بلا شك أفضل تطبيق توصيل طعام استخدمته. طلبي يصل دائماً ساخناً وفي وقته تماماً!"',
+      'testi.author1'       : 'سارة م.',
+      'testi.author1.sub'   : 'مدوّنة طعام · لندن',
+      'testi.review2'       : '"ميزة التتبع المباشر غيّرت القواعد. أعرف دائماً متى يأتي طعامي. خدمة رائعة!"',
+      'testi.author2'       : 'جيمس ت.',
+      'testi.author2.sub'   : 'مهندس برمجيات · نيويورك',
+      'testi.review3'       : '"أطلب الغداء كل يوم عمل. تشكيلة المطاعم رائعة والتطبيق سهل الاستخدام. 10/10!"',
+      'testi.author3'       : 'عائشة ك.',
+      'testi.author3.sub'   : 'مديرة تسويق · دبي',
+      'testi.review4'       : '"توصيل سريع، تغليف رائع، والطعام طازج دائماً. كويك بايت دلّعني — لا أستطيع الطلب من مكان آخر!"',
+      'testi.author4'       : 'راج ب.',
+      'testi.author4.sub'   : 'طاهٍ وصاحب مطعم · مومباي',
+      'testi.verified'      : 'موثّق',
+      'footer.brand.p'      : 'نجلب أفضل الأطعمة في العالم إلى بابك — بسرعة وطازجة ولذيذة دائماً.',
+      'footer.nl.h5'        : 'احصل على عروض حصرية',
+      'footer.nl.sub'       : 'انضم لأكثر من 50,000 محب للطعام. احصل على صفقات وعروض أسبوعية.',
+      'footer.nl.ph'        : 'بريدك الإلكتروني',
+      'footer.nl.btn'       : 'اشترك',
+      'footer.col1.h4'      : 'الشركة',
+      'footer.col1.about'   : 'عنّا',
+      'footer.col1.careers' : 'وظائف',
+      'footer.col1.press'   : 'الصحافة',
+      'footer.col1.blog'    : 'المدونة',
+      'footer.col2.h4'      : 'للمطاعم',
+      'footer.col2.partner' : 'انضم إلينا',
+      'footer.col2.dash'    : 'لوحة تحكم المطعم',
+      'footer.col2.mkt'     : 'أدوات التسويق',
+      'footer.col2.support' : 'الدعم',
+      'footer.col3.h4'      : 'المساعدة',
+      'footer.col3.faqs'    : 'الأسئلة الشائعة',
+      'footer.col3.track'   : 'تتبع الطلب',
+      'footer.col3.contact' : 'تواصل معنا',
+      'footer.col3.privacy' : 'سياسة الخصوصية',
+      'footer.bottom'       : '© 2026 كويك بايت تكنولوجيز المحدودة. جميع الحقوق محفوظة.',
+      'toast.added'         : 'تمت الإضافة إلى السلة!',
+    },
+
+    ja: {
+      'preloader.text'      : '準備中...',
+      'nav.features'        : '特徴',
+      'nav.menu'            : 'メニュー',
+      'nav.app'             : 'アプリ',
+      'nav.reviews'         : 'レビュー',
+      'nav.order'           : '今すぐ注文',
+      'hero.badge'          : '50以上の都市で展開中',
+      'hero.h1'             : '美味しい料理を<br/><span class="gradient-text">素早くお届け</span>',
+      'hero.p'              : 'お気に入りのレストランからドアまで直送 — 熱々、新鮮、30分以内にお届け。',
+      'hero.search.ph'      : 'ピザ、バーガー、寿司を検索...',
+      'hero.search.btn'     : '検索',
+      'hero.cta.explore'    : 'メニューを見る',
+      'hero.cta.demo'       : 'デモを見る',
+      'hero.stat.customers' : '満足したお客様',
+      'hero.stat.restaurants': 'レストラン',
+      'hero.stat.delivery'  : '時間通り配達',
+      'features.tag'        : 'なぜQuickBite？',
+      'features.h2'         : 'デリバリーの<br/><span class="gradient-text">すべてを完璧に</span>',
+      'feat1.h3'            : '30分配達',
+      'feat1.p'             : '最適化されたルーティングで、すべての注文が熱々でタイムリーに届きます。',
+      'feat2.h3'            : '一流レストラン',
+      'feat2.p'             : '評価・メニュー・特典付きの1,200以上の認定レストランを厳選。',
+      'feat3.h3'            : 'ライブ追跡',
+      'feat3.p'             : 'キッチンから玄関までリアルタイムGPS追跡 — 食事がどこにあるか常に把握。',
+      'feat4.h3'            : '安全な支払い',
+      'feat4.p'             : '銀行グレードの暗号化で、複数の支払い方法から安全に決済。',
+      'menu.tag'            : '今人気',
+      'menu.live'           : 'ライブ',
+      'menu.h2'             : '今週の<span class="gradient-text">トレンド</span>',
+      'menu.sub'            : '50,000人以上のお客様が今週注文し続けているものを発見',
+      'filter.all'          : 'すべて',
+      'filter.burgers'      : 'バーガー',
+      'filter.pizza'        : 'ピザ',
+      'filter.sushi'        : '寿司',
+      'filter.desserts'     : 'デザート',
+      'card1.cat'           : 'バーガー',
+      'card1.name'          : 'ダブルスマッシュバーガー',
+      'card1.week'          : '今週2,400件の注文',
+      'card2.cat'           : 'ピザ',
+      'card2.name'          : 'マルゲリータロワイヤル',
+      'card2.week'          : '今週1,850件の注文',
+      'card3.cat'           : '寿司',
+      'card3.name'          : 'シグネチャーロールトリオ',
+      'card3.week'          : '今週1,120件の注文',
+      'card4.cat'           : 'デザート',
+      'card4.name'          : 'トリプルスクープドリーム',
+      'card4.week'          : '今週980件の注文',
+      'card5.cat'           : 'バーガー',
+      'card5.name'          : 'クリスピーバッファローウィング',
+      'card5.week'          : '今週760件の注文',
+      'card6.cat'           : 'ピザ',
+      'card6.name'          : 'アラビアータパスタ',
+      'card6.week'          : '今週640件の注文',
+      'menu.viewall'        : 'すべての料理を見る',
+      'menu.viewhint'       : '地元トップレストランの200以上の料理',
+      'how.h2'              : '<span class="gradient-text">3つの簡単な</span>ステップで注文',
+      'how.sub'             : 'お気に入りの食事を届けてもらうのがこれほど簡単になりました。',
+      'step1.label'         : 'ステップ 01',
+      'step1.h3'            : 'レストランを探す',
+      'step1.p'             : '地元の何百ものレストランを探索。料理、評価、配達時間でフィルタリング。',
+      'step2.label'         : 'ステップ 02',
+      'step2.h3'            : '注文する',
+      'step2.p'             : 'カートに商品を追加して、ワンタップで確定。60秒以内に安全なチェックアウト。',
+      'step3.label'         : 'ステップ 03',
+      'step3.h3'            : '素早い配達',
+      'step3.p'             : '地図でライダーをリアルタイム追跡。食事が30分以内に熱々で届きます。',
+      'how.promo1'          : '100%非接触デリバリー',
+      'how.promo2'          : 'リアルタイムGPS追跡',
+      'how.promo3'          : '初回注文送料無料',
+      'app.tag'             : 'アプリをダウンロード',
+      'app.h2'              : 'お気に入りの料理を、<br/>ワンタップで',
+      'app.p'               : '注文をリアルタイムで追跡し、お気に入りのレストランを保存し、アプリ限定のお得情報を手に入れましょう。',
+      'app.perk1'           : 'アプリ限定割引最大30%',
+      'app.perk2'           : 'プッシュ通知付きGPSライブ追跡',
+      'app.perk3'           : 'ワンタップで再注文 — お気に入り保存',
+      'testi.tag'           : '本物のレビュー',
+      'testi.h2'            : 'フードファンに愛されています <span class="gradient-text">世界中で</span>',
+      'testi.metric1'       : '平均評価',
+      'testi.metric2'       : '満足したお客様',
+      'testi.metric3'       : '時間通り配達',
+      'testi.review1'       : '"QuickBiteは間違いなく最高のフードデリバリーアプリです。いつも熱々で時間通りに届きます！"',
+      'testi.author1'       : 'サラ・M',
+      'testi.author1.sub'   : 'フードブロガー · ロンドン',
+      'testi.review2'       : '"ライブ追跡機能はゲームチェンジャーです。食事がいつ来るか常に把握できます。素晴らしいサービス！"',
+      'testi.author2'       : 'ジェームズ・T',
+      'testi.author2.sub'   : 'ソフトウェアエンジニア · NYC',
+      'testi.review3'       : '"毎週平日にランチを注文します。レストランの品揃えが素晴らしく、アプリも使いやすい。10/10！"',
+      'testi.author3'       : 'アイシャ・K',
+      'testi.author3.sub'   : 'マーケティングディレクター · ドバイ',
+      'testi.review4'       : '"素早い配達、素晴らしいパッケージ、食事はいつも新鮮。QuickBiteに甘やかされて他では注文できません！"',
+      'testi.author4'       : 'ラージ・P',
+      'testi.author4.sub'   : 'シェフ＆レストラン経営者 · ムンバイ',
+      'testi.verified'      : '認証済み',
+      'footer.brand.p'      : '世界最高の料理をあなたのドアまで届けます — 素早く、新鮮で、いつも美味しい。',
+      'footer.nl.h5'        : '限定ディールを手に入れよう',
+      'footer.nl.sub'       : '50,000人以上のフードラバーに参加。毎週のお得情報をゲット。',
+      'footer.nl.ph'        : 'メールアドレス',
+      'footer.nl.btn'       : '登録',
+      'footer.col1.h4'      : '会社情報',
+      'footer.col1.about'   : '私たちについて',
+      'footer.col1.careers' : '採用情報',
+      'footer.col1.press'   : 'プレス',
+      'footer.col1.blog'    : 'ブログ',
+      'footer.col2.h4'      : 'レストランへ',
+      'footer.col2.partner' : 'パートナーになる',
+      'footer.col2.dash'    : 'レストランダッシュボード',
+      'footer.col2.mkt'     : 'マーケティングツール',
+      'footer.col2.support' : 'サポート',
+      'footer.col3.h4'      : 'ヘルプ',
+      'footer.col3.faqs'    : 'よくある質問',
+      'footer.col3.track'   : '注文追跡',
+      'footer.col3.contact' : 'お問い合わせ',
+      'footer.col3.privacy' : 'プライバシーポリシー',
+      'footer.bottom'       : '© 2026 QuickBite Technologies Ltd. 全権利留保。',
+      'toast.added'         : 'カートに追加しました！',
+    },
+  };
+
+  /* ── Apply a language ── */
+  function applyLanguage(lang) {
+    const t = translations[lang];
+    if (!t) return;
+
+    // Update <html> lang + dir attributes
+    document.documentElement.lang = lang;
+    document.documentElement.dir  = lang === 'ar' ? 'rtl' : 'ltr';
+
+    // Load Noto Sans JP for Japanese (once)
+    if (lang === 'ja' && !document.getElementById('font-noto-jp')) {
+      const link   = document.createElement('link');
+      link.id      = 'font-noto-jp';
+      link.rel     = 'stylesheet';
+      link.href    = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap';
+      document.head.appendChild(link);
+    }
+
+    // Switch body font
+    document.documentElement.style.setProperty(
+      '--font',
+      lang === 'ja'
+        ? "'Noto Sans JP', 'Plus Jakarta Sans', system-ui, sans-serif"
+        : "'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif"
+    );
+
+    // data-i18n → textContent
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const v = t[el.dataset.i18n];
+      if (v !== undefined) el.textContent = v;
+    });
+
+    // data-i18n-html → innerHTML (for elements with nested gradient spans)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const v = t[el.dataset.i18nHtml];
+      if (v !== undefined) el.innerHTML = v;
+    });
+
+    // data-i18n-placeholder → placeholder attribute
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const v = t[el.dataset.i18nPlaceholder];
+      if (v !== undefined) el.placeholder = v;
+    });
+
+    // Highlight active lang button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    localStorage.setItem('qb-lang', lang);
+  }
+
+  /* ── Wire up buttons ── */
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+  });
+
+  /* ── Apply saved / default language ── */
+  applyLanguage(localStorage.getItem('qb-lang') || 'ja');
+
+})();
+
+
+/* ══════════════════════════════════════════════════════════════
    0. PRELOADER — cinematic loading screen
 ══════════════════════════════════════════════════════════════ */
 document.body.classList.add('loading');
@@ -504,7 +928,9 @@ function handleNewsletter(e) {
   const btn   = form.querySelector('button');
   const orig  = btn.textContent;
 
-  btn.textContent = '✓ Subscribed!';
+  const lang = localStorage.getItem('qb-lang') || 'en';
+  const successMsg = { en: '✓ Subscribed!', ar: '✓ تم الاشتراك!', ja: '✓ 登録完了！' };
+  btn.textContent = successMsg[lang] || '✓ Subscribed!';
   btn.style.background = '#22c55e';
   input.value = '';
 

@@ -3,6 +3,103 @@
    script.js
 ═══════════════════════════════════════════ */
 
+/* ══════════════════════════════════════════════════════════════
+   0. PRELOADER — cinematic loading screen
+══════════════════════════════════════════════════════════════ */
+document.body.classList.add('loading');
+
+(function initPreloader() {
+  const loader = document.getElementById('preloader');
+  if (!loader) { document.body.classList.remove('loading'); return; }
+
+  function run() {
+    if (typeof gsap === 'undefined') { setTimeout(run, 40); return; }
+
+    const bar = loader.querySelector('.pl-bar');
+
+    gsap.to(bar, {
+      width: '100%',
+      duration: 1.9,
+      ease: 'power2.inOut',
+      onComplete() {
+        gsap.timeline()
+          .to(loader, { scaleY: 0, transformOrigin: 'bottom center', duration: 0.55, ease: 'power4.inOut' })
+          .call(() => {
+            loader.style.display = 'none';
+            document.body.classList.remove('loading');
+          });
+      },
+    });
+  }
+
+  run();
+})();
+
+
+/* ══════════════════════════════════════════════════════════════
+   0b. SCROLL PROGRESS BAR
+══════════════════════════════════════════════════════════════ */
+(function initScrollProgress() {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+
+  window.addEventListener('scroll', () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    const pct = scrollHeight === clientHeight ? 100 : (scrollTop / (scrollHeight - clientHeight)) * 100;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+})();
+
+
+/* ══════════════════════════════════════════════════════════════
+   0c. CUSTOM CURSOR — GSAP-tracked dot + follower ring
+══════════════════════════════════════════════════════════════ */
+(function initCursor() {
+  const dot      = document.getElementById('cursor');
+  const follower = document.getElementById('cursor-follower');
+  if (!dot || !follower) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  let mouseX = 0, mouseY = 0;
+  let followerX = 0, followerY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    // Dot follows instantly
+    dot.style.left = mouseX + 'px';
+    dot.style.top  = mouseY + 'px';
+  }, { passive: true });
+
+  // Follower ring lerps behind cursor
+  (function animateFollower() {
+    followerX += (mouseX - followerX) * 0.12;
+    followerY += (mouseY - followerY) * 0.12;
+    follower.style.left = followerX + 'px';
+    follower.style.top  = followerY + 'px';
+    requestAnimationFrame(animateFollower);
+  })();
+
+  // Expand follower on interactive elements
+  document.querySelectorAll('a, button, .menu-card, .feature-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      follower.style.width  = '58px';
+      follower.style.height = '58px';
+      follower.style.borderColor = 'rgba(255,107,53,.85)';
+      dot.style.width  = '14px';
+      dot.style.height = '14px';
+    });
+    el.addEventListener('mouseleave', () => {
+      follower.style.width  = '';
+      follower.style.height = '';
+      follower.style.borderColor = '';
+      dot.style.width  = '';
+      dot.style.height = '';
+    });
+  });
+})();
+
+
 /* ──────────────────────────────────────────
    1. NAVBAR — scroll behaviour + hamburger
 ──────────────────────────────────────────── */
@@ -157,70 +254,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 /* ──────────────────────────────────────────
-   7. TESTIMONIALS CAROUSEL
+   7. TESTIMONIALS — no JS needed (CSS Grid)
 ──────────────────────────────────────────── */
-(function initTestimonials() {
-  const track    = document.getElementById('testimonialsTrack');
-  const dots     = document.querySelectorAll('.dot');
-  const cards    = track.querySelectorAll('.testi-card');
-  let current    = 0;
-  let autoTimer  = null;
-
-  // Determine visible count based on card width vs wrap width
-  function getVisible() {
-    const wrap = track.parentElement;
-    const cardW = cards[0].offsetWidth + 28; // gap
-    return Math.max(1, Math.round(wrap.offsetWidth / cardW));
-  }
-
-  function goTo(index) {
-    const visible = getVisible();
-    const max     = Math.max(0, cards.length - visible);
-    current       = Math.min(Math.max(index, 0), max);
-
-    const cardW   = cards[0].offsetWidth + 28;
-    track.style.transform = `translateX(-${current * cardW}px)`;
-
-    dots.forEach((d, i) => d.classList.toggle('active', i === current));
-  }
-
-  // Dot navigation
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      goTo(+dot.dataset.index);
-      resetAuto();
-    });
-  });
-
-  // Auto-advance every 4s
-  function startAuto() {
-    autoTimer = setInterval(() => {
-      const visible = getVisible();
-      const next    = (current + 1) > (cards.length - visible) ? 0 : current + 1;
-      goTo(next);
-    }, 4000);
-  }
-  function resetAuto() {
-    clearInterval(autoTimer);
-    startAuto();
-  }
-
-  // Touch / drag support
-  let startX = 0;
-  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      goTo(diff > 0 ? current + 1 : current - 1);
-      resetAuto();
-    }
-  });
-
-  // Recalculate on resize
-  window.addEventListener('resize', () => goTo(current), { passive: true });
-
-  startAuto();
-})();
 
 
 /* ──────────────────────────────────────────
@@ -248,22 +283,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 /* ──────────────────────────────────────────
-   9. MENU CARD — subtle tilt on hover
+   9. MENU CARD — clean lift hover (no 3-D tilt)
+   3-D perspective on menu cards causes the browser to drop
+   overflow:hidden border-radius, making images go rectangular.
+   CSS handles the lift; JS only adds a subtle shadow bloom.
 ──────────────────────────────────────────── */
-(function initMenuTilt() {
+(function initMenuHover() {
+  if (typeof gsap === 'undefined') return;
+
   document.querySelectorAll('.menu-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect    = card.getBoundingClientRect();
-      const x       = e.clientX - rect.left;
-      const y       = e.clientY - rect.top;
-      const cx      = rect.width  / 2;
-      const cy      = rect.height / 2;
-      const rotateX = ((y - cy) / cy) * -4;
-      const rotateY = ((x - cx) / cx) *  4;
-      card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, {
+        y: -8,
+        boxShadow: '0 24px 56px rgba(0,0,0,.16)',
+        duration: 0.35,
+        ease: 'power2.out',
+      });
     });
     card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
+      gsap.to(card, {
+        y: 0,
+        boxShadow: '0 2px 8px rgba(0,0,0,.06)',
+        duration: 0.45,
+        ease: 'power3.out',
+      });
     });
   });
 })();
@@ -435,6 +478,9 @@ function handleNewsletter(e) {
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'high-performance' });
   renderer.setSize(W, H);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.toneMapping         = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.35;
+  renderer.outputColorSpace    = THREE.SRGBColorSpace;
 
   /* ── Scene & Camera ── */
   const scene  = new THREE.Scene();
@@ -452,8 +498,14 @@ function handleNewsletter(e) {
   const pl2 = new THREE.PointLight(0x8b5cf6, 2.5, 18); pl2.position.set(-3, -2, 3); scene.add(pl2);
   const pl3 = new THREE.PointLight(0xf59e0b, 2.0, 14); pl3.position.set(1, -4, 2);  scene.add(pl3);
 
-  /* ── Helper: standard material ── */
-  const stdMat = color => new THREE.MeshStandardMaterial({ color, roughness: 0.75, metalness: 0.15 });
+  /* ── Helper: physical material with clearcoat for gloss ── */
+  const stdMat = color => new THREE.MeshPhysicalMaterial({
+    color,
+    roughness:          0.42,
+    metalness:          0.08,
+    clearcoat:          0.85,
+    clearcoatRoughness: 0.12,
+  });
 
   /* ═══ BURGER ═══ */
   function makeBurger() {
@@ -688,11 +740,40 @@ function handleNewsletter(e) {
   if (typeof gsap === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
 
-  /* ── Hero entrance timeline ── */
-  const tl = gsap.timeline({ delay: 0.2 });
+  /* ── Word-split hero headline ── */
+  const h1El = document.querySelector('.hero-text h1');
+  if (h1El) {
+    h1El.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+        const frag = document.createDocumentFragment();
+        const words = node.textContent.trim().split(' ');
+        words.forEach((word, i) => {
+          const wrap  = document.createElement('span');
+          const inner = document.createElement('span');
+          wrap.className  = 'word-wrap';
+          inner.className = 'word-inner';
+          inner.textContent = word;
+          wrap.appendChild(inner);
+          frag.appendChild(wrap);
+          if (i < words.length - 1) frag.appendChild(document.createTextNode(' '));
+        });
+        node.parentNode.replaceChild(frag, node);
+      }
+    });
+    const grad = h1El.querySelector('.gradient-text');
+    if (grad && !grad.querySelector('.word-wrap')) {
+      const words = grad.textContent.trim().split(' ');
+      grad.innerHTML = words.map(w =>
+        `<span class="word-wrap"><span class="word-inner">${w}</span></span>`
+      ).join(' ');
+    }
+  }
+
+  /* ── Hero entrance timeline (starts after preloader ~2.6s) ── */
+  const tl = gsap.timeline({ delay: 2.8 });
   tl
-    .from('.badge',            { y: -30, opacity: 0, duration: 0.65, ease: 'power3.out' })
-    .from('.hero-text h1',     { y: 70,  opacity: 0, duration: 0.90, ease: 'power3.out' }, '-=0.35')
+    .from('.badge',                { y: -30, opacity: 0, duration: 0.65, ease: 'power3.out' })
+    .from('.hero-text h1 .word-inner', { y: '115%', duration: 0.85, stagger: 0.055, ease: 'power4.out' }, '-=0.3')
     .from('.hero-text p',      { y: 40,  opacity: 0, duration: 0.70, ease: 'power3.out' }, '-=0.55')
     .from('.hero-search',      { y: 28,  opacity: 0, duration: 0.60, ease: 'power3.out' }, '-=0.45')
     .from('.hero-actions > *', { y: 22,  opacity: 0, duration: 0.55, stagger: 0.1, ease: 'power3.out' }, '-=0.40')
@@ -743,7 +824,7 @@ function handleNewsletter(e) {
 
   /* ── Testimonial cards ── */
   gsap.from('.testi-card', {
-    scrollTrigger: { trigger: '.testimonials-track-wrap', start: 'top 82%' },
+    scrollTrigger: { trigger: '.testi-grid', start: 'top 82%' },
     y: 40, opacity: 0, duration: 0.60, stagger: 0.12, ease: 'power3.out',
   });
 
@@ -765,4 +846,47 @@ function handleNewsletter(e) {
   if (ticker) {
     gsap.to(ticker, { x: '-50%', duration: 28, ease: 'none', repeat: -1 });
   }
+
+  /* ── Hero canvas fades as user scrolls past hero ── */
+  const heroCanvas = document.getElementById('hero-canvas');
+  if (heroCanvas) {
+    gsap.to(heroCanvas, {
+      scrollTrigger: { trigger: '#hero', start: 'center top', end: 'bottom top', scrub: true },
+      opacity: 0,
+      ease: 'none',
+    });
+  }
 })();
+
+
+/* ══════════════════════════════════════════════════════════════
+   17. MAGNETIC BUTTONS — premium hover attraction
+══════════════════════════════════════════════════════════════ */
+(function initMagneticButtons() {
+  if (typeof gsap === 'undefined') return;
+
+  document.querySelectorAll('.btn-primary, .btn-nav').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const rect   = btn.getBoundingClientRect();
+      const relX   = e.clientX - rect.left - rect.width  / 2;
+      const relY   = e.clientY - rect.top  - rect.height / 2;
+      gsap.to(btn, {
+        x: relX * 0.28,
+        y: relY * 0.28,
+        duration: 0.35,
+        ease: 'power2.out',
+      });
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1, 0.4)' });
+    });
+  });
+})();
+
+
+/* ══════════════════════════════════════════════════════════════
+   18. HERO SECTION — ambient particle interaction
+   Particles gently repel from mouse on desktop
+══════════════════════════════════════════════════════════════ */
+// (Three.js particle repulsion handled inside the 3D loop via mouse coords)

@@ -17,6 +17,37 @@
 <body>
 
   <!-- ══════════════════════════════════════
+       PRELOADER
+  ══════════════════════════════════════ -->
+  <div id="preloader" aria-hidden="true">
+    <div class="pl-inner">
+      <div class="pl-logo">
+        <svg viewBox="0 0 40 40" fill="none" width="54" height="54">
+          <circle cx="20" cy="20" r="20" fill="url(#plGrad)"/>
+          <path d="M12 26 Q20 10 28 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <circle cx="20" cy="22" r="5" fill="#fff" opacity=".9"/>
+          <defs>
+            <linearGradient id="plGrad" x1="0" y1="0" x2="40" y2="40">
+              <stop offset="0%" stop-color="#ff6b35"/>
+              <stop offset="100%" stop-color="#f7c59f"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>Quick<strong>Bite</strong></span>
+      </div>
+      <div class="pl-bar-wrap"><div class="pl-bar"></div></div>
+      <p class="pl-text">Preparing your experience</p>
+    </div>
+  </div>
+
+  <!-- Custom cursor (desktop only) -->
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor-follower" aria-hidden="true"></div>
+
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════
        NAVIGATION
   ══════════════════════════════════════ -->
   <nav class="navbar" id="navbar">
@@ -115,7 +146,6 @@
           </div>
 
           <!-- Floating food photo chips -->
-          <!--
           <div class="float-item fi-1">
             <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=120&q=80" alt="Fries" />
           </div>
@@ -128,7 +158,6 @@
           <div class="float-item fi-4">
             <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=120&q=80" alt="Ice cream" />
           </div>
-          -->
 
         </div>
       </div>
@@ -649,80 +678,212 @@
        TESTIMONIALS
   ══════════════════════════════════════ -->
   <section class="testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Real Reviews</span>
+
+    <!-- ── Animated SVG background layer ── -->
+    <svg class="testi-bg-svg" viewBox="0 0 1200 500" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+      <!-- Rotating dashed rings -->
+      <circle class="tbg-ring r1" cx="80"   cy="110" r="70"  stroke="#ff6b35" stroke-width="1.5" stroke-dasharray="10 6" fill="none"/>
+      <circle class="tbg-ring r2" cx="1120" cy="370" r="90"  stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 10" fill="none"/>
+      <circle class="tbg-ring r3" cx="600"  cy="470" r="50"  stroke="#ff6b35" stroke-width="1"   stroke-dasharray="8 5"  fill="none"/>
+      <!-- Orbiting accent rings -->
+      <circle class="tbg-ring r4" cx="80"   cy="110" r="50"  stroke="#f59e0b" stroke-width="1"   stroke-dasharray="4 8"  fill="none"/>
+      <circle class="tbg-ring r5" cx="1120" cy="370" r="60"  stroke="#ff6b35" stroke-width="1"   stroke-dasharray="3 9"  fill="none"/>
+      <!-- Floating dots -->
+      <circle class="tbg-dot d1" cx="210"  cy="55"  r="5" fill="#ff6b35"/>
+      <circle class="tbg-dot d2" cx="970"  cy="75"  r="4" fill="#f59e0b"/>
+      <circle class="tbg-dot d3" cx="130"  cy="415" r="6" fill="#ff6b35"/>
+      <circle class="tbg-dot d4" cx="1060" cy="210" r="3" fill="#f59e0b"/>
+      <circle class="tbg-dot d5" cx="340"  cy="28"  r="4" fill="#f59e0b"/>
+      <circle class="tbg-dot d6" cx="860"  cy="450" r="5" fill="#ff6b35"/>
+      <circle class="tbg-dot d7" cx="500"  cy="20"  r="3" fill="#ff6b35"/>
+      <circle class="tbg-dot d8" cx="730"  cy="490" r="4" fill="#f59e0b"/>
+      <!-- 8-point sparkle stars -->
+      <path class="tbg-spark sp1" d="M55 285 L57.5 279 L60 285 L66 287.5 L60 290 L57.5 296 L55 290 L49 287.5Z"       fill="#f59e0b"/>
+      <path class="tbg-spark sp2" d="M1145 115 L1147.5 109 L1150 115 L1156 117.5 L1150 120 L1147.5 126 L1145 120 L1139 117.5Z" fill="#ff6b35"/>
+      <path class="tbg-spark sp3" d="M310 435 L312.5 429 L315 435 L321 437.5 L315 440 L312.5 446 L310 440 L304 437.5Z" fill="#ff6b35"/>
+      <path class="tbg-spark sp4" d="M900 40  L902.5 34  L905 40  L911 42.5  L905 45  L902.5 51  L900 45  L894 42.5Z"  fill="#f59e0b"/>
+    </svg>
+
+    <div class="container testi-container">
+
+      <div class="section-header testi-section-header">
+
+        <!-- Tag row with animated sparkle stars -->
+        <div class="testi-tag-row">
+          <svg class="tag-star ts-left" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6L12 15.6l-5.4 3.1 1-6-4.4-4.3 6.1-.9z"/>
+          </svg>
+          <span class="section-tag">Real Reviews</span>
+          <svg class="tag-star ts-right" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6L12 15.6l-5.4 3.1 1-6-4.4-4.3 6.1-.9z"/>
+          </svg>
+        </div>
+
         <h2>Loved by food fans <span class="gradient-text">everywhere</span></h2>
+
+        <!-- SVG animated squiggle underline -->
+        <div class="testi-underline-wrap" aria-hidden="true">
+          <svg class="testi-underline" viewBox="0 0 320 16" fill="none" preserveAspectRatio="none">
+            <path class="underline-wave"
+              d="M2 8 C28 3 56 13 84 8 C112 3 140 13 168 8 C196 3 224 13 252 8 C280 3 308 13 318 8"
+              stroke="url(#waveGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="waveGrad" x1="0" y1="0" x2="320" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"   stop-color="#ff6b35"/>
+                <stop offset="100%" stop-color="#f59e0b"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <!-- Floating hearts -->
+        <div class="testi-hearts" aria-hidden="true">
+          <svg class="t-heart th1" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <svg class="t-heart th2" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <svg class="t-heart th3" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <svg class="t-heart th4" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <svg class="t-heart th5" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <svg class="t-heart th6" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+
       </div>
 
-      <div class="testimonials-track-wrap">
-        <div class="testimonials-track" id="testimonialsTrack">
-
-          <div class="testi-card">
-            <div class="testi-stars">
-              <svg viewBox="0 0 80 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M24 1l1.9 3.8 4.2.6-3 3 .7 4.2L24 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M40 1l1.9 3.8 4.2.6-3 3 .7 4.2L40 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M56 1l1.9 3.8 4.2.6-3 3 .7 4.2L56 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M72 1l1.9 3.8 4.2.6-3 3 .7 4.2L72 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            </div>
-            <p>"QuickBite is hands down the best food delivery app I've used. My order always arrives hot and exactly on time!"</p>
-            <div class="testi-author">
-              <div class="testi-avatar av1">S</div>
-              <div>
-                <strong>Sarah M.</strong>
-                <small>Food Blogger, London</small>
-              </div>
-            </div>
+      <!-- Trust metrics bar -->
+      <div class="testi-metrics">
+        <div class="testi-metric">
+          <span class="tm-value">4.9</span>
+          <div class="tm-stars-row">
+            <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
           </div>
-
-          <div class="testi-card">
-            <div class="testi-stars">
-              <svg viewBox="0 0 80 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M24 1l1.9 3.8 4.2.6-3 3 .7 4.2L24 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M40 1l1.9 3.8 4.2.6-3 3 .7 4.2L40 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M56 1l1.9 3.8 4.2.6-3 3 .7 4.2L56 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M72 1l1.9 3.8 4.2.6-3 3 .7 4.2L72 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            </div>
-            <p>"The live tracking feature is a game changer. I always know exactly when my food is coming. Incredible service!"</p>
-            <div class="testi-author">
-              <div class="testi-avatar av2">J</div>
-              <div>
-                <strong>James T.</strong>
-                <small>Software Engineer, NYC</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="testi-card">
-            <div class="testi-stars">
-              <svg viewBox="0 0 80 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M24 1l1.9 3.8 4.2.6-3 3 .7 4.2L24 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M40 1l1.9 3.8 4.2.6-3 3 .7 4.2L40 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M56 1l1.9 3.8 4.2.6-3 3 .7 4.2L56 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M72 1l1.9 3.8 4.2.6-3 3 .7 4.2L72 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            </div>
-            <p>"I order lunch every weekday. The restaurant selection is amazing and the app is super easy to use. 10/10!"</p>
-            <div class="testi-author">
-              <div class="testi-avatar av3">A</div>
-              <div>
-                <strong>Aisha K.</strong>
-                <small>Marketing Director, Dubai</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="testi-card">
-            <div class="testi-stars">
-              <svg viewBox="0 0 80 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M24 1l1.9 3.8 4.2.6-3 3 .7 4.2L24 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M40 1l1.9 3.8 4.2.6-3 3 .7 4.2L40 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M56 1l1.9 3.8 4.2.6-3 3 .7 4.2L56 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/><path d="M72 1l1.9 3.8 4.2.6-3 3 .7 4.2L72 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            </div>
-            <p>"Fast delivery, great packaging, and the food is always fresh. QuickBite has spoiled me — I can't order anywhere else!"</p>
-            <div class="testi-author">
-              <div class="testi-avatar av4">R</div>
-              <div>
-                <strong>Raj P.</strong>
-                <small>Chef & Restaurateur, Mumbai</small>
-              </div>
-            </div>
-          </div>
-
+          <span class="tm-label">Average Rating</span>
+        </div>
+        <div class="testi-metric-sep" aria-hidden="true"></div>
+        <div class="testi-metric">
+          <span class="tm-value">500K+</span>
+          <span class="tm-label">Happy Customers</span>
+        </div>
+        <div class="testi-metric-sep" aria-hidden="true"></div>
+        <div class="testi-metric">
+          <span class="tm-value">98%</span>
+          <span class="tm-label">On-Time Delivery</span>
         </div>
       </div>
 
-      <!-- Dots -->
-      <div class="testi-dots" id="testiDots">
-        <button class="dot active" data-index="0"></button>
-        <button class="dot" data-index="1"></button>
-        <button class="dot" data-index="2"></button>
-        <button class="dot" data-index="3"></button>
+      <!-- Reviews grid -->
+      <div class="testi-grid">
+
+        <div class="testi-card">
+          <div class="testi-quote-mark" aria-hidden="true">
+            <svg viewBox="0 0 36 28" fill="none"><path d="M1 28V17.5C1 12.5 2.2 8.5 4.6 5.5C7 2.5 10.6 0.5 15.4 0L17 3.5C13.4 4.7 11.2 6.2 10.4 8C9.6 9.8 9.4 11.8 9.8 14H17V28H1ZM20 28V17.5C20 12.5 21.2 8.5 23.6 5.5C26 2.5 29.6 0.5 34.4 0L36 3.5C32.4 4.7 30.2 6.2 29.4 8C28.6 9.8 28.4 11.8 28.8 14H36V28H20Z" fill="currentColor"/></svg>
+          </div>
+          <div class="testi-stars">
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+          </div>
+          <p>"QuickBite is hands down the best food delivery app I've used. My order always arrives hot and exactly on time!"</p>
+          <div class="testi-card-footer">
+            <div class="testi-author">
+              <div class="testi-avatar av1">S</div>
+              <div class="testi-author-info">
+                <strong>Sarah M.</strong>
+                <small>Food Blogger · London</small>
+              </div>
+            </div>
+            <div class="testi-verified" title="Verified Customer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote-mark" aria-hidden="true">
+            <svg viewBox="0 0 36 28" fill="none"><path d="M1 28V17.5C1 12.5 2.2 8.5 4.6 5.5C7 2.5 10.6 0.5 15.4 0L17 3.5C13.4 4.7 11.2 6.2 10.4 8C9.6 9.8 9.4 11.8 9.8 14H17V28H1ZM20 28V17.5C20 12.5 21.2 8.5 23.6 5.5C26 2.5 29.6 0.5 34.4 0L36 3.5C32.4 4.7 30.2 6.2 29.4 8C28.6 9.8 28.4 11.8 28.8 14H36V28H20Z" fill="currentColor"/></svg>
+          </div>
+          <div class="testi-stars">
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+          </div>
+          <p>"The live tracking feature is a game changer. I always know exactly when my food is coming. Incredible service!"</p>
+          <div class="testi-card-footer">
+            <div class="testi-author">
+              <div class="testi-avatar av2">J</div>
+              <div class="testi-author-info">
+                <strong>James T.</strong>
+                <small>Software Engineer · NYC</small>
+              </div>
+            </div>
+            <div class="testi-verified" title="Verified Customer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote-mark" aria-hidden="true">
+            <svg viewBox="0 0 36 28" fill="none"><path d="M1 28V17.5C1 12.5 2.2 8.5 4.6 5.5C7 2.5 10.6 0.5 15.4 0L17 3.5C13.4 4.7 11.2 6.2 10.4 8C9.6 9.8 9.4 11.8 9.8 14H17V28H1ZM20 28V17.5C20 12.5 21.2 8.5 23.6 5.5C26 2.5 29.6 0.5 34.4 0L36 3.5C32.4 4.7 30.2 6.2 29.4 8C28.6 9.8 28.4 11.8 28.8 14H36V28H20Z" fill="currentColor"/></svg>
+          </div>
+          <div class="testi-stars">
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+          </div>
+          <p>"I order lunch every weekday. The restaurant selection is amazing and the app is super easy to use. 10/10!"</p>
+          <div class="testi-card-footer">
+            <div class="testi-author">
+              <div class="testi-avatar av3">A</div>
+              <div class="testi-author-info">
+                <strong>Aisha K.</strong>
+                <small>Marketing Director · Dubai</small>
+              </div>
+            </div>
+            <div class="testi-verified" title="Verified Customer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote-mark" aria-hidden="true">
+            <svg viewBox="0 0 36 28" fill="none"><path d="M1 28V17.5C1 12.5 2.2 8.5 4.6 5.5C7 2.5 10.6 0.5 15.4 0L17 3.5C13.4 4.7 11.2 6.2 10.4 8C9.6 9.8 9.4 11.8 9.8 14H17V28H1ZM20 28V17.5C20 12.5 21.2 8.5 23.6 5.5C26 2.5 29.6 0.5 34.4 0L36 3.5C32.4 4.7 30.2 6.2 29.4 8C28.6 9.8 28.4 11.8 28.8 14H36V28H20Z" fill="currentColor"/></svg>
+          </div>
+          <div class="testi-stars">
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+          </div>
+          <p>"Fast delivery, great packaging, and the food is always fresh. QuickBite has spoiled me — I can't order anywhere else!"</p>
+          <div class="testi-card-footer">
+            <div class="testi-author">
+              <div class="testi-avatar av4">R</div>
+              <div class="testi-author-info">
+                <strong>Raj P.</strong>
+                <small>Chef & Restaurateur · Mumbai</small>
+              </div>
+            </div>
+            <div class="testi-verified" title="Verified Customer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Verified</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>

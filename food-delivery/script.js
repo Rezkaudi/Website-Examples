@@ -850,27 +850,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 /* ──────────────────────────────────────────
-   8. FEATURE CARD — 3D tilt on hover
+   8. FEATURE CARD — 3D tilt (moved to section 20)
 ──────────────────────────────────────────── */
-(function initTilt() {
-  document.querySelectorAll('.feature-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect   = card.getBoundingClientRect();
-      const x      = e.clientX - rect.left;
-      const y      = e.clientY - rect.top;
-      const cx     = rect.width  / 2;
-      const cy     = rect.height / 2;
-      const rotateX = ((y - cy) / cy) * -8;  // max ±8 deg
-      const rotateY = ((x - cx) / cx) *  8;
-
-      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
-})();
 
 
 /* ──────────────────────────────────────────
@@ -1236,8 +1217,21 @@ function handleNewsletter(e) {
     ringGroup.add(ring);
   });
 
+  /* ── Glowing wireframe grid floor ── */
+  const gridGeo = new THREE.PlaneGeometry(24, 24, 32, 32);
+  const gridMat = new THREE.MeshBasicMaterial({
+    color: 0xff6b35,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.035,
+  });
+  const gridMesh = new THREE.Mesh(gridGeo, gridMat);
+  gridMesh.rotation.x = -Math.PI / 2;
+  gridMesh.position.set(1.5, -3.2, -2);
+  scene.add(gridMesh);
+
   /* ── Particle cloud ── */
-  const N   = 500;
+  const N   = 600;
   const pos = new Float32Array(N * 3);
   const col = new Float32Array(N * 3);
   const pal = [[1.0,0.42,0.21],[0.97,0.62,0.04],[0.55,0.36,0.96],[1.0,0.55,0.35],[0.13,0.77,0.37]];
@@ -1307,6 +1301,10 @@ function handleNewsletter(e) {
     ringGroup.rotation.y  = tx * 0.12;
     ringGroup.rotation.x  = ty * 0.06;
 
+    // Grid pulse
+    gridMat.opacity = 0.03 + Math.sin(t * 0.6) * 0.015;
+    gridMesh.position.z = -2 + Math.sin(t * 0.3) * 0.3;
+
     // Pulsating point lights
     pl1.intensity = 4.5 + Math.sin(t * 1.2) * 0.7;
     pl2.intensity = 2.5 + Math.sin(t * 1.8 + 1.0) * 0.5;
@@ -1369,9 +1367,11 @@ function handleNewsletter(e) {
     .from('.hero-text h1 .word-inner', { y: '115%', duration: 0.85, stagger: 0.055, ease: 'power4.out' }, '-=0.3')
     .from('.hero-text p',      { y: 40,  opacity: 0, duration: 0.70, ease: 'power3.out' }, '-=0.55')
     .from('.hero-search',      { y: 28,  opacity: 0, duration: 0.60, ease: 'power3.out' }, '-=0.45')
+    .from('.hero-chips .chip', { y: 14,  opacity: 0, duration: 0.40, stagger: 0.06, ease: 'back.out(2)' }, '-=0.30')
     .from('.hero-actions > *', { y: 22,  opacity: 0, duration: 0.55, stagger: 0.1, ease: 'power3.out' }, '-=0.40')
     .from('.hero-stats .stat', { y: 18,  opacity: 0, duration: 0.50, stagger: 0.1, ease: 'power3.out' }, '-=0.35')
-    .from('.hero-visual',      { x: 80,  opacity: 0, duration: 0.90, ease: 'power3.out' }, '-=0.80');
+    .from('.hero-visual',      { x: 80,  opacity: 0, duration: 0.90, ease: 'power3.out' }, '-=0.80')
+    .from('.float-card',       { scale: 0.5, opacity: 0, duration: 0.60, stagger: 0.15, ease: 'back.out(1.7)' }, '-=0.50');
 
   /* ── Section headers (each child staggers in) ── */
   gsap.utils.toArray('.section-header').forEach(el => {
@@ -1514,3 +1514,122 @@ function handleNewsletter(e) {
    Particles gently repel from mouse on desktop
 ══════════════════════════════════════════════════════════════ */
 // (Three.js particle repulsion handled inside the 3D loop via mouse coords)
+
+
+/* ══════════════════════════════════════════════════════════════
+   19. DELIVERY ROUTE — rider dot follows drawn path
+══════════════════════════════════════════════════════════════ */
+(function initDeliveryRoute() {
+  const motionPath = document.getElementById('riderMotionPath');
+  const rider      = document.querySelector('.route-rider');
+  if (!motionPath || !rider) return;
+
+  const totalLength = motionPath.getTotalLength();
+  let progress = 0;
+  let started  = false;
+
+  function moveRider() {
+    progress += 0.0012;
+    if (progress > 1) progress = 0;
+
+    const pt = motionPath.getPointAtLength(progress * totalLength);
+    rider.style.transform = `translate(${pt.x}px, ${pt.y}px)`;
+    requestAnimationFrame(moveRider);
+  }
+
+  setTimeout(() => {
+    if (!started) {
+      started = true;
+      requestAnimationFrame(moveRider);
+    }
+  }, 6800);
+})();
+
+
+/* ══════════════════════════════════════════════════════════════
+   20. FEATURE CARDS — in-view observer + 3D tilt + SVG draw
+══════════════════════════════════════════════════════════════ */
+(function initFeatureCardsPro() {
+  const cards = document.querySelectorAll('.feature-card');
+  if (!cards.length) return;
+
+  /* ── IntersectionObserver: add .in-view for SVG draw + bar fill ── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  cards.forEach(card => observer.observe(card));
+
+  /* ── 3D perspective tilt on mousemove ── */
+  cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const rotateX = ((y - cy) / cy) * -10;
+      const rotateY = ((x - cx) / cx) * 10;
+
+      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+})();
+
+
+/* ══════════════════════════════════════════════════════════════
+   21. HERO FLOAT CARDS — 3D parallax on mouse
+══════════════════════════════════════════════════════════════ */
+(function initFloatCardParallax() {
+  const hero       = document.getElementById('hero');
+  const floatCards = hero ? hero.querySelectorAll('.float-card') : [];
+  if (!floatCards.length || !hero) return;
+
+  hero.addEventListener('mousemove', e => {
+    const rect = hero.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) / rect.width - 0.5;
+    const my = (e.clientY - rect.top) / rect.height - 0.5;
+
+    floatCards.forEach((card, i) => {
+      const depth = (i + 1) * 16;
+      const rx = my * -8;
+      const ry = mx * 8;
+      card.style.transform = `translate(${mx * depth}px, ${my * depth}px) perspective(600px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    });
+  }, { passive: true });
+
+  hero.addEventListener('mouseleave', () => {
+    floatCards.forEach(card => {
+      card.style.transform = '';
+    });
+  });
+})();
+
+
+/* ══════════════════════════════════════════════════════════════
+   22. HERO CHIPS — search chip click fills search bar
+══════════════════════════════════════════════════════════════ */
+(function initHeroChips() {
+  const chips = document.querySelectorAll('.hero-chips .chip');
+  const input = document.querySelector('.search-input');
+  const btn   = document.querySelector('.search-btn');
+  if (!chips.length || !input) return;
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      input.value = chip.textContent.trim();
+      input.focus();
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo(chip, { scale: 0.9 }, { scale: 1, duration: 0.3, ease: 'back.out(2)' });
+      }
+    });
+  });
+})();

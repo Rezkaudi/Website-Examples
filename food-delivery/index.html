@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QuickBite — Food Delivered Fast</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <!-- Three.js -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
@@ -14,6 +16,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
+
 <body>
 
   <!-- ══════════════════════════════════════
@@ -23,19 +26,21 @@
     <div class="pl-inner">
       <div class="pl-logo">
         <svg viewBox="0 0 40 40" fill="none" width="54" height="54">
-          <circle cx="20" cy="20" r="20" fill="url(#plGrad)"/>
-          <path d="M12 26 Q20 10 28 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-          <circle cx="20" cy="22" r="5" fill="#fff" opacity=".9"/>
+          <circle cx="20" cy="20" r="20" fill="url(#plGrad)" />
+          <path d="M12 26 Q20 10 28 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none" />
+          <circle cx="20" cy="22" r="5" fill="#fff" opacity=".9" />
           <defs>
             <linearGradient id="plGrad" x1="0" y1="0" x2="40" y2="40">
-              <stop offset="0%" stop-color="#ff6b35"/>
-              <stop offset="100%" stop-color="#f7c59f"/>
+              <stop offset="0%" stop-color="#ff6b35" />
+              <stop offset="100%" stop-color="#f7c59f" />
             </linearGradient>
           </defs>
         </svg>
         <span>Quick<strong>Bite</strong></span>
       </div>
-      <div class="pl-bar-wrap"><div class="pl-bar"></div></div>
+      <div class="pl-bar-wrap">
+        <div class="pl-bar"></div>
+      </div>
       <p class="pl-text" data-i18n="preloader.text">Preparing your experience</p>
     </div>
   </div>
@@ -56,13 +61,13 @@
       <!-- Logo -->
       <a href="#" class="logo">
         <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" fill="url(#logoGrad)"/>
-          <path d="M12 26 Q20 10 28 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-          <circle cx="20" cy="22" r="5" fill="#fff" opacity=".9"/>
+          <circle cx="20" cy="20" r="20" fill="url(#logoGrad)" />
+          <path d="M12 26 Q20 10 28 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none" />
+          <circle cx="20" cy="22" r="5" fill="#fff" opacity=".9" />
           <defs>
             <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
-              <stop offset="0%" stop-color="#ff6b35"/>
-              <stop offset="100%" stop-color="#f7c59f"/>
+              <stop offset="0%" stop-color="#ff6b35" />
+              <stop offset="100%" stop-color="#f7c59f" />
             </linearGradient>
           </defs>
         </svg>
@@ -87,11 +92,24 @@
 
       <!-- Hamburger — Cheeseburger SVGator animated icon -->
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" tabindex="0">
-        <svg id="eRzKqZPLYfF1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" width="44" height="44" style="display:block;cursor:pointer"><g transform="matrix(.5 0 0 0.5-125.794998-294.955077)"><path id="eRzKqZPLYfF17" d="M291.59,640.86c0,0,0-23.2,40-23.2s40,23.2,40,23.2" fill="none" stroke="#ff6b35" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10"/><line id="eRzKqZPLYfF18" x1="291.59" y1="669.61" x2="371.59" y2="669.61" fill="none" stroke="#ff6b35" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10"/><line id="eRzKqZPLYfF19" x1="291.59" y1="698.36" x2="371.59" y2="698.36" fill="none" stroke="#ff6b35" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10"/><path id="eRzKqZPLYfF20" d="M347.87,686.9l-8.41-14.55c-.525036-.925686-.520363-2.060243.012281-2.981572s1.513525-1.491516,2.577719-1.498428h16.8c1.064194.006912,2.045076.577099,2.577719,1.498428s.537317,2.055886.012281,2.981572L353,686.9c-.543848.896578-1.516371,1.444116-2.565,1.444116s-2.021152-.547538-2.565-1.444116Z" fill="#ff6b35"/></g>
-<script><![CDATA[
-(function(s,i,u,o,c,w,d,t,n,x,e,p,a,b){(a=document.getElementById(i.root)).svgatorPlayer={ready:(function(a){b=[];return function(c){return c?(b.push(c),a.svgatorPlayer):b}})(a)};w[o]=w[o]||{};w[o][s]=w[o][s]||[];w[o][s].push(i);e=d.createElementNS(n,t);e.async=true;e.setAttributeNS(x,'href',[u,s,'.','j','s','?','v','=',c].join(''));e.setAttributeNS(null,'src',[u,s,'.','j','s','?','v','=',c].join(''));p=d.getElementsByTagName(t)[0];p.parentNode.insertBefore(e,p);})('91c80d77',{"root":"eRzKqZPLYfF1","version":"2022-05-04","animations":[{"elements":{"eRzKqZPLYfF17":{"d":[{"t":0,"v":["M",291.59,640.86,"C",291.59,640.86,291.59,617.66,331.59,617.66,"C",371.59,617.66,371.59,640.86,371.59,640.86],"e":[0.68,-0.55,0.265,1.55]},{"t":300,"v":["M",291.59,640.86,"C",291.59,640.86,291.59,640.86,331.59,640.86,"C",371.59,640.86,371.59,640.86,371.59,640.86]}],"transform":{"keys":{"o":[{"t":300,"v":{"x":331.59,"y":617.66,"type":"corner"}},{"t":500,"v":{"x":331.589997,"y":669.940003,"type":"corner"}}],"r":[{"t":500,"v":0,"e":[0.39,0.575,0.565,1]},{"t":800,"v":-45}],"t":[{"t":200,"v":{"x":-331.59,"y":-617.66}},{"t":500,"v":{"x":-331.59,"y":-640.86}}]}}},"eRzKqZPLYfF18":{"opacity":[{"t":400,"v":1,"e":[1,1]},{"t":500,"v":0}]},"eRzKqZPLYfF19":{"transform":{"data":{"t":{"x":-331.589996,"y":-698.359985}},"keys":{"o":[{"t":300,"v":{"x":331.589996,"y":698.359985,"type":"corner"}},{"t":500,"v":{"x":331.589996,"y":669.880011,"type":"corner"}}],"r":[{"t":500,"v":0,"e":[0.39,0.575,0.565,1]},{"t":800,"v":45}]}}},"eRzKqZPLYfF20":{"transform":{"data":{"o":{"x":350.450012,"y":667.87,"type":"corner"},"t":{"x":-350.450012,"y":-667.87}},"keys":{"s":[{"t":100,"v":{"x":1,"y":1},"e":[0.6,-0.28,0.735,0.045]},{"t":250,"v":{"x":1,"y":0.098174}}]}},"opacity":[{"t":250,"v":1},{"t":350,"v":0}]}},"s":"MDAA1Y2JlNjVhNX2I4YjVLYTRiJN2FjYjJiMTYT1N2RPN2I3MzOczNmY2NWE3YYWNiNWE4YTZiBN2FjYjJiMTYL1N2RNNzQ2ZjMY1YWNiN2E4YNjVhNGI3YWNiIMmIxYjZWNjUR3ZDc0NmY2NWAE5YWNhZkthZHjY1N2Q3NDZmFNjVhNGFmYjdCDYThiNWIxYTIRHYjdhOFk2NPTdkYTlhNGFmAYjZhOFI2ZjYF1YjZiM2E4YTKhhN0g2NTdkNBzQ2ZjY1U0VhWOWIzYjY2NUIO3ZDc0NzM3M2XMw"}],"options":"MDHAyMzgxMjg3OJTdhNjdYNzg3WYVYyODQwMjgX2OTcyWTZmNjCk3MTI4MzIyOQDY5NzI2ZjY5ANzEyODQwMjgH3ODZiN2NUNmOI3ODc5NmIyOTDgz"},'https://cdn.svgator.com/ply/','__SVGATOR_PLAYER__','2022-05-04',window,document,'script','http://www.w3.org/2000/svg','http://www.w3.org/1999/xlink')
-]]></script>
-</svg>
+        <svg id="eRzKqZPLYfF1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 80 80" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" width="44"
+          height="44" style="display:block;cursor:pointer">
+          <g transform="matrix(.5 0 0 0.5-125.794998-294.955077)">
+            <path id="eRzKqZPLYfF17" d="M291.59,640.86c0,0,0-23.2,40-23.2s40,23.2,40,23.2" fill="none" stroke="#ff6b35"
+              stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" />
+            <line id="eRzKqZPLYfF18" x1="291.59" y1="669.61" x2="371.59" y2="669.61" fill="none" stroke="#ff6b35"
+              stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" />
+            <line id="eRzKqZPLYfF19" x1="291.59" y1="698.36" x2="371.59" y2="698.36" fill="none" stroke="#ff6b35"
+              stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" />
+            <path id="eRzKqZPLYfF20"
+              d="M347.87,686.9l-8.41-14.55c-.525036-.925686-.520363-2.060243.012281-2.981572s1.513525-1.491516,2.577719-1.498428h16.8c1.064194.006912,2.045076.577099,2.577719,1.498428s.537317,2.055886.012281,2.981572L353,686.9c-.543848.896578-1.516371,1.444116-2.565,1.444116s-2.021152-.547538-2.565-1.444116Z"
+              fill="#ff6b35" />
+          </g>
+          <script>/* <![CDATA[ */
+            (function (s, i, u, o, c, w, d, t, n, x, e, p, a, b) { (a = document.getElementById(i.root)).svgatorPlayer = { ready: (function (a) { b = []; return function (c) { return c ? (b.push(c), a.svgatorPlayer) : b } })(a) }; w[o] = w[o] || {}; w[o][s] = w[o][s] || []; w[o][s].push(i); e = d.createElementNS(n, t); e.async = true; e.setAttributeNS(x, 'href', [u, s, '.', 'j', 's', '?', 'v', '=', c].join('')); e.setAttributeNS(null, 'src', [u, s, '.', 'j', 's', '?', 'v', '=', c].join('')); p = d.getElementsByTagName(t)[0]; p.parentNode.insertBefore(e, p); })('91c80d77', { "root": "eRzKqZPLYfF1", "version": "2022-05-04", "animations": [{ "elements": { "eRzKqZPLYfF17": { "d": [{ "t": 0, "v": ["M", 291.59, 640.86, "C", 291.59, 640.86, 291.59, 617.66, 331.59, 617.66, "C", 371.59, 617.66, 371.59, 640.86, 371.59, 640.86], "e": [0.68, -0.55, 0.265, 1.55] }, { "t": 300, "v": ["M", 291.59, 640.86, "C", 291.59, 640.86, 291.59, 640.86, 331.59, 640.86, "C", 371.59, 640.86, 371.59, 640.86, 371.59, 640.86] }], "transform": { "keys": { "o": [{ "t": 300, "v": { "x": 331.59, "y": 617.66, "type": "corner" } }, { "t": 500, "v": { "x": 331.589997, "y": 669.940003, "type": "corner" } }], "r": [{ "t": 500, "v": 0, "e": [0.39, 0.575, 0.565, 1] }, { "t": 800, "v": -45 }], "t": [{ "t": 200, "v": { "x": -331.59, "y": -617.66 } }, { "t": 500, "v": { "x": -331.59, "y": -640.86 } }] } } }, "eRzKqZPLYfF18": { "opacity": [{ "t": 400, "v": 1, "e": [1, 1] }, { "t": 500, "v": 0 }] }, "eRzKqZPLYfF19": { "transform": { "data": { "t": { "x": -331.589996, "y": -698.359985 } }, "keys": { "o": [{ "t": 300, "v": { "x": 331.589996, "y": 698.359985, "type": "corner" } }, { "t": 500, "v": { "x": 331.589996, "y": 669.880011, "type": "corner" } }], "r": [{ "t": 500, "v": 0, "e": [0.39, 0.575, 0.565, 1] }, { "t": 800, "v": 45 }] } } }, "eRzKqZPLYfF20": { "transform": { "data": { "o": { "x": 350.450012, "y": 667.87, "type": "corner" }, "t": { "x": -350.450012, "y": -667.87 } }, "keys": { "s": [{ "t": 100, "v": { "x": 1, "y": 1 }, "e": [0.6, -0.28, 0.735, 0.045] }, { "t": 250, "v": { "x": 1, "y": 0.098174 } }] } }, "opacity": [{ "t": 250, "v": 1 }, { "t": 350, "v": 0 }] } }, "s": "MDAA1Y2JlNjVhNX2I4YjVLYTRiJN2FjYjJiMTYT1N2RPN2I3MzOczNmY2NWE3YYWNiNWE4YTZiBN2FjYjJiMTYL1N2RNNzQ2ZjMY1YWNiN2E4YNjVhNGI3YWNiIMmIxYjZWNjUR3ZDc0NmY2NWAE5YWNhZkthZHjY1N2Q3NDZmFNjVhNGFmYjdCDYThiNWIxYTIRHYjdhOFk2NPTdkYTlhNGFmAYjZhOFI2ZjYF1YjZiM2E4YTKhhN0g2NTdkNBzQ2ZjY1U0VhWOWIzYjY2NUIO3ZDc0NzM3M2XMw" }], "options": "MDHAyMzgxMjg3OJTdhNjdYNzg3WYVYyODQwMjgX2OTcyWTZmNjCk3MTI4MzIyOQDY5NzI2ZjY5ANzEyODQwMjgH3ODZiN2NUNmOI3ODc5NmIyOTDgz" }, 'https://cdn.svgator.com/ply/', '__SVGATOR_PLAYER__', '2022-05-04', window, document, 'script', 'http://www.w3.org/2000/svg', 'http://www.w3.org/1999/xlink')
+            /* ]]> */</script>
+        </svg>
       </button>
     </div>
   </nav>
@@ -104,21 +122,21 @@
       <!-- Close button (X icon) -->
       <button class="panel-burger" id="panelBurger" aria-label="Close menu">
         <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
-          <line x1="12" y1="12" x2="28" y2="28" stroke="#ff6b35" stroke-width="3" stroke-linecap="round"/>
-          <line x1="28" y1="12" x2="12" y2="28" stroke="#ff6b35" stroke-width="3" stroke-linecap="round"/>
+          <line x1="12" y1="12" x2="28" y2="28" stroke="#ff6b35" stroke-width="3" stroke-linecap="round" />
+          <line x1="28" y1="12" x2="12" y2="28" stroke="#ff6b35" stroke-width="3" stroke-linecap="round" />
         </svg>
       </button>
 
       <!-- Logo repeat inside panel -->
       <div class="mobile-menu-logo">
         <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
-          <circle cx="20" cy="20" r="20" fill="url(#mmGrad)"/>
-          <path d="M12 26 Q20 10 28 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-          <circle cx="20" cy="22" r="5" fill="#fff" opacity=".9"/>
+          <circle cx="20" cy="20" r="20" fill="url(#mmGrad)" />
+          <path d="M12 26 Q20 10 28 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none" />
+          <circle cx="20" cy="22" r="5" fill="#fff" opacity=".9" />
           <defs>
             <linearGradient id="mmGrad" x1="0" y1="0" x2="40" y2="40">
-              <stop offset="0%" stop-color="#ff6b35"/>
-              <stop offset="100%" stop-color="#f7c59f"/>
+              <stop offset="0%" stop-color="#ff6b35" />
+              <stop offset="100%" stop-color="#f7c59f" />
             </linearGradient>
           </defs>
         </svg>
@@ -169,63 +187,192 @@
   ══════════════════════════════════════ -->
   <section class="hero" id="hero">
     <canvas id="hero-canvas" aria-hidden="true"></canvas>
-    <div class="hero-bg-circles">
-      <span class="circle c1"></span>
-      <span class="circle c2"></span>
-      <span class="circle c3"></span>
+
+    <!-- Mesh gradient blobs -->
+    <div class="hero-blobs" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Animated SVG delivery route -->
+    <div class="hero-delivery-route" aria-hidden="true">
+      <svg viewBox="0 0 900 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <!-- Dashed ghost path -->
+        <path
+          d="M60,440 C140,390 210,310 310,285 C410,260 460,195 540,175 C620,155 670,215 740,185 C800,160 840,125 870,100"
+          stroke="rgba(255,255,255,0.06)" stroke-width="1.5" stroke-dasharray="8 14" fill="none"
+          stroke-linecap="round" />
+        <!-- Main animated draw path -->
+        <path id="routeMainPath" class="route-draw-line"
+          d="M60,440 C140,390 210,310 310,285 C410,260 460,195 540,175 C620,155 670,215 740,185 C800,160 840,125 870,100"
+          stroke="url(#routeGrad)" stroke-width="2.2" stroke-linecap="round" fill="none" />
+        <!-- City waypoint dots -->
+        <g class="route-city route-city-1">
+          <circle cx="310" cy="285" r="5" fill="#ff6b35" opacity="0.85" />
+          <circle cx="310" cy="285" r="10" fill="none" stroke="#ff6b35" stroke-width="1.2" class="city-expand" />
+        </g>
+        <g class="route-city route-city-2">
+          <circle cx="540" cy="175" r="5" fill="#f59e0b" opacity="0.85" />
+          <circle cx="540" cy="175" r="10" fill="none" stroke="#f59e0b" stroke-width="1.2" class="city-expand" />
+        </g>
+        <g class="route-city route-city-3">
+          <circle cx="740" cy="185" r="5" fill="#8b5cf6" opacity="0.85" />
+          <circle cx="740" cy="185" r="10" fill="none" stroke="#8b5cf6" stroke-width="1.2" class="city-expand" />
+        </g>
+        <!-- Start pin: restaurant -->
+        <g class="route-pin-start" transform="translate(60,440)">
+          <circle r="14" fill="#ff6b35" opacity="0.1" />
+          <circle r="7" fill="#ff6b35" />
+          <circle r="3" fill="#fff" />
+          <circle r="13" fill="none" stroke="#ff6b35" stroke-width="1.5" class="pin-ripple" />
+          <circle r="20" fill="none" stroke="#ff6b35" stroke-width="1" opacity="0.4" class="pin-ripple pin-ripple-2" />
+        </g>
+        <!-- End pin: home -->
+        <g class="route-pin-end" transform="translate(870,100)">
+          <circle r="14" fill="#22c55e" opacity="0.1" />
+          <circle r="7" fill="#22c55e" />
+          <circle r="3" fill="#fff" />
+          <circle r="13" fill="none" stroke="#22c55e" stroke-width="1.5" class="pin-ripple" />
+        </g>
+        <!-- Animated rider dot -->
+        <g class="route-rider" style="transform:translate(60px,440px)">
+          <circle r="14" fill="#ff6b35" opacity="0.12" />
+          <circle r="7" fill="#ff6b35" />
+          <circle r="3.5" fill="#fff" />
+          <circle r="7" fill="none" stroke="#ff6b35" stroke-width="2" class="rider-pulse" />
+        </g>
+        <!-- Hidden motion path for JS -->
+        <path id="riderMotionPath" opacity="0"
+          d="M60,440 C140,390 210,310 310,285 C410,260 460,195 540,175 C620,155 670,215 740,185 C800,160 840,125 870,100"
+          fill="none" />
+        <defs>
+          <linearGradient id="routeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ff6b35" stop-opacity="0.95" />
+            <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.75" />
+            <stop offset="100%" stop-color="#22c55e" stop-opacity="0.95" />
+          </linearGradient>
+        </defs>
+      </svg>
     </div>
 
     <div class="hero-content">
+      <!-- ── Left: Text ─────────────────── -->
       <div class="hero-text">
         <span class="badge">
-          <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="4" fill="#ff6b35"/></svg>
+          <svg viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="4" fill="#ff6b35" />
+          </svg>
           <span data-i18n="hero.badge">Live in 50+ Cities</span>
         </span>
-        <h1 data-i18n-html="hero.h1">Delicious Food<br/><span class="gradient-text">Delivered Fast</span></h1>
-        <p data-i18n="hero.p">From your favourite restaurants straight to your door — hot, fresh, and in under 30 minutes.</p>
+        <h1 data-i18n-html="hero.h1">Delicious Food<br /><span class="gradient-text">Delivered Fast</span></h1>
+        <p data-i18n="hero.p">From your favourite restaurants straight to your door — hot, fresh, and in under 30
+          minutes.</p>
 
         <!-- Search Bar -->
         <div class="hero-search" role="search">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          <div class="search-loc-wrap">
+            <svg class="search-loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span class="search-loc-text">Near me</span>
+          </div>
+          <div class="search-sep" aria-hidden="true"></div>
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <path d="M21 21l-4.35-4.35" />
           </svg>
-          <input type="text" class="search-input" data-i18n-placeholder="hero.search.ph" placeholder="Search pizza, burgers, sushi..." aria-label="Search food">
+          <input type="text" class="search-input" data-i18n-placeholder="hero.search.ph"
+            placeholder="Search pizza, burgers, sushi..." aria-label="Search food">
           <button class="search-btn" type="button" data-i18n="hero.search.btn">Search</button>
+        </div>
+
+        <!-- Quick category chips -->
+        <div class="hero-chips" aria-label="Popular categories">
+          <span class="chip-label">Popular:</span>
+          <button class="chip" type="button">Burgers</button>
+          <button class="chip" type="button">Pizza</button>
+          <button class="chip" type="button">Sushi</button>
+          <button class="chip" type="button">Tacos</button>
         </div>
 
         <div class="hero-actions">
           <a href="#menu" class="btn-primary" data-i18n="hero.cta.explore">Explore Menu</a>
           <a href="#app" class="btn-outline">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="5 3 19 12 5 21 5 3"/>
+              <polygon points="5 3 19 12 5 21 5 3" />
             </svg>
             <span data-i18n="hero.cta.demo">Watch Demo</span>
           </a>
         </div>
+
         <div class="hero-stats">
-          <div class="stat"><span class="counter" data-target="50000">0</span><span>+</span><small data-i18n="hero.stat.customers">Happy Customers</small></div>
+          <div class="stat"><span class="counter" data-target="50000">0</span><span>+</span><small
+              data-i18n="hero.stat.customers">Happy Customers</small></div>
           <div class="stat-divider"></div>
-          <div class="stat"><span class="counter" data-target="1200">0</span><span>+</span><small data-i18n="hero.stat.restaurants">Restaurants</small></div>
+          <div class="stat"><span class="counter" data-target="1200">0</span><span>+</span><small
+              data-i18n="hero.stat.restaurants">Restaurants</small></div>
           <div class="stat-divider"></div>
-          <div class="stat"><span class="counter" data-target="98">0</span><span>%</span><small data-i18n="hero.stat.delivery">On-time Delivery</small></div>
+          <div class="stat"><span class="counter" data-target="98">0</span><span>%</span><small
+              data-i18n="hero.stat.delivery">On-time Delivery</small></div>
         </div>
       </div>
 
-      <!-- Real Food Photo -->
+      <!-- ── Right: Visual ───────────────── -->
       <div class="hero-visual">
         <div class="plate-wrapper">
 
           <!-- Main hero food image inside glowing circle -->
           <div class="hero-food-ring">
-            <img
-              class="hero-food-img"
+            <img class="hero-food-img"
               src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
-              alt="Delicious smash burger"
-            />
+              alt="Delicious smash burger" />
+          </div>
+
+          <!-- Floating card: Order status (bottom-left) -->
+          <div class="float-card fc-order" aria-hidden="true">
+            <img class="fc-avatar" src="https://i.pravatar.cc/40?img=11" alt="" width="40" height="40">
+            <div class="fc-body">
+              <span class="fc-name">James T.</span>
+              <span class="fc-item">Double Smash Burger</span>
+              <div class="fc-progress">
+                <span class="fc-dot fc-dot--on"></span>
+                <span class="fc-dot fc-dot--on"></span>
+                <span class="fc-dot"></span>
+                <span class="fc-status-text">Preparing…</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating card: ETA (top-right) -->
+          <div class="float-card fc-eta" aria-hidden="true">
+            <svg class="fc-eta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <div class="fc-eta-body">
+              <span class="fc-eta-time">~25 min</span>
+              <span class="fc-eta-label">Est. arrival</span>
+            </div>
+          </div>
+
+          <!-- Floating card: Rating (top-left of visual) -->
+          <div class="float-card fc-rating" aria-hidden="true">
+            <svg class="fc-star" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+            <div>
+              <span class="fc-rate-num">4.9</span>
+              <span class="fc-rate-label">12k+ reviews</span>
+            </div>
           </div>
 
           <!-- Floating food photo chips -->
-          <div class="float-item fi-1">
+          <!-- <div class="float-item fi-1">
             <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=120&q=80" alt="Fries" />
           </div>
           <div class="float-item fi-2">
@@ -233,10 +380,7 @@
           </div>
           <div class="float-item fi-3">
             <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=120&q=80" alt="Sushi" />
-          </div>
-          <div class="float-item fi-4">
-            <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=120&q=80" alt="Ice cream" />
-          </div>
+          </div> -->
 
         </div>
       </div>
@@ -245,7 +389,7 @@
     <!-- Wave divider -->
     <div class="hero-wave">
       <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8f5f0"/>
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8f5f0" />
       </svg>
     </div>
   </section>
@@ -286,64 +430,141 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag" data-i18n="features.tag">Why QuickBite?</span>
-        <h2 data-i18n-html="features.h2">Everything you love about<br/><span class="gradient-text">food delivery, perfected</span></h2>
+        <h2 data-i18n-html="features.h2">Everything you love about<br /><span class="gradient-text">food delivery,
+            perfected</span></h2>
       </div>
 
       <div class="features-grid">
 
+        <!-- Card 1 — Fast Delivery -->
         <div class="feature-card" data-aos>
-          <div class="feature-icon-wrap orange">
-            <!-- Lightning bolt (fast delivery) -->
-            <svg class="feat-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="32" cy="32" r="32" fill="rgba(255,107,53,.12)"/>
-              <path class="svg-draw" d="M36 12 L22 34 H32 L28 52 L46 30 H36 Z" fill="#ff6b35" stroke="#ff6b35" stroke-width="1" stroke-linejoin="round"/>
+          <div class="fc-geo-corner"></div>
+          <div class="feature-icon-hex orange">
+            <div class="hex-glow-layer"></div>
+            <svg class="feat-svg icon-draw" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path class="icon-line" d="M28 5L13 27H24L20 43L37 21H26L28 5Z" stroke="#ff6b35" stroke-width="2.4"
+                stroke-linejoin="round" stroke-linecap="round" />
+              <line class="icon-line" x1="7" y1="19" x2="1" y2="19" stroke="#ff6b35" stroke-width="2"
+                stroke-linecap="round" opacity="0.55" />
+              <line class="icon-line" x1="8" y1="26" x2="3" y2="26" stroke="#ff6b35" stroke-width="2"
+                stroke-linecap="round" opacity="0.35" />
+              <line class="icon-line" x1="7" y1="33" x2="2" y2="33" stroke="#ff6b35" stroke-width="2"
+                stroke-linecap="round" opacity="0.2" />
             </svg>
+            <div class="hex-orbit-ring">
+              <div class="hex-orbit-dot orange"></div>
+            </div>
           </div>
-          <h3 data-i18n="feat1.h3">30-Min Delivery</h3>
-          <p data-i18n="feat1.p">Our optimised routing ensures your food arrives hot and on time, every single order.</p>
+          <div class="fc-text">
+            <h3 data-i18n="feat1.h3">30-Min Delivery</h3>
+            <p data-i18n="feat1.p">Our optimised routing ensures your food arrives hot and on time, every single order.
+            </p>
+          </div>
+          <div class="fc-metric">
+            <span class="fc-metric-num">30</span>
+            <span class="fc-metric-lbl">min avg</span>
+            <div class="fc-bar">
+              <div class="fc-bar-fill orange"></div>
+            </div>
+          </div>
         </div>
 
+        <!-- Card 2 — Top Restaurants -->
         <div class="feature-card" data-aos>
-          <div class="feature-icon-wrap purple">
-            <!-- Store / restaurant -->
-            <svg class="feat-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="32" cy="32" r="32" fill="rgba(139,92,246,.12)"/>
-              <rect class="svg-draw" x="14" y="28" width="36" height="24" rx="3" fill="#8b5cf6"/>
-              <path class="svg-draw" d="M10 28 L32 12 L54 28" fill="#7c3aed"/>
-              <rect x="26" y="36" width="12" height="16" rx="2" fill="#fff" opacity=".9"/>
-              <rect x="17" y="33" width="8" height="8" rx="1" fill="#fff" opacity=".7"/>
-              <rect x="39" y="33" width="8" height="8" rx="1" fill="#fff" opacity=".7"/>
+          <div class="fc-geo-corner"></div>
+          <div class="feature-icon-hex purple">
+            <div class="hex-glow-layer"></div>
+            <svg class="feat-svg icon-draw" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path class="icon-line" d="M5 22L24 7L43 22" stroke="#8b5cf6" stroke-width="2.4" stroke-linejoin="round"
+                stroke-linecap="round" />
+              <rect class="icon-line" x="9" y="22" width="30" height="21" rx="2" stroke="#8b5cf6" stroke-width="2.4" />
+              <rect class="icon-line" x="19" y="29" width="10" height="14" rx="1.5" stroke="#8b5cf6" stroke-width="2" />
+              <rect class="icon-line" x="10" y="27" width="7" height="7" rx="1" stroke="#8b5cf6" stroke-width="1.8" />
+              <rect class="icon-line" x="31" y="27" width="7" height="7" rx="1" stroke="#8b5cf6" stroke-width="1.8" />
             </svg>
+            <div class="hex-orbit-ring" style="animation-direction:reverse">
+              <div class="hex-orbit-dot purple"></div>
+            </div>
           </div>
-          <h3 data-i18n="feat2.h3">Top Restaurants</h3>
-          <p data-i18n="feat2.p">Curated selection of over 1,200 verified restaurants with ratings, menus and offers.</p>
+          <div class="fc-text">
+            <h3 data-i18n="feat2.h3">Top Restaurants</h3>
+            <p data-i18n="feat2.p">Curated selection of over 1,200 verified restaurants with ratings, menus and offers.
+            </p>
+          </div>
+          <div class="fc-metric">
+            <span class="fc-metric-num">1.2K</span>
+            <span class="fc-metric-lbl">restaurants</span>
+            <div class="fc-bar">
+              <div class="fc-bar-fill purple"></div>
+            </div>
+          </div>
         </div>
 
+        <!-- Card 3 — Live Tracking -->
         <div class="feature-card" data-aos>
-          <div class="feature-icon-wrap green">
-            <!-- Map pin (live tracking) -->
-            <svg class="feat-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="32" cy="32" r="32" fill="rgba(34,197,94,.12)"/>
-              <path class="svg-draw" d="M32 14 C22.06 14 14 22.06 14 32 C14 44 32 54 32 54 C32 54 50 44 50 32 C50 22.06 41.94 14 32 14 Z" fill="#22c55e"/>
-              <circle cx="32" cy="32" r="7" fill="#fff" opacity=".9"/>
-              <circle class="ping" cx="32" cy="32" r="7" fill="none" stroke="#22c55e" stroke-width="2"/>
+          <div class="fc-geo-corner"></div>
+          <div class="feature-icon-hex green">
+            <div class="hex-glow-layer"></div>
+            <svg class="feat-svg icon-draw" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path class="icon-line"
+                d="M24 4C15.16 4 8 11.16 8 20C8 31 24 44 24 44C24 44 40 31 40 20C40 11.16 32.84 4 24 4Z"
+                stroke="#22c55e" stroke-width="2.4" stroke-linejoin="round" />
+              <circle class="icon-line icon-ping-circle" cx="24" cy="20" r="5.5" stroke="#22c55e" stroke-width="2.2" />
+              <path class="icon-line" d="M35 7C39 10 41.5 14.7 41.5 20" stroke="#22c55e" stroke-width="1.8"
+                stroke-linecap="round" opacity="0.55" />
+              <path class="icon-line" d="M13 7C9 10 6.5 14.7 6.5 20" stroke="#22c55e" stroke-width="1.8"
+                stroke-linecap="round" opacity="0.55" />
             </svg>
+            <div class="hex-orbit-ring">
+              <div class="hex-orbit-dot green"></div>
+            </div>
           </div>
-          <h3 data-i18n="feat3.h3">Live Tracking</h3>
-          <p data-i18n="feat3.p">Real-time GPS tracking from the kitchen to your front door — never wonder where your food is.</p>
+          <div class="fc-text">
+            <h3 data-i18n="feat3.h3">Live Tracking</h3>
+            <p data-i18n="feat3.p">Real-time GPS tracking from the kitchen to your front door — never wonder where your
+              food is.</p>
+          </div>
+          <div class="fc-metric">
+            <span class="fc-metric-num">100%</span>
+            <span class="fc-metric-lbl">live GPS</span>
+            <div class="fc-bar">
+              <div class="fc-bar-fill green"></div>
+            </div>
+          </div>
         </div>
 
+        <!-- Card 4 — Secure Payments -->
         <div class="feature-card" data-aos>
-          <div class="feature-icon-wrap blue">
-            <!-- Shield (safe payment) -->
-            <svg class="feat-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="32" cy="32" r="32" fill="rgba(59,130,246,.12)"/>
-              <path class="svg-draw" d="M32 12 L50 20 L50 36 C50 44.84 41.6 51.6 32 54 C22.4 51.6 14 44.84 14 36 L14 20 Z" fill="#3b82f6"/>
-              <path d="M24 32 L29 37 L40 26" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <div class="fc-geo-corner"></div>
+          <div class="feature-icon-hex blue">
+            <div class="hex-glow-layer"></div>
+            <svg class="feat-svg icon-draw" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path class="icon-line" d="M24 4L42 13V29C42 38.5 33.8 45.8 24 48C14.2 45.8 6 38.5 6 29V13L24 4Z"
+                stroke="#3b82f6" stroke-width="2.4" stroke-linejoin="round" />
+              <path class="icon-check" d="M15 25L21 31L33 18" stroke="#3b82f6" stroke-width="2.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <circle class="icon-line" cx="24" cy="19" r="3.5" stroke="#3b82f6" stroke-width="1.6" opacity="0.5" />
             </svg>
+            <div class="hex-orbit-ring" style="animation-direction:reverse">
+              <div class="hex-orbit-dot blue"></div>
+            </div>
           </div>
-          <h3 data-i18n="feat4.h3">Secure Payments</h3>
-          <p data-i18n="feat4.p">Multiple payment options with bank-grade encryption keeping every transaction safe.</p>
+          <div class="fc-text">
+            <h3 data-i18n="feat4.h3">Secure Payments</h3>
+            <p data-i18n="feat4.p">Multiple payment options with bank-grade encryption keeping every transaction safe.
+            </p>
+          </div>
+          <div class="fc-metric">
+            <span class="fc-metric-num">256</span>
+            <span class="fc-metric-lbl">bit encrypt</span>
+            <div class="fc-bar">
+              <div class="fc-bar-fill blue"></div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -363,20 +584,22 @@
       <svg class="menu-dots-pattern" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="menuDotGrid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-            <circle cx="2" cy="2" r="1.4" fill="rgba(255,107,53,0.10)"/>
+            <circle cx="2" cy="2" r="1.4" fill="rgba(255,107,53,0.10)" />
           </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#menuDotGrid)"/>
+        <rect width="100%" height="100%" fill="url(#menuDotGrid)" />
       </svg>
       <!-- Floating SVG spark shapes -->
       <svg class="menu-spark menu-spark-1" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 2 L22.4 17.6 L38 20 L22.4 22.4 L20 38 L17.6 22.4 L2 20 L17.6 17.6 Z" fill="rgba(255,107,53,0.18)" stroke="rgba(255,107,53,0.35)" stroke-width="1"/>
+        <path d="M20 2 L22.4 17.6 L38 20 L22.4 22.4 L20 38 L17.6 22.4 L2 20 L17.6 17.6 Z" fill="rgba(255,107,53,0.18)"
+          stroke="rgba(255,107,53,0.35)" stroke-width="1" />
       </svg>
       <svg class="menu-spark menu-spark-2" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="14" cy="14" r="12" stroke="rgba(245,158,11,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <circle cx="14" cy="14" r="12" stroke="rgba(245,158,11,0.25)" stroke-width="1.5" stroke-dasharray="4 3" />
       </svg>
       <svg class="menu-spark menu-spark-3" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 2 L22.4 17.6 L38 20 L22.4 22.4 L20 38 L17.6 22.4 L2 20 L17.6 17.6 Z" fill="rgba(139,92,246,0.14)" stroke="rgba(139,92,246,0.28)" stroke-width="1"/>
+        <path d="M20 2 L22.4 17.6 L38 20 L22.4 22.4 L20 38 L17.6 22.4 L2 20 L17.6 17.6 Z" fill="rgba(139,92,246,0.14)"
+          stroke="rgba(139,92,246,0.28)" stroke-width="1" />
       </svg>
     </div>
 
@@ -386,7 +609,11 @@
       <div class="section-header menu-section-header">
         <div class="menu-tag-row">
           <span class="section-tag">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin-right:5px"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+              style="display:inline-block;vertical-align:middle;margin-right:5px">
+              <path
+                d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z" />
+            </svg>
             <span data-i18n="menu.tag">Popular Right Now</span>
           </span>
           <div class="live-badge">
@@ -396,43 +623,61 @@
         </div>
         <h2 data-i18n-html="menu.h2">Trending <span class="gradient-text">this week</span></h2>
         <!-- Animated SVG wave underline -->
-        <svg class="heading-wave" viewBox="0 0 260 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="none">
+        <svg class="heading-wave" viewBox="0 0 260 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+          preserveAspectRatio="none">
           <defs>
             <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#ff6b35"/>
-              <stop offset="100%" stop-color="#f59e0b"/>
+              <stop offset="0%" stop-color="#ff6b35" />
+              <stop offset="100%" stop-color="#f59e0b" />
             </linearGradient>
           </defs>
-          <path class="wave-path" d="M0,8 Q32,2 65,8 T130,8 T195,8 T260,8" stroke="url(#waveGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path class="wave-path" d="M0,8 Q32,2 65,8 T130,8 T195,8 T260,8" stroke="url(#waveGrad)" stroke-width="3.5"
+            fill="none" stroke-linecap="round" />
         </svg>
-        <p class="menu-section-sub" data-i18n="menu.sub">Discover what 50,000+ customers can't stop ordering right now</p>
+        <p class="menu-section-sub" data-i18n="menu.sub">Discover what 50,000+ customers can't stop ordering right now
+        </p>
       </div>
 
       <!-- ── Filter tabs ── -->
       <div class="filter-tabs" id="filterTabs" role="tablist">
         <div class="tab-track" id="tabTrack"></div>
         <button class="tab active" data-filter="all" role="tab" aria-selected="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
+          </svg>
           <span data-i18n="filter.all">All</span>
           <span class="tab-count">6</span>
         </button>
         <button class="tab" data-filter="burgers" role="tab" aria-selected="false">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 14h16a1 1 0 000-2H4a1 1 0 000 2zm-1-5a1 1 0 001 1h16a1 1 0 000-2H4a1 1 0 00-1 1zm3 9.5C6 19.88 6.9 21 8 21h8c1.1 0 2-1.12 2-2.5H6z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M4 14h16a1 1 0 000-2H4a1 1 0 000 2zm-1-5a1 1 0 001 1h16a1 1 0 000-2H4a1 1 0 00-1 1zm3 9.5C6 19.88 6.9 21 8 21h8c1.1 0 2-1.12 2-2.5H6z" />
+          </svg>
           <span data-i18n="filter.burgers">Burgers</span>
           <span class="tab-count">2</span>
         </button>
         <button class="tab" data-filter="pizza" role="tab" aria-selected="false">
-          <svg width="14" height="14" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M256 48C141.2 48 48 141.2 48 256s93.2 208 208 208 208-93.2 208-208S370.8 48 256 48zm0 368c-88.2 0-160-71.8-160-160S167.8 96 256 96s160 71.8 160 160-71.8 160-160 160zm-48-176a32 32 0 1164 0 32 32 0 01-64 0zm96 64a16 16 0 1132 0 16 16 0 01-32 0zm-80 32a16 16 0 1132 0 16 16 0 01-32 0z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">
+            <path
+              d="M256 48C141.2 48 48 141.2 48 256s93.2 208 208 208 208-93.2 208-208S370.8 48 256 48zm0 368c-88.2 0-160-71.8-160-160S167.8 96 256 96s160 71.8 160 160-71.8 160-160 160zm-48-176a32 32 0 1164 0 32 32 0 01-64 0zm96 64a16 16 0 1132 0 16 16 0 01-32 0zm-80 32a16 16 0 1132 0 16 16 0 01-32 0z" />
+          </svg>
           <span data-i18n="filter.pizza">Pizza</span>
           <span class="tab-count">2</span>
         </button>
         <button class="tab" data-filter="sushi" role="tab" aria-selected="false">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="6"/><ellipse cx="12" cy="12" rx="5.5" ry="3.2" fill="white" opacity=".45"/><circle cx="12" cy="12" r="3" fill="#ff6b35" opacity=".7"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <ellipse cx="12" cy="12" rx="10" ry="6" />
+            <ellipse cx="12" cy="12" rx="5.5" ry="3.2" fill="white" opacity=".45" />
+            <circle cx="12" cy="12" r="3" fill="#ff6b35" opacity=".7" />
+          </svg>
           <span data-i18n="filter.sushi">Sushi</span>
           <span class="tab-count">1</span>
         </button>
         <button class="tab" data-filter="desserts" role="tab" aria-selected="false">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm1 14h-2v-1h2v1zm2-5.82V15h-6v-4.82C7.48 9.46 7 8.29 7 7h10c0 1.29-.48 2.46-2 3.18z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm1 14h-2v-1h2v1zm2-5.82V15h-6v-4.82C7.48 9.46 7 8.29 7 7h10c0 1.29-.48 2.46-2 3.18z" />
+          </svg>
           <span data-i18n="filter.desserts">Desserts</span>
           <span class="tab-count">1</span>
         </button>
@@ -446,17 +691,26 @@
           <div class="menu-img-wrap">
             <span class="card-rank">#1</span>
             <div class="menu-img">
-              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Double Smash Burger" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
+                alt="Double Smash Burger" loading="lazy" />
             </div>
             <span class="badge-popular">🔥 Popular</span>
             <button class="like-btn" aria-label="Like this dish">
-              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+              </svg>
             </button>
             <button class="quick-add" aria-label="Add to cart">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
             </button>
             <div class="card-hover-info">
-              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
+              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true">
+                <path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z" />
+              </svg>
               <span data-i18n="card1.week">2,400 orders this week</span>
             </div>
           </div>
@@ -464,7 +718,9 @@
             <div class="menu-meta">
               <span class="menu-category" data-i18n="card1.cat">Burgers</span>
               <span class="menu-rating">
-                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true">
+                  <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+                </svg>
                 4.9 <span class="rating-count">(847)</span>
               </span>
             </div>
@@ -475,7 +731,10 @@
                 <span class="price-original">$16.00</span>
               </div>
               <span class="delivery-time">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <circle cx="8" cy="8" r="6" />
+                  <path d="M8 5v3.5l2 2" />
+                </svg>
                 20 min
               </span>
             </div>
@@ -487,17 +746,26 @@
           <div class="menu-img-wrap">
             <span class="card-rank">#2</span>
             <div class="menu-img">
-              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" alt="Margherita Royale" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80"
+                alt="Margherita Royale" loading="lazy" />
             </div>
             <span class="badge-popular">⭐ Chef's Pick</span>
             <button class="like-btn" aria-label="Like this dish">
-              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+              </svg>
             </button>
             <button class="quick-add" aria-label="Add to cart">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
             </button>
             <div class="card-hover-info">
-              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
+              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true">
+                <path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z" />
+              </svg>
               <span data-i18n="card2.week">1,850 orders this week</span>
             </div>
           </div>
@@ -505,7 +773,9 @@
             <div class="menu-meta">
               <span class="menu-category" data-i18n="card2.cat">Pizza</span>
               <span class="menu-rating">
-                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true">
+                  <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+                </svg>
                 4.8 <span class="rating-count">(612)</span>
               </span>
             </div>
@@ -515,7 +785,10 @@
                 <span class="price">$15.49</span>
               </div>
               <span class="delivery-time">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <circle cx="8" cy="8" r="6" />
+                  <path d="M8 5v3.5l2 2" />
+                </svg>
                 25 min
               </span>
             </div>
@@ -527,17 +800,26 @@
           <div class="menu-img-wrap">
             <span class="card-rank">#3</span>
             <div class="menu-img">
-              <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=600&q=80" alt="Signature Roll Trio" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=600&q=80"
+                alt="Signature Roll Trio" loading="lazy" />
             </div>
             <span class="badge-popular">🌊 Fresh</span>
             <button class="like-btn" aria-label="Like this dish">
-              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+              </svg>
             </button>
             <button class="quick-add" aria-label="Add to cart">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
             </button>
             <div class="card-hover-info">
-              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
+              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true">
+                <path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z" />
+              </svg>
               <span data-i18n="card3.week">1,120 orders this week</span>
             </div>
           </div>
@@ -545,7 +827,9 @@
             <div class="menu-meta">
               <span class="menu-category" data-i18n="card3.cat">Sushi</span>
               <span class="menu-rating">
-                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true">
+                  <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+                </svg>
                 4.7 <span class="rating-count">(389)</span>
               </span>
             </div>
@@ -556,7 +840,10 @@
                 <span class="price-original">$22.00</span>
               </div>
               <span class="delivery-time">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <circle cx="8" cy="8" r="6" />
+                  <path d="M8 5v3.5l2 2" />
+                </svg>
                 30 min
               </span>
             </div>
@@ -568,17 +855,26 @@
           <div class="menu-img-wrap">
             <span class="card-rank">#4</span>
             <div class="menu-img">
-              <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=600&q=80" alt="Triple Scoop Dream" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=600&q=80"
+                alt="Triple Scoop Dream" loading="lazy" />
             </div>
             <span class="badge-popular">🍦 Sweet</span>
             <button class="like-btn" aria-label="Like this dish">
-              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+              </svg>
             </button>
             <button class="quick-add" aria-label="Add to cart">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
             </button>
             <div class="card-hover-info">
-              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
+              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true">
+                <path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z" />
+              </svg>
               <span data-i18n="card4.week">980 orders this week</span>
             </div>
           </div>
@@ -586,7 +882,9 @@
             <div class="menu-meta">
               <span class="menu-category" data-i18n="card4.cat">Desserts</span>
               <span class="menu-rating">
-                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true">
+                  <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+                </svg>
                 4.9 <span class="rating-count">(726)</span>
               </span>
             </div>
@@ -596,7 +894,10 @@
                 <span class="price">$8.99</span>
               </div>
               <span class="delivery-time">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <circle cx="8" cy="8" r="6" />
+                  <path d="M8 5v3.5l2 2" />
+                </svg>
                 15 min
               </span>
             </div>
@@ -608,17 +909,26 @@
           <div class="menu-img-wrap">
             <span class="card-rank">#5</span>
             <div class="menu-img">
-              <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=600&q=80" alt="Crispy Buffalo Wings" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=600&q=80"
+                alt="Crispy Buffalo Wings" loading="lazy" />
             </div>
             <span class="badge-popular">🔥 Spicy</span>
             <button class="like-btn" aria-label="Like this dish">
-              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+              </svg>
             </button>
             <button class="quick-add" aria-label="Add to cart">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
             </button>
             <div class="card-hover-info">
-              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
+              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true">
+                <path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z" />
+              </svg>
               <span data-i18n="card5.week">760 orders this week</span>
             </div>
           </div>
@@ -626,7 +936,9 @@
             <div class="menu-meta">
               <span class="menu-category" data-i18n="card5.cat">Burgers</span>
               <span class="menu-rating">
-                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true">
+                  <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+                </svg>
                 4.8 <span class="rating-count">(523)</span>
               </span>
             </div>
@@ -636,7 +948,10 @@
                 <span class="price">$13.49</span>
               </div>
               <span class="delivery-time">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <circle cx="8" cy="8" r="6" />
+                  <path d="M8 5v3.5l2 2" />
+                </svg>
                 22 min
               </span>
             </div>
@@ -648,17 +963,26 @@
           <div class="menu-img-wrap">
             <span class="card-rank">#6</span>
             <div class="menu-img">
-              <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?auto=format&fit=crop&w=600&q=80" alt="Arrabbiata Pasta" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?auto=format&fit=crop&w=600&q=80"
+                alt="Arrabbiata Pasta" loading="lazy" />
             </div>
             <span class="badge-popular">🍝 New</span>
             <button class="like-btn" aria-label="Like this dish">
-              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              <svg class="like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+              </svg>
             </button>
             <button class="quick-add" aria-label="Add to cart">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
             </button>
             <div class="card-hover-info">
-              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z"/></svg>
+              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true">
+                <path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 7.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z" />
+              </svg>
               <span data-i18n="card6.week">640 orders this week</span>
             </div>
           </div>
@@ -666,7 +990,9 @@
             <div class="menu-meta">
               <span class="menu-category" data-i18n="card6.cat">Pizza</span>
               <span class="menu-rating">
-                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true">
+                  <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+                </svg>
                 4.6 <span class="rating-count">(298)</span>
               </span>
             </div>
@@ -677,7 +1003,10 @@
                 <span class="price-original">$18.00</span>
               </div>
               <span class="delivery-time">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 2"/></svg>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <circle cx="8" cy="8" r="6" />
+                  <path d="M8 5v3.5l2 2" />
+                </svg>
                 28 min
               </span>
             </div>
@@ -690,7 +1019,10 @@
       <div class="menu-view-all">
         <button class="view-all-btn" type="button">
           <span data-i18n="menu.viewall">Explore All Dishes</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"
+            aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
         </button>
         <p class="menu-view-hint" data-i18n="menu.viewhint">200+ dishes from top local restaurants</p>
       </div>
@@ -705,7 +1037,8 @@
     <div class="container">
       <div class="section-header how-header">
         <h2 data-i18n-html="how.h2">Order in <span class="gradient-text">3 easy steps</span></h2>
-        <p class="section-sub" data-i18n="how.sub">Getting your favourite meal delivered has never been simpler — from browse to bite in minutes.</p>
+        <p class="section-sub" data-i18n="how.sub">Getting your favourite meal delivered has never been simpler — from
+          browse to bite in minutes.</p>
       </div>
 
       <div class="steps-grid">
@@ -715,7 +1048,8 @@
           <div class="step-icon-wrap step-orange">
             <!-- Filled search / browse icon -->
             <svg viewBox="0 0 24 24" fill="white" width="38" height="38" aria-hidden="true">
-              <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+              <path
+                d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
             </svg>
             <span class="step-ripple"></span>
           </div>
@@ -726,10 +1060,11 @@
 
         <!-- ── Connector 1 ── -->
         <div class="step-connector" aria-hidden="true">
-          <svg class="connector-svg" viewBox="0 0 72 32" fill="none" stroke-linecap="round" stroke-linejoin="round" overflow="visible">
-            <path stroke="rgba(0,0,0,0.07)" stroke-width="1.5" stroke-dasharray="4 4" d="M4 16 H68"/>
-            <path class="connector-path" stroke-width="1.8" d="M4 16 H68"/>
-            <path class="connector-arrow" stroke-width="2.2" d="M58 8 L68 16 L58 24"/>
+          <svg class="connector-svg" viewBox="0 0 72 32" fill="none" stroke-linecap="round" stroke-linejoin="round"
+            overflow="visible">
+            <path stroke="rgba(0,0,0,0.07)" stroke-width="1.5" stroke-dasharray="4 4" d="M4 16 H68" />
+            <path class="connector-path" stroke-width="1.8" d="M4 16 H68" />
+            <path class="connector-arrow" stroke-width="2.2" d="M58 8 L68 16 L58 24" />
           </svg>
         </div>
 
@@ -738,21 +1073,24 @@
           <div class="step-icon-wrap step-purple">
             <!-- Filled shopping cart icon -->
             <svg viewBox="0 0 24 24" fill="white" width="38" height="38" aria-hidden="true">
-              <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C5 16.1 6.1 17 7 17h11v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H18c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0022.46 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+              <path
+                d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C5 16.1 6.1 17 7 17h11v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H18c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0022.46 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
             </svg>
             <span class="step-ripple"></span>
           </div>
           <span class="step-label" data-i18n="step2.label">Step 02</span>
           <h3 data-i18n="step2.h3">Place Your Order</h3>
-          <p data-i18n="step2.p">Add items to your cart and confirm with one tap. Secure checkout in under 60 seconds.</p>
+          <p data-i18n="step2.p">Add items to your cart and confirm with one tap. Secure checkout in under 60 seconds.
+          </p>
         </div>
 
         <!-- ── Connector 2 ── -->
         <div class="step-connector" aria-hidden="true">
-          <svg class="connector-svg" viewBox="0 0 72 32" fill="none" stroke-linecap="round" stroke-linejoin="round" overflow="visible">
-            <path stroke="rgba(0,0,0,0.07)" stroke-width="1.5" stroke-dasharray="4 4" d="M4 16 H68"/>
-            <path class="connector-path" stroke-width="1.8" d="M4 16 H68"/>
-            <path class="connector-arrow" stroke-width="2.2" d="M58 8 L68 16 L58 24"/>
+          <svg class="connector-svg" viewBox="0 0 72 32" fill="none" stroke-linecap="round" stroke-linejoin="round"
+            overflow="visible">
+            <path stroke="rgba(0,0,0,0.07)" stroke-width="1.5" stroke-dasharray="4 4" d="M4 16 H68" />
+            <path class="connector-path" stroke-width="1.8" d="M4 16 H68" />
+            <path class="connector-arrow" stroke-width="2.2" d="M58 8 L68 16 L58 24" />
           </svg>
         </div>
 
@@ -761,7 +1099,8 @@
           <div class="step-icon-wrap step-green">
             <!-- Filled delivery truck icon -->
             <svg viewBox="0 0 24 24" fill="white" width="38" height="38" aria-hidden="true">
-              <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zm-.5 1.5l1.96 2.5H17V9.5h2.5zM6 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2.22-3c-.55-.61-1.33-1-2.22-1s-1.67.39-2.22 1H3V6h12v9H8.22zM18 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
+              <path
+                d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zm-.5 1.5l1.96 2.5H17V9.5h2.5zM6 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2.22-3c-.55-.61-1.33-1-2.22-1s-1.67.39-2.22 1H3V6h12v9H8.22zM18 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
             </svg>
             <span class="step-ripple"></span>
           </div>
@@ -775,17 +1114,25 @@
       <!-- Promo strip -->
       <div class="how-promo">
         <div class="how-promo-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
           <span data-i18n="how.promo1">100% Contactless Delivery</span>
         </div>
         <div class="how-promo-divider"></div>
         <div class="how-promo-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
           <span data-i18n="how.promo2">Real-time GPS Tracking</span>
         </div>
         <div class="how-promo-divider"></div>
         <div class="how-promo-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+          </svg>
           <span data-i18n="how.promo3">Free Delivery on First Order</span>
         </div>
       </div>
@@ -801,26 +1148,39 @@
       <div class="app-inner">
         <div class="app-text">
           <span class="section-tag light" data-i18n="app.tag">Download the App</span>
-          <h2 data-i18n-html="app.h2">Your favourite food,<br/>one tap away</h2>
-          <p data-i18n="app.p">Track your order in real-time, save your favourite restaurants, and get exclusive in-app deals — all in our beautifully designed mobile app.</p>
+          <h2 data-i18n-html="app.h2">Your favourite food,<br />one tap away</h2>
+          <p data-i18n="app.p">Track your order in real-time, save your favourite restaurants, and get exclusive in-app
+            deals — all in our beautifully designed mobile app.</p>
           <ul class="app-perks">
             <li>
-              <svg viewBox="0 0 20 20" fill="#ff6b35"><path d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"/></svg>
+              <svg viewBox="0 0 20 20" fill="#ff6b35">
+                <path
+                  d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" />
+              </svg>
               <span data-i18n="app.perk1">Exclusive app-only discounts up to 30%</span>
             </li>
             <li>
-              <svg viewBox="0 0 20 20" fill="#ff6b35"><path d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"/></svg>
+              <svg viewBox="0 0 20 20" fill="#ff6b35">
+                <path
+                  d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" />
+              </svg>
               <span data-i18n="app.perk2">Live GPS tracking with push notifications</span>
             </li>
             <li>
-              <svg viewBox="0 0 20 20" fill="#ff6b35"><path d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"/></svg>
+              <svg viewBox="0 0 20 20" fill="#ff6b35">
+                <path
+                  d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" />
+              </svg>
               <span data-i18n="app.perk3">Reorder with one tap — saved favourites</span>
             </li>
           </ul>
           <div class="store-buttons">
             <a href="#" class="store-btn">
               <!-- Apple -->
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+              </svg>
               <div>
                 <small>Download on the</small>
                 <span>App Store</span>
@@ -828,7 +1188,10 @@
             </a>
             <a href="#" class="store-btn">
               <!-- Google Play -->
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.16.65.2.98.1l.1-.06 11.04-6.37-2.38-2.38-9.74 8.71zM.29 1.64A1.5 1.5 0 000 2.5v19c0 .32.08.62.23.88l.1.1 10.62-10.62L.4 1.54l-.1.1zM21.48 10.2l-2.89-1.67-2.68 2.68 2.68 2.68 2.91-1.68a1.5 1.5 0 000-2.01zM4.16.24L15.2 6.6l-2.38 2.38L3.26.3l.04-.05a1.5 1.5 0 01.86-.01z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M3.18 23.76c.3.16.65.2.98.1l.1-.06 11.04-6.37-2.38-2.38-9.74 8.71zM.29 1.64A1.5 1.5 0 000 2.5v19c0 .32.08.62.23.88l.1.1 10.62-10.62L.4 1.54l-.1.1zM21.48 10.2l-2.89-1.67-2.68 2.68 2.68 2.68 2.91-1.68a1.5 1.5 0 000-2.01zM4.16.24L15.2 6.6l-2.38 2.38L3.26.3l.04-.05a1.5 1.5 0 01.86-.01z" />
+              </svg>
               <div>
                 <small>Get it on</small>
                 <span>Google Play</span>
@@ -845,10 +1208,17 @@
               <div class="app-ui">
                 <div class="app-ui-header">
                   <span>QuickBite</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.56L23 6H6"/></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18">
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.56L23 6H6" />
+                  </svg>
                 </div>
                 <div class="app-ui-search">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" width="14"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" width="14">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="M21 21l-4.35-4.35" />
+                  </svg>
                   <span>Search restaurants...</span>
                 </div>
                 <div class="app-ui-cats">
@@ -884,7 +1254,9 @@
           </div>
           <!-- Floating notification -->
           <div class="phone-notif">
-            <svg viewBox="0 0 24 24" fill="#ff6b35" width="20"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#ff6b35" width="20">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
+            </svg>
             <div>
               <strong>Order Confirmed!</strong>
               <small>Est. delivery 28 min</small>
@@ -902,28 +1274,38 @@
   <section class="testimonials" id="testimonials">
 
     <!-- ── Animated SVG background layer ── -->
-    <svg class="testi-bg-svg" viewBox="0 0 1200 500" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+    <svg class="testi-bg-svg" viewBox="0 0 1200 500" fill="none" aria-hidden="true"
+      preserveAspectRatio="xMidYMid slice">
       <!-- Rotating dashed rings -->
-      <circle class="tbg-ring r1" cx="80"   cy="110" r="70"  stroke="#ff6b35" stroke-width="1.5" stroke-dasharray="10 6" fill="none"/>
-      <circle class="tbg-ring r2" cx="1120" cy="370" r="90"  stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 10" fill="none"/>
-      <circle class="tbg-ring r3" cx="600"  cy="470" r="50"  stroke="#ff6b35" stroke-width="1"   stroke-dasharray="8 5"  fill="none"/>
+      <circle class="tbg-ring r1" cx="80" cy="110" r="70" stroke="#ff6b35" stroke-width="1.5" stroke-dasharray="10 6"
+        fill="none" />
+      <circle class="tbg-ring r2" cx="1120" cy="370" r="90" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 10"
+        fill="none" />
+      <circle class="tbg-ring r3" cx="600" cy="470" r="50" stroke="#ff6b35" stroke-width="1" stroke-dasharray="8 5"
+        fill="none" />
       <!-- Orbiting accent rings -->
-      <circle class="tbg-ring r4" cx="80"   cy="110" r="50"  stroke="#f59e0b" stroke-width="1"   stroke-dasharray="4 8"  fill="none"/>
-      <circle class="tbg-ring r5" cx="1120" cy="370" r="60"  stroke="#ff6b35" stroke-width="1"   stroke-dasharray="3 9"  fill="none"/>
+      <circle class="tbg-ring r4" cx="80" cy="110" r="50" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4 8"
+        fill="none" />
+      <circle class="tbg-ring r5" cx="1120" cy="370" r="60" stroke="#ff6b35" stroke-width="1" stroke-dasharray="3 9"
+        fill="none" />
       <!-- Floating dots -->
-      <circle class="tbg-dot d1" cx="210"  cy="55"  r="5" fill="#ff6b35"/>
-      <circle class="tbg-dot d2" cx="970"  cy="75"  r="4" fill="#f59e0b"/>
-      <circle class="tbg-dot d3" cx="130"  cy="415" r="6" fill="#ff6b35"/>
-      <circle class="tbg-dot d4" cx="1060" cy="210" r="3" fill="#f59e0b"/>
-      <circle class="tbg-dot d5" cx="340"  cy="28"  r="4" fill="#f59e0b"/>
-      <circle class="tbg-dot d6" cx="860"  cy="450" r="5" fill="#ff6b35"/>
-      <circle class="tbg-dot d7" cx="500"  cy="20"  r="3" fill="#ff6b35"/>
-      <circle class="tbg-dot d8" cx="730"  cy="490" r="4" fill="#f59e0b"/>
+      <circle class="tbg-dot d1" cx="210" cy="55" r="5" fill="#ff6b35" />
+      <circle class="tbg-dot d2" cx="970" cy="75" r="4" fill="#f59e0b" />
+      <circle class="tbg-dot d3" cx="130" cy="415" r="6" fill="#ff6b35" />
+      <circle class="tbg-dot d4" cx="1060" cy="210" r="3" fill="#f59e0b" />
+      <circle class="tbg-dot d5" cx="340" cy="28" r="4" fill="#f59e0b" />
+      <circle class="tbg-dot d6" cx="860" cy="450" r="5" fill="#ff6b35" />
+      <circle class="tbg-dot d7" cx="500" cy="20" r="3" fill="#ff6b35" />
+      <circle class="tbg-dot d8" cx="730" cy="490" r="4" fill="#f59e0b" />
       <!-- 8-point sparkle stars -->
-      <path class="tbg-spark sp1" d="M55 285 L57.5 279 L60 285 L66 287.5 L60 290 L57.5 296 L55 290 L49 287.5Z"       fill="#f59e0b"/>
-      <path class="tbg-spark sp2" d="M1145 115 L1147.5 109 L1150 115 L1156 117.5 L1150 120 L1147.5 126 L1145 120 L1139 117.5Z" fill="#ff6b35"/>
-      <path class="tbg-spark sp3" d="M310 435 L312.5 429 L315 435 L321 437.5 L315 440 L312.5 446 L310 440 L304 437.5Z" fill="#ff6b35"/>
-      <path class="tbg-spark sp4" d="M900 40  L902.5 34  L905 40  L911 42.5  L905 45  L902.5 51  L900 45  L894 42.5Z"  fill="#f59e0b"/>
+      <path class="tbg-spark sp1" d="M55 285 L57.5 279 L60 285 L66 287.5 L60 290 L57.5 296 L55 290 L49 287.5Z"
+        fill="#f59e0b" />
+      <path class="tbg-spark sp2"
+        d="M1145 115 L1147.5 109 L1150 115 L1156 117.5 L1150 120 L1147.5 126 L1145 120 L1139 117.5Z" fill="#ff6b35" />
+      <path class="tbg-spark sp3" d="M310 435 L312.5 429 L315 435 L321 437.5 L315 440 L312.5 446 L310 440 L304 437.5Z"
+        fill="#ff6b35" />
+      <path class="tbg-spark sp4" d="M900 40  L902.5 34  L905 40  L911 42.5  L905 45  L902.5 51  L900 45  L894 42.5Z"
+        fill="#f59e0b" />
     </svg>
 
     <div class="container testi-container">
@@ -933,11 +1315,11 @@
         <!-- Tag row with animated sparkle stars -->
         <div class="testi-tag-row">
           <svg class="tag-star ts-left" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6L12 15.6l-5.4 3.1 1-6-4.4-4.3 6.1-.9z"/>
+            <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6L12 15.6l-5.4 3.1 1-6-4.4-4.3 6.1-.9z" />
           </svg>
           <span class="section-tag" data-i18n="testi.tag">Real Reviews</span>
           <svg class="tag-star ts-right" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6L12 15.6l-5.4 3.1 1-6-4.4-4.3 6.1-.9z"/>
+            <path d="M12 2l2.7 5.5 6.1.9-4.4 4.3 1 6L12 15.6l-5.4 3.1 1-6-4.4-4.3 6.1-.9z" />
           </svg>
         </div>
 
@@ -948,11 +1330,11 @@
           <svg class="testi-underline" viewBox="0 0 320 16" fill="none" preserveAspectRatio="none">
             <path class="underline-wave"
               d="M2 8 C28 3 56 13 84 8 C112 3 140 13 168 8 C196 3 224 13 252 8 C280 3 308 13 318 8"
-              stroke="url(#waveGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              stroke="url(#waveGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
             <defs>
               <linearGradient id="waveGrad" x1="0" y1="0" x2="320" y2="0" gradientUnits="userSpaceOnUse">
-                <stop offset="0%"   stop-color="#ff6b35"/>
-                <stop offset="100%" stop-color="#f59e0b"/>
+                <stop offset="0%" stop-color="#ff6b35" />
+                <stop offset="100%" stop-color="#f59e0b" />
               </linearGradient>
             </defs>
           </svg>
@@ -960,12 +1342,30 @@
 
         <!-- Floating hearts -->
         <div class="testi-hearts" aria-hidden="true">
-          <svg class="t-heart th1" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          <svg class="t-heart th2" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          <svg class="t-heart th3" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          <svg class="t-heart th4" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          <svg class="t-heart th5" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          <svg class="t-heart th6" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <svg class="t-heart th1" viewBox="0 0 24 24">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          <svg class="t-heart th2" viewBox="0 0 24 24">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          <svg class="t-heart th3" viewBox="0 0 24 24">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          <svg class="t-heart th4" viewBox="0 0 24 24">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          <svg class="t-heart th5" viewBox="0 0 24 24">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          <svg class="t-heart th6" viewBox="0 0 24 24">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
         </div>
 
       </div>
@@ -975,11 +1375,21 @@
         <div class="testi-metric">
           <span class="tm-value">4.9</span>
           <div class="tm-stars-row">
-            <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
           </div>
           <span class="tm-label" data-i18n="testi.metric1">Average Rating</span>
         </div>
@@ -1000,16 +1410,31 @@
 
         <div class="testi-card">
           <div class="testi-quote-mark" aria-hidden="true">
-            <svg viewBox="0 0 36 28" fill="none"><path d="M1 28V17.5C1 12.5 2.2 8.5 4.6 5.5C7 2.5 10.6 0.5 15.4 0L17 3.5C13.4 4.7 11.2 6.2 10.4 8C9.6 9.8 9.4 11.8 9.8 14H17V28H1ZM20 28V17.5C20 12.5 21.2 8.5 23.6 5.5C26 2.5 29.6 0.5 34.4 0L36 3.5C32.4 4.7 30.2 6.2 29.4 8C28.6 9.8 28.4 11.8 28.8 14H36V28H20Z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 36 28" fill="none">
+              <path
+                d="M1 28V17.5C1 12.5 2.2 8.5 4.6 5.5C7 2.5 10.6 0.5 15.4 0L17 3.5C13.4 4.7 11.2 6.2 10.4 8C9.6 9.8 9.4 11.8 9.8 14H17V28H1ZM20 28V17.5C20 12.5 21.2 8.5 23.6 5.5C26 2.5 29.6 0.5 34.4 0L36 3.5C32.4 4.7 30.2 6.2 29.4 8C28.6 9.8 28.4 11.8 28.8 14H36V28H20Z"
+                fill="currentColor" />
+            </svg>
           </div>
           <div class="testi-stars">
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
           </div>
-          <p data-i18n="testi.review1">"QuickBite is hands down the best food delivery app I've used. My order always arrives hot and exactly on time!"</p>
+          <p data-i18n="testi.review1">"QuickBite is hands down the best food delivery app I've used. My order always
+            arrives hot and exactly on time!"</p>
           <div class="testi-card-footer">
             <div class="testi-author">
               <div class="testi-avatar av1">S</div>
@@ -1019,7 +1444,9 @@
               </div>
             </div>
             <div class="testi-verified" title="Verified Customer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <span data-i18n="testi.verified">Verified</span>
             </div>
           </div>
@@ -1027,16 +1454,31 @@
 
         <div class="testi-card">
           <div class="testi-quote-mark" aria-hidden="true">
-            <svg viewBox="0 0 36 28" fill="none"><path d="M1 28V17.5C1 12.5 2.2 8.5 4.6 5.5C7 2.5 10.6 0.5 15.4 0L17 3.5C13.4 4.7 11.2 6.2 10.4 8C9.6 9.8 9.4 11.8 9.8 14H17V28H1ZM20 28V17.5C20 12.5 21.2 8.5 23.6 5.5C26 2.5 29.6 0.5 34.4 0L36 3.5C32.4 4.7 30.2 6.2 29.4 8C28.6 9.8 28.4 11.8 28.8 14H36V28H20Z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 36 28" fill="none">
+              <path
+                d="M1 28V17.5C1 12.5 2.2 8.5 4.6 5.5C7 2.5 10.6 0.5 15.4 0L17 3.5C13.4 4.7 11.2 6.2 10.4 8C9.6 9.8 9.4 11.8 9.8 14H17V28H1ZM20 28V17.5C20 12.5 21.2 8.5 23.6 5.5C26 2.5 29.6 0.5 34.4 0L36 3.5C32.4 4.7 30.2 6.2 29.4 8C28.6 9.8 28.4 11.8 28.8 14H36V28H20Z"
+                fill="currentColor" />
+            </svg>
           </div>
           <div class="testi-stars">
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
           </div>
-          <p data-i18n="testi.review2">"The live tracking feature is a game changer. I always know exactly when my food is coming. Incredible service!"</p>
+          <p data-i18n="testi.review2">"The live tracking feature is a game changer. I always know exactly when my food
+            is coming. Incredible service!"</p>
           <div class="testi-card-footer">
             <div class="testi-author">
               <div class="testi-avatar av2">J</div>
@@ -1046,7 +1488,9 @@
               </div>
             </div>
             <div class="testi-verified" title="Verified Customer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <span data-i18n="testi.verified">Verified</span>
             </div>
           </div>
@@ -1054,16 +1498,31 @@
 
         <div class="testi-card">
           <div class="testi-quote-mark" aria-hidden="true">
-            <svg viewBox="0 0 36 28" fill="none"><path d="M1 28V17.5C1 12.5 2.2 8.5 4.6 5.5C7 2.5 10.6 0.5 15.4 0L17 3.5C13.4 4.7 11.2 6.2 10.4 8C9.6 9.8 9.4 11.8 9.8 14H17V28H1ZM20 28V17.5C20 12.5 21.2 8.5 23.6 5.5C26 2.5 29.6 0.5 34.4 0L36 3.5C32.4 4.7 30.2 6.2 29.4 8C28.6 9.8 28.4 11.8 28.8 14H36V28H20Z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 36 28" fill="none">
+              <path
+                d="M1 28V17.5C1 12.5 2.2 8.5 4.6 5.5C7 2.5 10.6 0.5 15.4 0L17 3.5C13.4 4.7 11.2 6.2 10.4 8C9.6 9.8 9.4 11.8 9.8 14H17V28H1ZM20 28V17.5C20 12.5 21.2 8.5 23.6 5.5C26 2.5 29.6 0.5 34.4 0L36 3.5C32.4 4.7 30.2 6.2 29.4 8C28.6 9.8 28.4 11.8 28.8 14H36V28H20Z"
+                fill="currentColor" />
+            </svg>
           </div>
           <div class="testi-stars">
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
           </div>
-          <p data-i18n="testi.review3">"I order lunch every weekday. The restaurant selection is amazing and the app is super easy to use. 10/10!"</p>
+          <p data-i18n="testi.review3">"I order lunch every weekday. The restaurant selection is amazing and the app is
+            super easy to use. 10/10!"</p>
           <div class="testi-card-footer">
             <div class="testi-author">
               <div class="testi-avatar av3">A</div>
@@ -1073,7 +1532,9 @@
               </div>
             </div>
             <div class="testi-verified" title="Verified Customer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <span data-i18n="testi.verified">Verified</span>
             </div>
           </div>
@@ -1081,16 +1542,31 @@
 
         <div class="testi-card">
           <div class="testi-quote-mark" aria-hidden="true">
-            <svg viewBox="0 0 36 28" fill="none"><path d="M1 28V17.5C1 12.5 2.2 8.5 4.6 5.5C7 2.5 10.6 0.5 15.4 0L17 3.5C13.4 4.7 11.2 6.2 10.4 8C9.6 9.8 9.4 11.8 9.8 14H17V28H1ZM20 28V17.5C20 12.5 21.2 8.5 23.6 5.5C26 2.5 29.6 0.5 34.4 0L36 3.5C32.4 4.7 30.2 6.2 29.4 8C28.6 9.8 28.4 11.8 28.8 14H36V28H20Z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 36 28" fill="none">
+              <path
+                d="M1 28V17.5C1 12.5 2.2 8.5 4.6 5.5C7 2.5 10.6 0.5 15.4 0L17 3.5C13.4 4.7 11.2 6.2 10.4 8C9.6 9.8 9.4 11.8 9.8 14H17V28H1ZM20 28V17.5C20 12.5 21.2 8.5 23.6 5.5C26 2.5 29.6 0.5 34.4 0L36 3.5C32.4 4.7 30.2 6.2 29.4 8C28.6 9.8 28.4 11.8 28.8 14H36V28H20Z"
+                fill="currentColor" />
+            </svg>
           </div>
           <div class="testi-stars">
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
-            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z"/></svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
+            <svg class="ts" viewBox="0 0 16 16" fill="#f59e0b">
+              <path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.6l-3.8 2-.7-4.2-3-3 4.2-.6z" />
+            </svg>
           </div>
-          <p data-i18n="testi.review4">"Fast delivery, great packaging, and the food is always fresh. QuickBite has spoiled me — I can't order anywhere else!"</p>
+          <p data-i18n="testi.review4">"Fast delivery, great packaging, and the food is always fresh. QuickBite has
+            spoiled me — I can't order anywhere else!"</p>
           <div class="testi-card-footer">
             <div class="testi-author">
               <div class="testi-avatar av4">R</div>
@@ -1100,7 +1576,9 @@
               </div>
             </div>
             <div class="testi-verified" title="Verified Customer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <span data-i18n="testi.verified">Verified</span>
             </div>
           </div>
@@ -1122,41 +1600,45 @@
         <div class="footer-brand">
           <a href="#" class="logo">
             <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
-              <circle cx="20" cy="20" r="20" fill="url(#logoGrad2)"/>
-              <path d="M12 26 Q20 10 28 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <circle cx="20" cy="22" r="5" fill="#fff" opacity=".9"/>
+              <circle cx="20" cy="20" r="20" fill="url(#logoGrad2)" />
+              <path d="M12 26 Q20 10 28 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none" />
+              <circle cx="20" cy="22" r="5" fill="#fff" opacity=".9" />
               <defs>
                 <linearGradient id="logoGrad2" x1="0" y1="0" x2="40" y2="40">
-                  <stop offset="0%" stop-color="#ff6b35"/>
-                  <stop offset="100%" stop-color="#f7c59f"/>
+                  <stop offset="0%" stop-color="#ff6b35" />
+                  <stop offset="100%" stop-color="#f7c59f" />
                 </linearGradient>
               </defs>
             </svg>
             <span>Quick<strong>Bite</strong></span>
           </a>
-          <p data-i18n="footer.brand.p">Bringing the world's best food to your door — fast, fresh, and always delicious.</p>
+          <p data-i18n="footer.brand.p">Bringing the world's best food to your door — fast, fresh, and always delicious.
+          </p>
           <!-- Social icons -->
           <div class="social-links">
             <a href="#" class="social-icon" aria-label="Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="2" y="2" width="20" height="20" rx="5"/>
-                <circle cx="12" cy="12" r="5"/>
-                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
               </svg>
             </a>
             <a href="#" class="social-icon" aria-label="Twitter/X">
               <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
             <a href="#" class="social-icon" aria-label="Facebook">
               <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+                <path
+                  d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
               </svg>
             </a>
             <a href="#" class="social-icon" aria-label="TikTok">
               <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.54V6.78a4.85 4.85 0 01-1.07-.09z"/>
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.54V6.78a4.85 4.85 0 01-1.07-.09z" />
               </svg>
             </a>
           </div>
@@ -1164,8 +1646,9 @@
           <div class="newsletter">
             <h5 data-i18n="footer.nl.h5">Get exclusive deals</h5>
             <p class="newsletter-sub" data-i18n="footer.nl.sub">Join 50,000+ food lovers. Get weekly deals & offers.</p>
-            <form class="newsletter-form" onsubmit="return handleNewsletter(event)">
-              <input type="email" data-i18n-placeholder="footer.nl.ph" placeholder="Your email address" aria-label="Email for newsletter" required>
+            <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+              <input type="email" data-i18n-placeholder="footer.nl.ph" placeholder="Your email address"
+                aria-label="Email for newsletter" required>
               <button type="submit" data-i18n="footer.nl.btn">Subscribe</button>
             </form>
           </div>
@@ -1216,10 +1699,14 @@
 
   <!-- Cart toast -->
   <div class="cart-toast" id="cartToast">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18">
+      <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+      <polyline points="22 4 12 14.01 9 11.01" />
+    </svg>
     <span data-i18n="toast.added">Added to cart!</span>
   </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>

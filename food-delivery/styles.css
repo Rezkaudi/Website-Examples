@@ -64,7 +64,8 @@ ul { list-style: none; }
   padding: 0 24px;
 }
 
-.gradient-text {
+.gradient-text,
+.gradient-text .word-inner {
   background: linear-gradient(135deg, var(--orange), var(--yellow));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

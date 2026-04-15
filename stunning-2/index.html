@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STELLAR - Creative Digital Studio</title>
+    <meta name="description" content="STELLAR - Where imagination meets the third dimension. A creative digital studio crafting immersive web experiences.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">STELLAR</div>
+        <div class="preloader-bar"><div class="preloader-bar-fill" id="preloader-fill"></div></div>
+        <div class="preloader-percent" id="preloader-percent">0%</div>
+    </div>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <!-- SCROLL PROGRESS -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- THREE.JS CANVAS -->
+    <div id="canvas-container"></div>
+
+    <!-- FILM GRAIN / NOISE OVERLAY -->
+    <div class="noise-overlay"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">STELLAR</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#testimonials">Clients</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-menu-btn" id="menu-btn" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-menu-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#testimonials">Clients</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+        <!-- HERO -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <p class="hero-tag">Creative Digital Studio</p>
+                <h1 class="hero-title">We craft <span class="gradient-text">digital experiences</span> that inspire</h1>
+                <p class="hero-description">Blending cutting-edge 3D technology with thoughtful design to create immersive digital products that captivate and convert.</p>
+                <div class="hero-cta">
+                    <a href="#work" class="btn-primary">
+                        View Our Work
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    <a href="#contact" class="btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="scroll-indicator" id="scroll-indicator">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div>
+                        <div class="section-label reveal">Who We Are</div>
+                        <h2 class="about-title reveal">Pushing boundaries at the intersection of design & technology</h2>
+                        <p class="about-text reveal">We're a collective of designers, developers, and dreamers who believe the web should be more than flat pages. We build dimensional, interactive experiences that pull people in.</p>
+                        <p class="about-text reveal">From immersive 3D product showcases to scroll-driven storytelling, we turn ambitious visions into digital reality.</p>
+                        <div class="stats-grid reveal">
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="150">0</div>
+                                <div class="stat-label">Projects Shipped</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="40">0</div>
+                                <div class="stat-label">Global Clients</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="12">0</div>
+                                <div class="stat-label">Awards Won</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-visual reveal-scale">
+                        <div class="orbit-ring"><div class="orbit-dot purple"></div></div>
+                        <div class="orbit-ring"><div class="orbit-dot pink"></div></div>
+                        <div class="orbit-ring"><div class="orbit-dot cyan"></div></div>
+                        <div class="orbit-center-text">Since<br>2019<span>Building the future</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="services-header">
+                    <div class="section-label reveal" style="justify-content:center">What We Do</div>
+                    <h2 class="services-title reveal">Services built for the next generation of the web</h2>
+                    <p class="services-subtitle reveal">We combine art direction, motion design, and engineering to deliver truly exceptional digital products.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <div class="service-icon purple">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                        </div>
+                        <h3>3D Web Experiences</h3>
+                        <p>Immersive Three.js and WebGL experiences that bring products and stories to life in the browser.</p>
+                        <div class="service-tags"><span class="service-tag">Three.js</span><span class="service-tag">WebGL</span><span class="service-tag">R3F</span></div>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon pink">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        </div>
+                        <h3>UI/UX Design</h3>
+                        <p>Thoughtful, research-backed interfaces with micro-interactions that delight at every touchpoint.</p>
+                        <div class="service-tags"><span class="service-tag">Figma</span><span class="service-tag">Prototyping</span><span class="service-tag">Motion</span></div>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon cyan">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </div>
+                        <h3>Creative Development</h3>
+                        <p>Pixel-perfect front-end builds with GSAP animations, scroll-driven interactions, and flawless performance.</p>
+                        <div class="service-tags"><span class="service-tag">GSAP</span><span class="service-tag">React</span><span class="service-tag">Next.js</span></div>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon cyan">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+                        </div>
+                        <h3>Brand Identity</h3>
+                        <p>Visual systems that communicate your essence across every digital and physical touchpoint.</p>
+                        <div class="service-tags"><span class="service-tag">Logo</span><span class="service-tag">Guidelines</span><span class="service-tag">Strategy</span></div>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon purple">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        </div>
+                        <h3>Product Design</h3>
+                        <p>End-to-end product thinking from concept to launch, focused on user outcomes and business results.</p>
+                        <div class="service-tags"><span class="service-tag">SaaS</span><span class="service-tag">Mobile</span><span class="service-tag">Web Apps</span></div>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon pink">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <h3>Webflow & CMS</h3>
+                        <p>Beautiful, client-manageable sites with custom CMS structures and seamless content workflows.</p>
+                        <div class="service-tags"><span class="service-tag">Webflow</span><span class="service-tag">CMS</span><span class="service-tag">No-Code</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK -->
+        <section class="work" id="work">
+            <div class="container">
+                <div class="work-header">
+                    <div>
+                        <div class="section-label reveal">Selected Work</div>
+                        <h2 class="work-title reveal">Projects that speak for themselves</h2>
+                    </div>
+                    <a href="#" class="btn-secondary reveal">View All Projects</a>
+                </div>
+                <div class="work-grid">
+                    <div class="work-card reveal">
+                        <div class="work-card-bg gradient-1">
+                            <div class="work-card-shape" style="width:200px;height:200px;background:var(--accent-primary);top:20%;right:10%"></div>
+                            <div class="work-card-shape" style="width:150px;height:150px;background:var(--accent-warm);bottom:10%;left:15%"></div>
+                        </div>
+                        <div class="work-card-content">
+                            <span class="work-card-category">3D Experience</span>
+                            <h3 class="work-card-title">Nebula Headphones</h3>
+                            <p class="work-card-desc">Interactive 3D product configurator with real-time material preview</p>
+                        </div>
+                        <div class="work-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+                    </div>
+                    <div class="work-card reveal">
+                        <div class="work-card-bg gradient-2">
+                            <div class="work-card-shape" style="width:180px;height:180px;background:var(--accent-cyan);top:15%;left:20%"></div>
+                            <div class="work-card-shape" style="width:120px;height:120px;background:var(--accent-primary);bottom:20%;right:10%"></div>
+                        </div>
+                        <div class="work-card-content">
+                            <span class="work-card-category">Web Platform</span>
+                            <h3 class="work-card-title">AeroVault Finance</h3>
+                            <p class="work-card-desc">Next-gen fintech dashboard with real-time data visualization</p>
+                        </div>
+                        <div class="work-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+                    </div>
+                    <div class="work-card reveal">
+                        <div class="work-card-bg gradient-3">
+                            <div class="work-card-shape" style="width:220px;height:220px;background:var(--accent-warm);top:10%;right:5%"></div>
+                            <div class="work-card-shape" style="width:100px;height:100px;background:var(--accent-cyan);bottom:15%;left:25%"></div>
+                        </div>
+                        <div class="work-card-content">
+                            <span class="work-card-category">Brand & Identity</span>
+                            <h3 class="work-card-title">Prism Studios</h3>
+                            <p class="work-card-desc">Complete rebrand and immersive portfolio for a creative agency</p>
+                        </div>
+                        <div class="work-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+                    </div>
+                    <div class="work-card reveal">
+                        <div class="work-card-bg gradient-4">
+                            <div class="work-card-shape" style="width:160px;height:160px;background:var(--accent-cyan);top:25%;left:10%"></div>
+                            <div class="work-card-shape" style="width:140px;height:140px;background:var(--accent-primary);bottom:5%;right:20%"></div>
+                        </div>
+                        <div class="work-card-content">
+                            <span class="work-card-category">E-Commerce</span>
+                            <h3 class="work-card-title">Solstice Apparel</h3>
+                            <p class="work-card-desc">Luxury fashion e-commerce with AR try-on and 3D product views</p>
+                        </div>
+                        <div class="work-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section class="process" id="process">
+            <div class="container">
+                <div class="process-header">
+                    <div class="section-label reveal" style="justify-content:center">How We Work</div>
+                    <h2 class="process-title reveal">A proven process for <span class="gradient-text">exceptional</span> results</h2>
+                    <p class="process-subtitle reveal">Every project follows our four-phase methodology, refined over 150+ engagements to deliver on time and beyond expectations.</p>
+                </div>
+                <div class="process-timeline">
+                    <div class="process-line"><div class="process-line-fill" id="process-line-fill"></div></div>
+
+                    <!-- Step 1: Discovery -->
+                    <div class="process-step reveal" data-step="1">
+                        <div class="process-step-content">
+                            <h3>Discovery & Strategy</h3>
+                            <p>We dive deep into your brand, audience, and goals. Through workshops and research, we uncover the insights that drive every design decision.</p>
+                            <div class="process-tags">
+                                <span class="process-tag">Research</span>
+                                <span class="process-tag">Workshops</span>
+                                <span class="process-tag">Audit</span>
+                            </div>
+                        </div>
+                        <div class="process-step-node">01</div>
+                        <div class="process-step-visual">
+                            <div class="process-svg-card">
+                                <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                    <defs>
+                                        <linearGradient id="proc-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#5E6AD2" stop-opacity="0.2"/>
+                                            <stop offset="100%" stop-color="#818CF8" stop-opacity="0.05"/>
+                                        </linearGradient>
+                                        <filter id="proc-glow-1">
+                                            <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#5E6AD2" flood-opacity="0.3"/>
+                                        </filter>
+                                    </defs>
+                                    <!-- Background card -->
+                                    <rect x="20" y="15" width="160" height="120" rx="12" fill="url(#proc-grad-1)" stroke="#818CF8" stroke-width="1" stroke-opacity="0.2"/>
+                                    <!-- Magnifying glass — animated -->
+                                    <g class="svg-anim-float" style="transform-origin:75px 65px">
+                                        <circle cx="72" cy="58" r="22" stroke="#818CF8" stroke-width="2.5" stroke-linecap="round" filter="url(#proc-glow-1)"/>
+                                        <line x1="88" y1="74" x2="102" y2="88" stroke="#818CF8" stroke-width="3" stroke-linecap="round"/>
+                                        <!-- Pulse rings inside -->
+                                        <circle cx="72" cy="58" r="18" stroke="#818CF8" stroke-width="0.5" class="svg-anim-pulse" style="transform-origin:72px 58px"/>
+                                        <circle cx="72" cy="58" r="12" stroke="#5E6AD2" stroke-width="0.5" class="svg-anim-pulse" style="animation-delay:0.5s;transform-origin:72px 58px"/>
+                                    </g>
+                                    <!-- Data dots orbiting -->
+                                    <g style="transform-origin:72px 58px" class="svg-anim-rotate">
+                                        <circle cx="72" cy="28" r="3" fill="#818CF8" opacity="0.7"/>
+                                    </g>
+                                    <g style="transform-origin:72px 58px;animation-direction:reverse" class="svg-anim-rotate">
+                                        <circle cx="102" cy="58" r="2.5" fill="#38BDF8" opacity="0.6"/>
+                                    </g>
+                                    <!-- Text lines (research notes) -->
+                                    <g class="svg-anim-fade" style="animation-delay:0.3s">
+                                        <rect x="120" y="35" width="45" height="3" rx="1.5" fill="#818CF8" opacity="0.4"/>
+                                        <rect x="120" y="45" width="35" height="3" rx="1.5" fill="#818CF8" opacity="0.25"/>
+                                        <rect x="120" y="55" width="40" height="3" rx="1.5" fill="#818CF8" opacity="0.3"/>
+                                        <rect x="120" y="65" width="28" height="3" rx="1.5" fill="#818CF8" opacity="0.2"/>
+                                    </g>
+                                    <!-- Signal waves -->
+                                    <circle cx="72" cy="58" r="3" fill="none" stroke="#818CF8" stroke-width="0.8" class="svg-anim-signal" opacity="0"/>
+                                    <circle cx="72" cy="58" r="3" fill="none" stroke="#818CF8" stroke-width="0.8" class="svg-anim-signal" style="animation-delay:0.75s" opacity="0"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Design -->
+                    <div class="process-step reveal" data-step="2">
+                        <div class="process-step-content">
+                            <h3>Design & Prototype</h3>
+                            <p>Concepts come alive through wireframes, high-fidelity mockups, and interactive prototypes. You see and feel the experience before a single line of code.</p>
+                            <div class="process-tags">
+                                <span class="process-tag">Wireframes</span>
+                                <span class="process-tag">UI Design</span>
+                                <span class="process-tag">Prototyping</span>
+                            </div>
+                        </div>
+                        <div class="process-step-node">02</div>
+                        <div class="process-step-visual">
+                            <div class="process-svg-card">
+                                <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                    <defs>
+                                        <linearGradient id="proc-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#E8729A" stop-opacity="0.2"/>
+                                            <stop offset="100%" stop-color="#818CF8" stop-opacity="0.05"/>
+                                        </linearGradient>
+                                        <filter id="proc-glow-2">
+                                            <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#E8729A" flood-opacity="0.3"/>
+                                        </filter>
+                                    </defs>
+                                    <!-- Artboard -->
+                                    <rect x="30" y="20" width="140" height="110" rx="10" fill="url(#proc-grad-2)" stroke="#E8729A" stroke-width="1" stroke-opacity="0.2"/>
+                                    <!-- Layout wireframe blocks -->
+                                    <g class="svg-anim-fade" style="animation-delay:0.1s">
+                                        <rect x="42" y="32" width="55" height="8" rx="2" fill="#E8729A" opacity="0.35"/>
+                                    </g>
+                                    <g class="svg-anim-fade" style="animation-delay:0.25s">
+                                        <rect x="42" y="48" width="116" height="30" rx="4" stroke="#E8729A" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="3 2"/>
+                                    </g>
+                                    <g class="svg-anim-fade" style="animation-delay:0.4s">
+                                        <rect x="42" y="86" width="35" height="28" rx="4" fill="#E8729A" opacity="0.12"/>
+                                        <rect x="82" y="86" width="35" height="28" rx="4" fill="#818CF8" opacity="0.12"/>
+                                        <rect x="122" y="86" width="36" height="28" rx="4" fill="#38BDF8" opacity="0.12"/>
+                                    </g>
+                                    <!-- Cursor / pen tool animated -->
+                                    <g class="svg-anim-float" style="transform-origin:140px 42px;animation-duration:2.5s">
+                                        <g filter="url(#proc-glow-2)">
+                                            <path d="M135 28 L143 36 L138 41 L130 33 Z" fill="#E8729A" opacity="0.9"/>
+                                            <path d="M130 33 L138 41 L136 43 L128 35 Z" fill="#E8729A" opacity="0.7"/>
+                                        </g>
+                                        <!-- Cursor tip sparkle -->
+                                        <circle cx="136" cy="42" r="2" fill="#E8729A" class="svg-anim-pulse" style="transform-origin:136px 42px"/>
+                                    </g>
+                                    <!-- Bezier curve being drawn -->
+                                    <path d="M45 105 Q65 80, 85 100 T125 95" stroke="#E8729A" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-dasharray="80" stroke-dashoffset="80" class="svg-anim-draw" style="animation-delay:0.6s;animation-duration:1.5s"/>
+                                    <!-- Color palette dots -->
+                                    <g class="svg-anim-scale" style="animation-delay:0.5s;transform-origin:100px 130px">
+                                        <circle cx="157" cy="32" r="4" fill="#5E6AD2"/>
+                                        <circle cx="167" cy="32" r="4" fill="#E8729A"/>
+                                        <circle cx="157" cy="42" r="4" fill="#38BDF8"/>
+                                        <circle cx="167" cy="42" r="4" fill="#ffeaa7"/>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Develop -->
+                    <div class="process-step reveal" data-step="3">
+                        <div class="process-step-content">
+                            <h3>Develop & Animate</h3>
+                            <p>Our engineers bring designs to life with pixel-perfect code, fluid 3D animations, and performance-first architecture. Every interaction is hand-crafted.</p>
+                            <div class="process-tags">
+                                <span class="process-tag">Three.js</span>
+                                <span class="process-tag">GSAP</span>
+                                <span class="process-tag">React</span>
+                            </div>
+                        </div>
+                        <div class="process-step-node">03</div>
+                        <div class="process-step-visual">
+                            <div class="process-svg-card">
+                                <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                    <defs>
+                                        <linearGradient id="proc-grad-3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.2"/>
+                                            <stop offset="100%" stop-color="#5E6AD2" stop-opacity="0.05"/>
+                                        </linearGradient>
+                                        <filter id="proc-glow-3">
+                                            <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#38BDF8" flood-opacity="0.3"/>
+                                        </filter>
+                                    </defs>
+                                    <!-- Terminal window -->
+                                    <rect x="25" y="18" width="150" height="114" rx="10" fill="url(#proc-grad-3)" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.2"/>
+                                    <!-- Title bar -->
+                                    <rect x="25" y="18" width="150" height="18" rx="10" fill="rgba(0,206,201,0.1)"/>
+                                    <rect x="25" y="28" width="150" height="8" fill="rgba(0,206,201,0.1)"/>
+                                    <circle cx="37" cy="27" r="3" fill="#ff6b6b" opacity="0.6"/>
+                                    <circle cx="47" cy="27" r="3" fill="#feca57" opacity="0.6"/>
+                                    <circle cx="57" cy="27" r="3" fill="#38BDF8" opacity="0.6"/>
+                                    <!-- Code lines — staggered fade in -->
+                                    <g class="svg-anim-fade" style="animation-delay:0.15s">
+                                        <rect x="38" y="44" width="12" height="3" rx="1" fill="#5E6AD2" opacity="0.6"/>
+                                        <rect x="54" y="44" width="28" height="3" rx="1" fill="#38BDF8" opacity="0.5"/>
+                                        <rect x="86" y="44" width="8" height="3" rx="1" fill="#818CF8" opacity="0.3"/>
+                                    </g>
+                                    <g class="svg-anim-fade" style="animation-delay:0.3s">
+                                        <rect x="46" y="53" width="18" height="3" rx="1" fill="#E8729A" opacity="0.5"/>
+                                        <rect x="68" y="53" width="35" height="3" rx="1" fill="#818CF8" opacity="0.4"/>
+                                    </g>
+                                    <g class="svg-anim-fade" style="animation-delay:0.45s">
+                                        <rect x="46" y="62" width="22" height="3" rx="1" fill="#38BDF8" opacity="0.5"/>
+                                        <rect x="72" y="62" width="40" height="3" rx="1" fill="#ffeaa7" opacity="0.4"/>
+                                    </g>
+                                    <g class="svg-anim-fade" style="animation-delay:0.6s">
+                                        <rect x="46" y="71" width="15" height="3" rx="1" fill="#5E6AD2" opacity="0.4"/>
+                                        <rect x="65" y="71" width="30" height="3" rx="1" fill="#818CF8" opacity="0.3"/>
+                                    </g>
+                                    <g class="svg-anim-fade" style="animation-delay:0.75s">
+                                        <rect x="38" y="80" width="10" height="3" rx="1" fill="#5E6AD2" opacity="0.5"/>
+                                    </g>
+                                    <!-- Cursor blink -->
+                                    <rect x="38" y="92" width="7" height="10" rx="1" fill="#38BDF8" opacity="0.8" class="svg-anim-blink"/>
+                                    <!-- Floating 3D cube wireframe -->
+                                    <g class="svg-anim-float" style="transform-origin:155px 85px;animation-duration:4s" filter="url(#proc-glow-3)">
+                                        <!-- Front face -->
+                                        <path d="M148 78 L162 78 L162 92 L148 92 Z" stroke="#38BDF8" stroke-width="1.2" opacity="0.7"/>
+                                        <!-- Back face -->
+                                        <path d="M153 73 L167 73 L167 87 L153 87 Z" stroke="#38BDF8" stroke-width="1.2" opacity="0.4"/>
+                                        <!-- Connecting edges -->
+                                        <line x1="148" y1="78" x2="153" y2="73" stroke="#38BDF8" stroke-width="1" opacity="0.5"/>
+                                        <line x1="162" y1="78" x2="167" y2="73" stroke="#38BDF8" stroke-width="1" opacity="0.5"/>
+                                        <line x1="162" y1="92" x2="167" y2="87" stroke="#38BDF8" stroke-width="1" opacity="0.5"/>
+                                    </g>
+                                    <!-- Bracket decorators -->
+                                    <text x="33" y="48" font-family="monospace" font-size="8" fill="#38BDF8" opacity="0.4" class="svg-anim-fade">{</text>
+                                    <text x="33" y="84" font-family="monospace" font-size="8" fill="#38BDF8" opacity="0.4" class="svg-anim-fade" style="animation-delay:0.8s">}</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Launch -->
+                    <div class="process-step reveal" data-step="4">
+                        <div class="process-step-content">
+                            <h3>Launch & Optimize</h3>
+                            <p>We deploy, monitor performance, and iterate based on real data. Post-launch support ensures your product keeps evolving and performing.</p>
+                            <div class="process-tags">
+                                <span class="process-tag">Analytics</span>
+                                <span class="process-tag">Performance</span>
+                                <span class="process-tag">A/B Testing</span>
+                            </div>
+                        </div>
+                        <div class="process-step-node">04</div>
+                        <div class="process-step-visual">
+                            <div class="process-svg-card">
+                                <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                    <defs>
+                                        <linearGradient id="proc-grad-4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#5E6AD2" stop-opacity="0.15"/>
+                                            <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.05"/>
+                                        </linearGradient>
+                                        <linearGradient id="bar-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stop-color="#818CF8"/>
+                                            <stop offset="100%" stop-color="#5E6AD2"/>
+                                        </linearGradient>
+                                        <filter id="proc-glow-4">
+                                            <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#818CF8" flood-opacity="0.4"/>
+                                        </filter>
+                                    </defs>
+                                    <!-- Dashboard bg -->
+                                    <rect x="20" y="15" width="160" height="120" rx="12" fill="url(#proc-grad-4)" stroke="#818CF8" stroke-width="1" stroke-opacity="0.15"/>
+                                    <!-- Chart area -->
+                                    <line x1="40" y1="110" x2="160" y2="110" stroke="#818CF8" stroke-width="0.5" opacity="0.2"/>
+                                    <line x1="40" y1="80" x2="160" y2="80" stroke="#818CF8" stroke-width="0.5" opacity="0.1" stroke-dasharray="3 3"/>
+                                    <line x1="40" y1="50" x2="160" y2="50" stroke="#818CF8" stroke-width="0.5" opacity="0.1" stroke-dasharray="3 3"/>
+                                    <!-- Animated bars -->
+                                    <rect x="52" y="110" width="18" rx="3" fill="url(#bar-grad)" opacity="0.6" class="svg-anim-bar-1" height="0"/>
+                                    <rect x="80" y="110" width="18" rx="3" fill="url(#bar-grad)" opacity="0.7" class="svg-anim-bar-2" height="0"/>
+                                    <rect x="108" y="110" width="18" rx="3" fill="url(#bar-grad)" opacity="0.65" class="svg-anim-bar-3" height="0"/>
+                                    <rect x="136" y="110" width="18" rx="3" fill="url(#bar-grad)" opacity="0.8" class="svg-anim-bar-4" height="0"/>
+                                    <!-- Upward trend line -->
+                                    <path d="M52 88 Q80 72, 100 65 T154 38" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"
+                                          stroke-dasharray="120" stroke-dashoffset="120" class="svg-anim-draw" style="animation-delay:1s;animation-duration:1.2s"/>
+                                    <!-- Trend arrow tip -->
+                                    <g class="svg-anim-fade" style="animation-delay:1.8s">
+                                        <polygon points="150,42 158,36 154,44" fill="#38BDF8" opacity="0.8"/>
+                                    </g>
+                                    <!-- Big checkmark circle -->
+                                    <g class="svg-anim-scale" style="animation-delay:0.2s;transform-origin:155px 30px" filter="url(#proc-glow-4)">
+                                        <circle cx="155" cy="30" r="12" fill="#5E6AD2" opacity="0.2" stroke="#818CF8" stroke-width="1.5"/>
+                                        <polyline points="149,30 153,34 161,26" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                  stroke-dasharray="30" stroke-dashoffset="30" class="svg-anim-check"/>
+                                    </g>
+                                    <!-- Confetti particles -->
+                                    <rect x="152" y="18" width="4" height="4" rx="1" fill="#E8729A" opacity="0" class="svg-confetti-1"/>
+                                    <rect x="158" y="20" width="3" height="3" rx="1" fill="#ffeaa7" opacity="0" class="svg-confetti-2"/>
+                                    <rect x="148" y="22" width="3" height="3" rx="1" fill="#38BDF8" opacity="0" class="svg-confetti-3"/>
+                                    <rect x="160" y="16" width="4" height="4" rx="1" fill="#818CF8" opacity="0" class="svg-confetti-4"/>
+                                    <!-- Mini KPI -->
+                                    <g class="svg-anim-fade" style="animation-delay:1.2s">
+                                        <text x="38" y="30" font-family="system-ui,sans-serif" font-size="7" font-weight="600" fill="#818CF8" opacity="0.7">98.5%</text>
+                                        <text x="38" y="38" font-family="system-ui,sans-serif" font-size="5" fill="#818CF8" opacity="0.35">uptime</text>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="testimonials-header">
+                    <div class="section-label reveal" style="justify-content:center">Client Love</div>
+                    <h2 class="testimonials-title reveal">Trusted by forward-thinking brands</h2>
+                </div>
+                <div class="testimonial-cards">
+                    <div class="testimonial-card reveal">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-text">"STELLAR transformed our product page into an experience. The 3D configurator alone boosted conversions by 40%. Absolutely world-class work."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">AK</div>
+                            <div><div class="testimonial-name">Alex Kim</div><div class="testimonial-role">CPO, Nebula Audio</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-text">"They don't just build websites, they build moments. The scroll-driven storytelling on our rebrand has people talking months later."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background:linear-gradient(135deg,var(--accent-cyan),#5E6AD2)">SR</div>
+                            <div><div class="testimonial-name">Sarah Rodriguez</div><div class="testimonial-role">Creative Director, Prism Studios</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-text">"The attention to detail is unmatched. Every micro-interaction, every transition, every pixel feels intentional. Our users love it."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#E8729A,#F0B866)">MJ</div>
+                            <div><div class="testimonial-name">Marcus Johnson</div><div class="testimonial-role">CEO, AeroVault</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-inner">
+                    <div class="section-label reveal" style="justify-content:center">Let's Talk</div>
+                    <h2 class="contact-title reveal">Ready to build something <span class="gradient-text">extraordinary</span>?</h2>
+                    <p class="contact-text reveal">We're always looking for the next great challenge. Whether you have a clear vision or just a spark of an idea, let's explore what's possible together.</p>
+                    <div class="hero-cta reveal">
+                        <a href="mailto:hello@stellar.studio" class="btn-primary">
+                            Start a Project
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                    <div class="contact-links reveal">
+                        <a href="#" class="contact-link" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.768-6.768M20 4l-6.768 6.768"/></svg></a>
+                        <a href="#" class="contact-link" aria-label="Dribbble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"/></svg></a>
+                        <a href="#" class="contact-link" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+                        <a href="#" class="contact-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">STELLAR</div>
+        <div class="footer-text">&copy; 2025 Stellar Studio. All rights reserved.</div>
+    </footer>
+
+    <!-- THREE.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <!-- THREE.JS Post-Processing (Bloom) -->
+    <script src="https://unpkg.com/three@0.134.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://unpkg.com/three@0.134.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://unpkg.com/three@0.134.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://unpkg.com/three@0.134.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://unpkg.com/three@0.134.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://unpkg.com/three@0.134.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

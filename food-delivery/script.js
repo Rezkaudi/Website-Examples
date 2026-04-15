@@ -530,28 +530,113 @@ document.body.classList.add('loading');
 (function initNavbar() {
   const navbar    = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('navLinks');
+  const burgerSvg = document.getElementById('eRzKqZPLYfF1'); // SVGator cheeseburger
+  const overlay   = document.getElementById('mobileMenuOverlay');
+  const panel     = document.getElementById('mobileMenuPanel');
+  const closeBtn  = document.getElementById('mobileMenuClose');
+  const backdrop  = document.getElementById('mobileMenuBackdrop');
+  const navItems  = panel ? panel.querySelectorAll('.mobile-nav-item, .mobile-nav-cta, .mobile-menu-deco') : [];
 
-  // Add scrolled class after the hero is passed
+  // Scroll: add 'scrolled' class when user scrolls past 60px
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
-  // Mobile menu toggle
-  hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
+  // ── Mobile menu open/close with GSAP ──
+  let menuOpen = false;
+  // Flag to skip our handler when we programmatically click the SVG to reverse SVGator
+  let skipNextBurgerClick = false;
 
-  // Close menu when a link is clicked
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      navLinks.classList.remove('open');
-      document.body.style.overflow = '';
+  // Pre-set initial state for GSAP (panel off-screen right, items hidden)
+  if (panel) {
+    gsap.set(panel, { x: '100%' });
+    gsap.set(navItems, { x: 40, opacity: 0 });
+  }
+
+  // Trigger SVGator reverse animation without toggling the menu
+  function reverseSvgatorIcon() {
+    if (!burgerSvg) return;
+    skipNextBurgerClick = true;
+    burgerSvg.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+    // skipNextBurgerClick resets synchronously after the event handlers fire
+    skipNextBurgerClick = false;
+  }
+
+  function openMenu() {
+    if (menuOpen) return;
+    menuOpen = true;
+    hamburger.classList.add('open');
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Slide panel in
+    gsap.to(panel, { x: 0, duration: 0.52, ease: 'power3.out' });
+
+    // Stagger nav items in
+    gsap.to(navItems, {
+      x: 0, opacity: 1,
+      duration: 0.4, stagger: 0.07,
+      ease: 'power2.out', delay: 0.2
     });
-  });
+  }
+
+  function closeMenu() {
+    if (!menuOpen) return;
+    menuOpen = false;
+    hamburger.classList.remove('open');
+
+    // Reverse SVGator icon (burger reappears) without triggering menu re-open
+    reverseSvgatorIcon();
+
+    // Slide items out
+    gsap.to(navItems, {
+      x: 30, opacity: 0,
+      duration: 0.25, stagger: 0.04,
+      ease: 'power2.in'
+    });
+
+    // Slide panel out
+    gsap.to(panel, {
+      x: '100%',
+      duration: 0.45, ease: 'power3.in', delay: 0.05,
+      onComplete: () => {
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        gsap.set(navItems, { x: 40, opacity: 0 }); // reset for next open
+      }
+    });
+  }
+
+  // Hamburger button click — SVGator handles its own animation via bubbled click on the SVG;
+  // we handle the menu panel here. Skip if this is a programmatic reverseSvgatorIcon call.
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      if (skipNextBurgerClick) return;
+      menuOpen ? closeMenu() : openMenu();
+    });
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+  // Close on nav link click
+  if (panel) {
+    panel.querySelectorAll('.mobile-nav-link, .mobile-nav-cta').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+
+  // ESC key
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) closeMenu(); });
+
+  // RTL: flip panel direction when dir attribute changes
+  new MutationObserver(() => {
+    const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+    if (!panel || menuOpen) return;
+    gsap.set(panel, { x: isRtl ? '-100%' : '100%' });
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
 })();
 
 
